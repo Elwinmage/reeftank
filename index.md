@@ -1,7 +1,9 @@
 ---
 layout: default
 title: Home - Reef Tech Projects
+theme: jekyll-theme-slate
 ---
+
 
 # 🌍 [🇺🇸] / [🇫🇷](fr.md)
 
