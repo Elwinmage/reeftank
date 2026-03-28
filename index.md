@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home - Reef Tech Projects
-theme: jekyll-theme-slate
+theme: jekyll-theme-cayman
 ---
 
 
