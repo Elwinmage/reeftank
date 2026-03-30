@@ -30,8 +30,9 @@ Supports SmartDrift and DC Runner.
 
 ---
 ## 📐 3D Models
-### 📦 [*Red Sea DC Skimmer impeller tool*](https://www.thingiverse.com/thing:7313258)
-<img width="200" height="150" alt="image" src="https://github.com/user-attachments/assets/e62bb4b5-1381-4b1c-a6d9-0ef0cfd55861" />
+### ReefRun DC Skimmer
+#### 📦 [*Red Sea DC Skimmer impeller tool*](https://www.thingiverse.com/thing:7313258)
+<img width="200" height="150" alt="image" src="https://cdn.thingiverse.com/assets/c8/bf/67/d1/ba/medium_preview_RedSea-unmout-pump-key.png" />
 
 
 ---
