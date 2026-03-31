@@ -1,5 +1,32 @@
----
-layout: default
-title: Home - Reef Tech Projects
+# Informations générales du site
+title: Elwinmage - Reef Tech Projects
+description: Documentation of my reef tank projects and Home Assistant integrations.
+url: "https://elwinmage.github.io" # Remplace par ton URL si besoin
+baseurl: "/reeftank"              # Le nom de ton dépôt GitHub
+
+# Thème graphique
 theme: jekyll-theme-cayman
----
+
+# --- Configuration du Header (Pour masquer les boutons) ---
+show_downloads: false    # Désactive les boutons de téléchargement ZIP/TAR
+google_analytics:        # Laisse vide si tu n'en as pas
+
+# Désactiver l'affichage automatique des liens GitHub dans le header
+github:
+  is_project_page: false
+  show_downloads: false
+  is_user_page: false
+
+# Paramètres de rendu Markdown
+kramdown:
+  input: GFM             # GitHub Flavored Markdown
+  syntax_highlighter: rouge
+
+# Exclusion de fichiers (pour ne pas polluer le site généré)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .git
