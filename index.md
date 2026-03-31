@@ -1,3 +1,4 @@
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 ---
 layout: default
 title: Home - Reef Tech Projects
@@ -32,8 +33,16 @@ Supports SmartDrift and DC Runner.
 ## 📐 3D Models
 ### ReefRun DC Skimmer
 #### 📦 [*Red Sea DC Skimmer impeller tool*](https://www.thingiverse.com/thing:7313258)
-<img width="200" height="150" alt="image" src="https://cdn.thingiverse.com/assets/c8/bf/67/d1/ba/medium_preview_RedSea-unmout-pump-key.png" />
 
+<model-viewer src="assets/models/redsea-key.glb"
+              ios-src=""
+              poster="assets/models/redsea-key.png"
+              alt="DC Skimmer impeller tool"
+              shadow-intensity="1"
+              camera-controls
+              auto-rotate
+              style="width: 100%; height: 400px; background-color: #f0f0f0; border-radius: 10px;">
+</model-viewer>
 
 ---
 
