@@ -1,4 +1,3 @@
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 ---
 layout: default
 title: Home - Reef Tech Projects
@@ -11,6 +10,15 @@ theme: jekyll-theme-cayman
 # My ReefTank tools
 
 Welcome to the documentation of my reef tank projects.
+
+<video src="assets/videos/logo_v1.mp4" 
+       poster="image-de-remplacement.jpg"
+       autoplay 
+       loop 
+       muted 
+       playsinline 
+       style="width:100%; border-radius: 8px;">
+</video>
 
 ---
 
@@ -34,16 +42,37 @@ Supports SmartDrift and DC Runner.
 ### ReefRun DC Skimmer
 #### 📦 [*Red Sea DC Skimmer impeller tool*](https://www.thingiverse.com/thing:7313258)
 
-<div class="model-container" style="width: 100%; height: 500px; margin: 20px 0; background: #f6f8fa; border-radius: 8px; overflow: hidden;">
-<model-viewer src="assets/models/redsea-key.glb"
-              ios-src=""
-              poster="assets/models/redsea-key.png"
-              alt="DC Skimmer impeller tool"
-              shadow-intensity="1"
-              camera-controls
-              auto-rotate
-              style="width: 100%; height: 400px; background-color: #f0f0f0; border-radius: 10px;">
-</model-viewer>
+
+<!-- 1. Chargement du script (si pas déjà fait en haut de page) -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+<!-- 2. Conteneur avec dimensions forcées -->
+<div style="width: 100%; height: 500px; min-height: 500px; position: relative; margin: 20px 0; background: #eee; border-radius: 10px;">
+  <model-viewer id="aquarium-model"
+                src="assets/models/redsea-key.glb"
+                alt="Support Red Sea Key 3D"
+                camera-controls
+                auto-rotate
+                ar
+                shadow-intensity="1"
+                style="width: 100%; height: 100%; display: block;"
+                exposure="1">
+  </model-viewer>
 </div>
+
+<!-- 3. Script de secours pour corriger le "Zero Size" -->
+<script>
+  const modelViewer = document.querySelector("#aquarium-model");
+  modelViewer.addEventListener("load", () => {
+    // Force le moteur 3D à recalculer la taille du conteneur
+    const width = modelViewer.clientWidth;
+    const height = modelViewer.clientHeight;
+    console.log("Modèle chargé, dimensions détectées :", width, "x", height);
+    if (width === 0 || height === 0) {
+        modelViewer.style.width = "100%";
+        modelViewer.style.height = "500px";
+    }
+  });
+</script>
 ---
 
