@@ -34,6 +34,7 @@ Supports SmartDrift and DC Runner.
 ### ReefRun DC Skimmer
 #### 📦 [*Red Sea DC Skimmer impeller tool*](https://www.thingiverse.com/thing:7313258)
 
+<div class="model-container" style="width: 100%; height: 500px; margin: 20px 0; background: #f6f8fa; border-radius: 8px; overflow: hidden;">
 <model-viewer src="assets/models/redsea-key.glb"
               ios-src=""
               poster="assets/models/redsea-key.png"
@@ -43,6 +44,6 @@ Supports SmartDrift and DC Runner.
               auto-rotate
               style="width: 100%; height: 400px; background-color: #f0f0f0; border-radius: 10px;">
 </model-viewer>
-
+</div>
 ---
 
