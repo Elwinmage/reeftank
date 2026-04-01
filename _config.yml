@@ -9,7 +9,7 @@ theme: jekyll-theme-cayman
 
 # --- Configuration du Header (Pour masquer les boutons) ---
 show_downloads: false    # Désactive les boutons de téléchargement ZIP/TAR
-google_analytics:    GTM-W84LDMFN    # Laisse vide si tu n'en as pas
+google_analytics:    G-0S1RWJLBPZ    # Laisse vide si tu n'en as pas
 
 # Désactiver l'affichage automatique des liens GitHub dans le header
 github:
