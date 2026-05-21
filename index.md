@@ -67,6 +67,45 @@ Manage your Red Sea ReefBeat devices **locally** (no cloud required): ReefATO+, 
 
 ---
 
+#### ⚡ [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup)
+
+**Autonomous battery backup system for Red Sea reef aquariums.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/reefbeatEnergyBackup.svg?style=flat-square)](https://github.com/Elwinmage/reefbeatEnergyBackup/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/reefbeatEnergyBackup.svg?style=flat-square)](https://github.com/Elwinmage/reefbeatEnergyBackup/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+Keep your ReefWave, ReefRun and DC Skimmer running during power outages with a 24V LiFePO₄ battery, a Raspberry Pi and smart pump degradation.
+
+**Key features:**
+- **Battery monitoring** via INA226 (I2C) + optional Victron BLE charger
+- **Instant outage detection** via 230V relay on GPIO
+- **Progressive pump degradation** — SoC-based levels computed from a target autonomy
+- **3-level network failover** — Ethernet → Wi-Fi → autonomous mirror hotspot
+- **4G LTE failover** — notifications and ReefBeat cloud access via USB modem or phone tethering
+- **Push notifications** via [ntfy.sh](https://ntfy.sh) (free, no account required)
+- **Home Assistant integration** — MQTT auto-discovery, update entity, battery test blueprint
+- **Self-update** — checks GitHub for new versions, HA update entity with "Install" button
+
+**Hardware levels:**
+
+| Level | What you get | Budget |
+|-------|-------------|--------|
+| **1 — Basic** | Battery + cables, passive backup | ~290 € |
+| **2 — Normal** *(recommended)* | + RPi + INA226 + relay, full monitoring & automation | ~402 € |
+| **3 — Advanced** | + Victron BLE charger, connected breaker, 4G modem | ~627 € |
+
+**Installation:**
+```bash
+curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/install.sh | sudo bash
+```
+
+An interactive wizard configures everything: device scan, battery capacity, SoC levels, MQTT, notifications, 4G, scheduled reboot.
+
+> Works standalone or as a complement to [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component) for a fully integrated reef management setup.
+
+---
+
 #### 🌊 [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component)
 
 **Control for Aqua Medic pumps via Home Assistant through the Gizwits cloud API.**

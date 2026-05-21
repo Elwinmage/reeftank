@@ -67,6 +67,43 @@ Verwalten Sie Ihre Red Sea ReefBeat-Geräte **lokal** (kein Cloud erforderlich):
 
 ---
 
+#### ⚡ [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup)
+
+**Autonomes Batterie-Backup-System für Red Sea Riffaquarien.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/reefbeatEnergyBackup.svg?style=flat-square)](https://github.com/Elwinmage/reefbeatEnergyBackup/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/reefbeatEnergyBackup.svg?style=flat-square)](https://github.com/Elwinmage/reefbeatEnergyBackup/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+Halten Sie Ihre ReefWave, ReefRun und DC Skimmer bei Stromausfällen mit einer 24V LiFePO₄-Batterie, einem Raspberry Pi und intelligenter Pumpen-Drosselung am Laufen.
+
+**Hauptfunktionen:**
+- **Batterieüberwachung** via INA226 (I2C) + optionaler Victron BLE Lader
+- **Sofortige Ausfallserkennung** via 230V-Relais am GPIO
+- **Progressive Pumpendrosselung** — SoC-basierte Stufen berechnet aus einer Zielautonomie
+- **3-stufiges Netzwerk-Failover** — Ethernet → Wi-Fi → autonomer Mirror-Hotspot
+- **4G LTE Failover** — Benachrichtigungen und ReefBeat-Cloud-Zugang über USB-Modem oder Smartphone-Tethering
+- **Push-Benachrichtigungen** via [ntfy.sh](https://ntfy.sh) (kostenlos, kein Konto erforderlich)
+- **Home Assistant Integration** — MQTT Auto-Discovery, Update-Entity, Batterie-Test-Blueprint
+- **Auto-Update** — prüft GitHub auf neue Versionen, HA Update-Entity mit "Installieren"-Button
+
+**Hardware-Stufen:**
+
+| Stufe | Was Sie bekommen | Budget |
+|-------|-----------------|--------|
+| **1 — Basis** | Batterie + Kabel, passives Backup | ~290 € |
+| **2 — Normal** *(empfohlen)* | + RPi + INA226 + Relais, volles Monitoring & Automatisierung | ~402 € |
+| **3 — Erweitert** | + Victron BLE Lader, Smart-Schutzschalter, 4G-Modem | ~627 € |
+
+**Installation:**
+```bash
+curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/install.sh | sudo bash
+```
+
+> Funktioniert eigenständig oder als Ergänzung zu [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component) für ein vollständig integriertes Riff-Management-Setup.
+
+---
+
 #### 🌊 [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component)
 
 **Steuerung von Aqua Medic Pumpen über Home Assistant mittels der Gizwits Cloud API.**
