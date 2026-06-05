@@ -77,6 +77,8 @@ Zarządzaj urządzeniami Red Sea ReefBeat **lokalnie** (bez chmury): ReefATO+, R
 
 Utrzymuj ReefWave, ReefRun i DC Skimmer w ruchu podczas przerw w zasilaniu dzięki baterii LiFePO₄ 24V, Raspberry Pi i inteligentnej redukcji pomp.
 
+<img src="https://github.com/Elwinmage/reefbeatEnergyBackup/raw/main/docs/images/power-flow-card.png" />
+
 **Główne funkcje:**
 - **Monitorowanie baterii** przez INA226 (I2C) + opcjonalna ładowarka Victron BLE
 - **Natychmiastowe wykrywanie** przerw w zasilaniu przez przekaźnik 230V na GPIO

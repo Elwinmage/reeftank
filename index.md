@@ -77,6 +77,8 @@ Manage your Red Sea ReefBeat devices **locally** (no cloud required): ReefATO+, 
 
 Keep your ReefWave, ReefRun and DC Skimmer running during power outages with a 24V LiFePO₄ battery, a Raspberry Pi and smart pump degradation.
 
+<img src="https://github.com/Elwinmage/reefbeatEnergyBackup/raw/main/docs/images/power-flow-card.png" />
+
 **Key features:**
 - **Battery monitoring** via INA226 (I2C) + optional Victron BLE charger
 - **Instant outage detection** via 230V relay on GPIO
