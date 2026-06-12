@@ -22,6 +22,8 @@ Welcome to the documentation of my reef tank projects.
 
 {% include toc-generator.html %}
 
+{:toc}
+
 ---
 
 ## <img width="38" height="37" alt="image" src="https://images.icon-icons.com/2107/PNG/512/file_type_homeassistant_icon_130543.png" /> Home Assistant Integrations and Cards
