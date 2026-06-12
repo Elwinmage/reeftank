@@ -1,4 +1,5 @@
 ---
+charset: utf-8
 layout: default
 title: Elwinmage - Progetti Reef Tech
 theme: jekyll-theme-cayman
