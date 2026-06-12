@@ -22,7 +22,9 @@ Willkommen zur Dokumentation meiner Riffaquarium-Projekte.
 
 {% include toc-generator.html %}
 
+* Table of Contents / Sommaire
 {:toc}
+
 
 ---
 

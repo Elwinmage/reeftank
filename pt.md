@@ -22,7 +22,9 @@ Bem-vindo à documentação dos meus projetos para aquários de recife.
 
 {% include toc-generator.html %}
 
+* Table of Contents / Sommaire
 {:toc}
+
 
 ---
 

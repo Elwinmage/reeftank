@@ -22,7 +22,9 @@ Welcome to the documentation of my reef tank projects.
 
 {% include toc-generator.html %}
 
+* Table of Contents / Sommaire
 {:toc}
+
 
 ---
 

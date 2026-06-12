@@ -22,7 +22,9 @@ Witamy w dokumentacji moich projektów do akwariów rafowych.
 
 {% include toc-generator.html %}
 
+* Table of Contents / Sommaire
 {:toc}
+
 
 ---
 

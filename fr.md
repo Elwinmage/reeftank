@@ -22,7 +22,9 @@ Bienvenue sur la documentation de mes projets pour aquarium récifal.
 
 {% include toc-generator.html %}
 
+* Table of Contents / Sommaire
 {:toc}
+
 
 ---
 

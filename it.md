@@ -22,7 +22,9 @@ Benvenuto nella documentazione dei miei progetti per acquari di barriera.
 
 {% include toc-generator.html %}
 
+* Table of Contents / Sommaire
 {:toc}
+
 
 ---
 

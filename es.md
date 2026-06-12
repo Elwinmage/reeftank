@@ -22,7 +22,9 @@ Bienvenido a la documentación de mis proyectos para acuarios de arrecife.
 
 {% include toc-generator.html %}
 
+* Table of Contents / Sommaire
 {:toc}
+
 
 ---
 
