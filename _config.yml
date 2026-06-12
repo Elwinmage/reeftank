@@ -17,6 +17,8 @@ github:
   show_downloads: false
   is_user_page: false
 
+encoding: UTF-8
+
 # Paramètres de rendu Markdown
 kramdown:
   input: GFM             # GitHub Flavored Markdown
