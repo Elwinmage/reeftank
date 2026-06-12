@@ -1,0 +1,55 @@
+<!-- Language selector component -->
+<style>
+  .language-selector {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 12px 0;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+  }
+  
+  .language-selector-label {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-right: 4px;
+  }
+  
+  .language-selector a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .language-selector a:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .language-selector a.active {
+    opacity: 1;
+    background: rgba(79, 163, 220, 0.2);
+    border: 1px solid rgba(79, 163, 220, 0.5);
+  }
+</style>
+
+<div class="language-selector">
+  <span class="language-selector-label">🌍 Language</span>
+  <a href="/reeftank/" class="lang-link {% if page.lang == 'en' or page.url == '/reeftank/index.html' %}active{% endif %}" title="English">🇺🇸</a>
+  <a href="/reeftank/fr.html" class="lang-link {% if page.lang == 'fr' %}active{% endif %}" title="Français">🇫🇷</a>
+  <a href="/reeftank/de.html" class="lang-link {% if page.lang == 'de' %}active{% endif %}" title="Deutsch">🇩🇪</a>
+  <a href="/reeftank/es.html" class="lang-link {% if page.lang == 'es' %}active{% endif %}" title="Español">🇪🇸</a>
+  <a href="/reeftank/it.html" class="lang-link {% if page.lang == 'it' %}active{% endif %}" title="Italiano">🇮🇹</a>
+  <a href="/reeftank/pl.html" class="lang-link {% if page.lang == 'pl' %}active{% endif %}" title="Polski">🇵🇱</a>
+  <a href="/reeftank/pt.html" class="lang-link {% if page.lang == 'pt' %}active{% endif %}" title="Português">🇵🇹</a>
+</div>

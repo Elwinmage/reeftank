@@ -2,10 +2,10 @@
 layout: default
 title: Elwinmage - Projets Reef Tech
 theme: jekyll-theme-cayman
+lang: fr
 ---
 
-
-# 🌍 [🇺🇸](index.md) / [🇫🇷] / [🇩🇪](de.md) / [🇪🇸](es.md) / [🇮🇹](it.md) / [🇵🇱](pl.md) / [🇵🇹](pt.md)
+{% include language-selector.html %}
 
 # Mes outils ReefTank
 
@@ -19,6 +19,8 @@ Bienvenue sur la documentation de mes projets pour aquarium récifal.
        playsinline 
        style="width:100%; border-radius: 8px;height: 390px;object-fit: cover;">
 </video>
+
+{% include toc-generator.html %}
 
 ---
 

@@ -2,10 +2,10 @@
 layout: default
 title: Elwinmage - Reef Tech Projects
 theme: jekyll-theme-cayman
+lang: en
 ---
 
-
-# 🌍 [🇺🇸] / [🇫🇷](fr.md) / [🇩🇪](de.md) / [🇪🇸](es.md) / [🇮🇹](it.md) / [🇵🇱](pl.md) / [🇵🇹](pt.md)
+{% include language-selector.html %}
 
 # My ReefTank tools
 
@@ -19,6 +19,8 @@ Welcome to the documentation of my reef tank projects.
        playsinline 
        style="width:100%; border-radius: 8px;height: 390px;object-fit: cover;">
 </video>
+
+{% include toc-generator.html %}
 
 ---
 
@@ -202,10 +204,10 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
 #### 📦 [*Red Sea DC Skimmer impeller tool*](https://www.thingiverse.com/thing:7313258)
 
 
-<!-- 1. Chargement du script (si pas déjà fait en haut de page) -->
+<!-- Load model-viewer script -->
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-<!-- 2. Conteneur avec dimensions forcées -->
+<!-- Container with forced dimensions -->
 <div style="width: 100%; height: 500px; min-height: 500px; position: relative; margin: 20px 0; background: #eee; border-radius: 10px;">
   <model-viewer id="aquarium-model"
                 src="assets/models/redsea-key.glb"
@@ -219,14 +221,14 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
   </model-viewer>
 </div>
 
-<!-- 3. Script de secours pour corriger le "Zero Size" -->
+<!-- Fallback script to fix "Zero Size" issue -->
 <script>
   const modelViewer = document.querySelector("#aquarium-model");
   modelViewer.addEventListener("load", () => {
-    // Force le moteur 3D à recalculer la taille du conteneur
+    // Force 3D engine to recalculate container size
     const width = modelViewer.clientWidth;
     const height = modelViewer.clientHeight;
-    console.log("Modèle chargé, dimensions détectées :", width, "x", height);
+    console.log("Model loaded, detected dimensions:", width, "x", height);
     if (width === 0 || height === 0) {
         modelViewer.style.width = "100%";
         modelViewer.style.height = "500px";
