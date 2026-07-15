@@ -233,6 +233,13 @@ O **Reef Card** para Home Assistant ajuda-o a gerir o seu aquário de recife dir
   });
 </script>
 
+**Demonstração em vídeo:**
+<video width="100%" height="auto" controls poster="assets/models/redsea-key.png" style="border-radius: 8px; margin: 20px 0; background: #000;">
+  <source src="assets/videos/redsea_skimmer.webm" type="video/webm">
+  <source src="assets/videos/logo_v1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ---
 
 ## 💬 Contacto e suporte

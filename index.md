@@ -208,12 +208,6 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
 ### ReefRun DC Skimmer
 #### 📦 [*Red Sea DC Skimmer impeller tool*](https://www.thingiverse.com/thing:7313258)
 
-**Video demonstration:**
-<video src="assets/videos/redsea_skimmer.webm" 
-       controls 
-       style="width:100%; border-radius: 8px; margin: 20px 0;">
-</video>
-
 <!-- Load model-viewer script -->
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
@@ -245,6 +239,13 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
     }
   });
 </script>
+
+**Video demonstration:**
+<video width="100%" height="auto" controls poster="assets/models/redsea-key.png" style="border-radius: 8px; margin: 20px 0; background: #000;">
+  <source src="assets/videos/redsea_skimmer.webm" type="video/webm">
+  <source src="assets/videos/logo_v1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 

@@ -234,6 +234,13 @@ La **Reef Card** per Home Assistant ti aiuta a gestire il tuo acquario di barrie
   });
 </script>
 
+**Dimostrazione video:**
+<video width="100%" height="auto" controls poster="assets/models/redsea-key.png" style="border-radius: 8px; margin: 20px 0; background: #000;">
+  <source src="assets/videos/redsea_skimmer.webm" type="video/webm">
+  <source src="assets/videos/logo_v1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ---
 
 ## 💬 Contatti e supporto
