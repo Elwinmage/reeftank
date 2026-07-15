@@ -128,7 +128,7 @@ Controlla le tue pompe Aqua Medic da Home Assistant tramite l'API cloud Gizwits 
 | Dispositivo | Stato |
 |-------------|-------|
 | **EcoDrift / SmartDrift x.1 / x.3** (pompa di movimento) | ✅ Supportato |
-| **DC Runner x.1 / x.2 / x.3** (pompa di risalita) | 🧪 Non testato |
+| **DC Runner x.1 / x.2 / x.3** (pompa di risalita) | ✅ Supportato |
 | **Reefdoser EVO** (pompa dosatrice) | ❌ Non ancora — [contattami](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **T-Controller Twin** (controllore di temperatura) | ❌ Non ancora — [contattami](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **Aquarius / Spectrus** (illuminazione) | ❌ Non ancora — [contattami](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |

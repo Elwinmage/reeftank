@@ -127,7 +127,7 @@ Controle suas bombas Aqua Medic a partir do Home Assistant via API cloud Gizwits
 | Dispositivo | Estado |
 |-------------|--------|
 | **EcoDrift / SmartDrift x.1 / x.3** (bomba de ondas) | ✅ Suportado |
-| **DC Runner x.1 / x.2 / x.3** (bomba de retorno) | 🧪 Não testado |
+| **DC Runner x.1 / x.2 / x.3** (bomba de retorno) | ✅ Suportado |
 | **Reefdoser EVO** (bomba doseadora) | ❌ Ainda não — [contacte-me](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **T-Controller Twin** (controlador de temperatura) | ❌ Ainda não — [contacte-me](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **Aquarius / Spectrus** (iluminação) | ❌ Ainda não — [contacte-me](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |

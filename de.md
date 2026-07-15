@@ -128,7 +128,7 @@ Steuern Sie Ihre Aqua Medic Pumpen über Home Assistant mittels der Gizwits Clou
 | Gerät | Status |
 |-------|--------|
 | **EcoDrift / SmartDrift x.1 / x.3** (Strömungspumpe) | ✅ Unterstützt |
-| **DC Runner x.1 / x.2 / x.3** (Rückförderpumpe) | 🧪 Ungetestet |
+| **DC Runner x.1 / x.2 / x.3** (Rückförderpumpe) | ✅ Unterstützt |
 | **Reefdoser EVO** (Dosierpumpe) | ❌ Noch nicht — [kontaktieren Sie mich](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **T-Controller Twin** (Temperaturregler) | ❌ Noch nicht — [kontaktieren Sie mich](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **Aquarius / Spectrus** (Beleuchtung) | ❌ Noch nicht — [kontaktieren Sie mich](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
@@ -205,6 +205,12 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 
 ### ReefRun DC Skimmer
 #### 📦 [*Red Sea DC Skimmer Impeller-Werkzeug*](https://www.thingiverse.com/thing:7313258)
+
+**Videodemonstration:**
+<video src="assets/videos/redsea_skimmer.webm" 
+       controls 
+       style="width:100%; border-radius: 8px; margin: 20px 0;">
+</video>
 
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>

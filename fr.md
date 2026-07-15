@@ -130,7 +130,7 @@ Contrôlez vos pompes Aqua Medic depuis Home Assistant via l'API cloud Gizwits (
 | Appareil | Statut |
 |----------|--------|
 | **EcoDrift / SmartDrift x.1 / x.3** (brassage) | ✅ Supporté |
-| **DC Runner x.1 / x.2 / x.3** (pompe de remontée) | 🧪 Non testé |
+| **DC Runner x.1 / x.2 / x.3** (pompe de remontée) | ✅ Supporté |
 | **Reefdoser EVO** (pompe doseuse) | ❌ Pas encore — [contactez-moi](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **T-Controller Twin** (contrôleur de température) | ❌ Pas encore — [contactez-moi](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **Aquarius / Spectrus** (éclairage) | ❌ Pas encore — [contactez-moi](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
@@ -207,6 +207,12 @@ La **Reef Card** pour Home Assistant vous aide à gérer votre aquarium récifal
 
 ### ReefRun DC Skimmer
 #### 📦 [*Outil pour rotor d'écumeur DC Red Sea*](https://www.thingiverse.com/thing:7313258)
+
+**Vidéo de démonstration :**
+<video src="assets/videos/redsea_skimmer.webm" 
+       controls 
+       style="width:100%; border-radius: 8px; margin: 20px 0;">
+</video>
 
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>

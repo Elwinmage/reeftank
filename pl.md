@@ -128,7 +128,7 @@ Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sa
 | Urządzenie | Status |
 |------------|--------|
 | **EcoDrift / SmartDrift x.1 / x.3** (falownik) | ✅ Obsługiwane |
-| **DC Runner x.1 / x.2 / x.3** (pompa zwrotna) | 🧪 Nieprzetestowane |
+| **DC Runner x.1 / x.2 / x.3** (pompa zwrotna) | ✅ Obsługiwane |
 | **Reefdoser EVO** (pompa dozująca) | ❌ Jeszcze nie — [skontaktuj się](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **T-Controller Twin** (sterownik temperatury) | ❌ Jeszcze nie — [skontaktuj się](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **Aquarius / Spectrus** (oświetlenie) | ❌ Jeszcze nie — [skontaktuj się](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
