@@ -32,8 +32,8 @@ SITE = "https://elwinmage.github.io/reeftank/"
 #
 # COLUMN_WIDTH must stay comfortably above ICON_WIDTH, or the column collapses
 # back onto the image and the icons shrink again.
-ICON_WIDTH = 100
-COLUMN_WIDTH = "100px"
+ICON_WIDTH = 200
+COLUMN_WIDTH = "200px"
 
 BLUEPRINT_BADGE = (
     "[![Open your Home Assistant instance and show the blueprint import dialog"
