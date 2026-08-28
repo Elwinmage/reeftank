@@ -23,10 +23,17 @@ RAW = "https://raw.githubusercontent.com/Elwinmage/{repo}/main/icon.png"
 GH = "https://github.com/Elwinmage/{repo}"
 SITE = "https://elwinmage.github.io/reeftank/"
 
-# Icon size in the table. Big enough to recognise a project at a glance; the
-# table has four columns, so this is about the ceiling before the first column
-# starts pushing the text around.
+# Icon size, and the width reserved for the column holding it.
+#
+# The table is emitted as HTML rather than markdown for this single reason: a
+# markdown table sizes its columns from their content, which overrides the
+# img width and shrinks the icons. Only a <th width> pins the column, and
+# markdown has no way to express one.
+#
+# COLUMN_WIDTH must stay comfortably above ICON_WIDTH, or the column collapses
+# back onto the image and the icons shrink again.
 ICON_WIDTH = 100
+COLUMN_WIDTH = "100px"
 
 BLUEPRINT_BADGE = (
     "[![Open your Home Assistant instance and show the blueprint import dialog"
@@ -414,6 +421,25 @@ def targets() -> list[tuple[Path, str, str]]:
     return out
 
 
+def md_to_html(text: str) -> str:
+    """Convert the inline markdown used in the cells to HTML.
+
+    GitHub does not process markdown inside an HTML block, so a cell written
+    as markdown would render its asterisks and brackets literally.
+    """
+    # Badge: a linked image, [![alt](src)](href). Must run before the plain
+    # link rule, which would otherwise match its inner part.
+    text = re.sub(
+        r"\[!\[([^\]]*)\]\(([^)]+)\)\]\(([^)]+)\)",
+        r'<a href="\3"><img src="\2" alt="\1" /></a>',
+        text,
+    )
+    text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
+    text = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", text)
+    text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
+    return text
+
+
 def build_block(current: str, lang: str) -> str:
     """Render the block for one repo in one language."""
     t = T[lang]
@@ -424,19 +450,31 @@ def build_block(current: str, lang: str) -> str:
         "",
         t["intro"],
         "",
-        f"| | {t['h_project']} | {t['h_what']} | {t['h_with']} |",
-        "| --- | --- | --- | --- |",
+        "<table>",
+        "  <tr>",
+        f'    <th width="{COLUMN_WIDTH}"></th>',
+        f"    <th>{t['h_project']}</th>",
+        f"    <th>{t['h_what']}</th>",
+        f"    <th>{t['h_with']}</th>",
+        "  </tr>",
     ]
 
     for repo in REPOS:
         icon = f'<img src="{RAW.format(repo=repo)}" width="{ICON_WIDTH}" alt="{repo}" />'
         if repo == current:
-            label = f"**{repo}**<br />*{t['this']}*"
+            label = f"<b>{repo}</b><br /><i>{t['this']}</i>"
         else:
-            label = f"[**{repo}**]({GH.format(repo=repo)})"
-        lines.append(f"| {icon} | {label} | {t['d_' + repo]} | {t[WORKS_WITH[repo]]} |")
+            label = f'<a href="{GH.format(repo=repo)}"><b>{repo}</b></a>'
+        lines += [
+            "  <tr>",
+            f"    <td>{icon}</td>",
+            f"    <td>{label}</td>",
+            f"    <td>{md_to_html(t['d_' + repo])}</td>",
+            f"    <td>{md_to_html(t[WORKS_WITH[repo]])}</td>",
+            "  </tr>",
+        ]
 
-    lines += ["", t["footer"], "", END]
+    lines += ["</table>", "", t["footer"], "", END]
     return "\n".join(lines)
 
 
