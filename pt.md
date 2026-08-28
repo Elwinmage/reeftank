@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Elwinmage - Projetos Reef Tech
+title: ReefTech Project Ecosystem
 theme: jekyll-theme-cayman
 lang: pt
 ---
@@ -43,7 +43,7 @@ Bem-vindo à documentação dos meus projetos para aquários de recife.
 [![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reefbeat-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reefbeat-component/commits/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-Gerencie seus dispositivos Red Sea ReefBeat **localmente** (sem cloud): ReefATO+, ReefDose, ReefLed, ReefMat, ReefRun e ReefWave.
+Gerencie seus dispositivos Red Sea ReefBeat **localmente** (sem cloud): ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, ReefMat, ReefRun e ReefWave.
 
 > ⚠️ Este não é um repositório oficial da Red Sea. Uso por sua conta e risco.
 
@@ -55,21 +55,158 @@ Gerencie seus dispositivos Red Sea ReefBeat **localmente** (sem cloud): ReefATO+
 - Modo de atualização de configuração em tempo real
 - Suporte multilíngue
 
+<!-- generated:beat-devices:start -->
 **Dispositivos suportados:**
 
-| Dispositivo | Modelos | Estado |
-|-------------|---------|--------|
-| **ReefATO+** | RSATO+ | ✅ Testado |
-| **ReefDose** | RSDOSE2, RSDOSE4 | ✅ Testado |
-| **ReefLed** | G1 (RSLED50/90/160), G2 (RSLED60/115/170) | ✅ Testado |
-| **ReefMat** | RSMAT250, RSMAT500, RSMAT1200 | ✅ Testado |
-| **ReefRun** | RSRUN | ✅ Testado |
-| **ReefWave** | RSWAVE25, RSWAVE45 | ✅ / ☑️ |
-| **ReefControl** | RSSENSE | ❌ Ainda não — [contacte-me](https://github.com/Elwinmage/ha-reefbeat-component/discussions/8) |
+> ✅ Suportado &nbsp;|&nbsp; 🚧 Em curso &nbsp;|&nbsp; 🧪 Não testado (pode funcionar) &nbsp;|&nbsp; ❌ Ainda não suportado
+
+| Aparelho | Modelos | Estado |
+|---|---|---|
+| **ReefATO+** | RSATO+ | ✅ |
+| **ReefControl** | RSCONTROLPRO | ✅ |
+| **ReefControl** | RSCONTROLLITE | 🧪 |
+| **ReefControl-Power** | RSPOWER6 | ✅ |
+| **ReefControl-Power** | RSPOWER8 | 🧪 |
+| **ReefDose** | RSDOSE2, RSDOSE4 | ✅ |
+| **ReefLed** | G1 (RSLED50/90/160), G2 (RSLED60/115) | ✅ |
+| **ReefLed** | G2 (RSLED170) | 🧪 |
+| **ReefMat** | RSMAT250, RSMAT500, RSMAT1200 | ✅ |
+| **ReefRun** | RSRUN | ✅ |
+| **ReefWave** | RSWAVE25, RSWAVE45 | ✅ |
+<!-- generated:beat-devices:end -->
 
 **Especificidades do ReefWave:** O ReefWave é o único dispositivo ligado à cloud ReefBeat. Três modos de operação estão disponíveis — Cloud, Local e Híbrido — para que escolha o equilíbrio entre controle local total e sincronização com a app móvel ReefBeat.
 
 **Instalação:** Disponível diretamente no [HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reefbeat-component&category=integration) — pesquise "redsea" ou "reefbeat".
+
+---
+
+#### 🌊 [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component)
+
+**Controle de bombas Aqua Medic via Home Assistant através da API cloud Gizwits.**
+
+[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-aquamedic-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-aquamedic-component/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+Controle suas bombas Aqua Medic a partir do Home Assistant via API cloud Gizwits (mesmo backend da app oficial Aqua Medic).
+
+<!-- generated:aqua-devices:start -->
+**Dispositivos suportados:**
+
+> ✅ Suportado &nbsp;|&nbsp; 🚧 Em curso &nbsp;|&nbsp; 🧪 Não testado (pode funcionar) &nbsp;|&nbsp; ❌ Ainda não suportado
+
+| Aparelho | Estado |
+|---|---|
+| **EcoDrift / SmartDrift x.1 / x.3** (de circulação) | ✅ |
+| **DC Runner x.1 / x.2 / x.3** (bomba de retorno) | ✅ |
+| **DC Runner** (bomba do escumador) | ✅ |
+| **Reefdoser EVO** (bomba doseadora) | ❌ — [Peça-o](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
+| **T-Controller Twin** (controlador de temperatura) | ❌ — [Peça-o](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
+| **Aquarius / Spectrus** (iluminação) | ❌ — [Peça-o](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
+<!-- generated:aqua-devices:end -->
+
+**Funcionalidades EcoDrift / SmartDrift:**
+- Ligar/desligar, tipo de onda (Pulso/Maré), modo alimentação, temporizador, modo controle 0-10V
+- Modos de onda: Clássica, Sinusoidal, Aleatória, Fluxo constante
+- Ligação: Independente, Master, Slave
+- Controle de caudal, frequência e duração de alimentação
+- Sensores de diagnóstico completos (sobrecorrente, sobretensão, sobreaquecimento, rotor bloqueado, funcionamento a seco, UART)
+
+**Funcionalidades DC Runner:**
+- Ligar/desligar, modo alimentação (pausa 10 min), modo controle 0-10V
+- Controle de caudal (30–100%)
+- Sensores de diagnóstico (funcionamento a seco, rotor bloqueado, tensão)
+
+**Instalação:** No HACS, adicione `https://github.com/Elwinmage/ha-aquamedic-component` como repositório personalizado (Integração), depois pesquise "Aqua Medic".
+
+---
+
+<!-- generated:maintenance:start -->
+#### 🧰 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
+
+**Acompanhamento de manutenção para equipamento que o Home Assistant não alcança.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-maintenance-component/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-maintenance-component/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+Bombas de circulação, bombas de retorno, escumadores, reatores — tudo o que limpa à mão. Uma entrada por marca, um aparelho por equipamento, quatro entidades por tarefa: um botão que regista o trabalho, um número para o intervalo, um interruptor para silenciar os avisos e uma data para retroagir a última intervenção.
+
+**Funções principais:**
+
+- Predefinições para Tunze, Jebao e equipamento genérico, com os intervalos do fabricante quando publicados
+- Uma biblioteca comum de 17 tarefas, traduzida em 8 idiomas
+- Retroatividade, para que um equipamento novo não comece em «nunca feito»
+- Serviço `reef_maintenance.reset` — cole uma etiqueta NFC na bomba e leia-a quando terminar
+- Mesmo contrato `reef_role` das integrações ligadas: as tarefas aparecem na vista de manutenção do cartão
+
+**Instalação:** No HACS, adicione `https://github.com/Elwinmage/ha-reef-maintenance-component` como repositório personalizado (Integração).
+<!-- generated:maintenance:end -->
+
+---
+
+### Cartões
+
+#### 🪸 [ha-reef-card](https://github.com/Elwinmage/ha-reef-card)
+
+**Cartão Lovelace personalizado para painéis de recife.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-card.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-card/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reef-card.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-card/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Lit](https://img.shields.io/badge/Lit-3.3-blue?style=flat-square&logo=lit)](https://lit.dev/)
+
+O **Reef Card** para Home Assistant ajuda-o a gerir o seu aquário de recife diretamente a partir do painel. Combinado com [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component), deteta e suporta automaticamente os seus dispositivos Red Sea (ReefBeat).
+
+> Dispositivos não-Redsea também podem ser suportados — [solicite aqui](https://github.com/Elwinmage/ha-reef-card/discussions/2).
+
+<!-- generated:card-devices:start -->
+**Dispositivos suportados:**
+
+> ✅ Suportado &nbsp;|&nbsp; 🚧 Em curso &nbsp;|&nbsp; 🧪 Não testado (pode funcionar) &nbsp;|&nbsp; ❌ Ainda não suportado
+
+| Aparelho | Estado | Pontos fortes |
+|---|---|---|
+| **ReefDose (RSDOSE2/4)** | ✅ | Planeamento completo, doseamento manual, escorvamento e calibração, gestão de suplementos, acompanhamento do consumo |
+| **ReefMat (RSMAT250/500/1200)** | ✅ | Estado do rolo animado, avanço manual/automático/programado, estado do sensor, gráficos semanais e mensais |
+| **ReefRun (RSRUN)** | ✅ | Controlo da velocidade da bomba, editor de programas, gestão da sobre-escumação |
+| **ReefATO+** | ✅ | Nível de água, sonda de fugas, diagnóstico da bomba, gráfico de consumo, buzzer de fuga |
+| **ReefControl-Power (RSPOWER6/8)** | 🚧 | Controlo por tomada |
+| **ReefControl (RSCONTROLPRO/LITE)** | ❌ | [Votar na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **ReefLed (G1/G2)** | ❌ | [Votar na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **ReefWave** | ❌ | [Votar na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **Aqua Medic EcoDrift / SmartDrift** | ❌ | [Votar na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **Aqua Medic DC Runner (return, skimmer)** | ❌ | [Votar na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+<!-- generated:card-devices:end -->
+
+**Destaques ReefDose:**
+- Cartão de 6 zonas: config/WiFi, estados, dosagem manual com atalhos, agendamento por cabeça com progresso circular, gestão de suplementos com imagens de marcas, e fila de próximas doses
+- Suporte a fluxos de escorva e calibração
+- Biblioteca de suplementos com imagens para Red Sea, Tropic Marin, Quantum, ATI, Aqua Forest e mais
+
+**Destaques ReefMat:**
+- Cartão de 7 zonas com fundo animado que muda conforme o uso do rolo (0%–100%)
+- Info em tempo real do rolo: comprimento restante, média diária, dias restantes estimados
+- Controles de avanço manual, automático e agendado
+- Exibição do estado do sensor de nível (conectado, desconectado, sujo)
+- Gráficos de consumo semanal e mensal
+
+**Instalação:** Disponível diretamente no [HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reef-card&category=plugin) — pesquise "reef-card".
+
+**Configuração:** Sem o parâmetro `device`, o cartão deteta automaticamente todos os dispositivos ReefBeat e permite-lhe escolher. Defina o parâmetro `device` para forçar um dispositivo específico.
+
+<table>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=Qee5LH0T9wQ"><img src="https://img.youtube.com/vi/Qee5LH0T9wQ/0.jpg" alt="Demo ReefDose" width="300"/></a><br/><em>Demo ReefDose</em></td>
+<td><a href="https://www.youtube.com/watch?v=yyNyUSitb1E"><img src="https://img.youtube.com/vi/yyNyUSitb1E/0.jpg" alt="Demo ReefMat" width="300"/></a><br/><em>Demo ReefMat</em></td>
+</tr>
+</table>
+
+---
+
+## 🔌 Infraestrutura
 
 ---
 
@@ -109,94 +246,6 @@ curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/i
 ```
 
 > Funciona sozinho ou como complemento do [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component) para uma gestão de recife totalmente integrada.
-
----
-
-#### 🌊 [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component)
-
-**Controle de bombas Aqua Medic via Home Assistant através da API cloud Gizwits.**
-
-[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
-[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-aquamedic-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-aquamedic-component/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-
-Controle suas bombas Aqua Medic a partir do Home Assistant via API cloud Gizwits (mesmo backend da app oficial Aqua Medic).
-
-**Dispositivos suportados:**
-
-| Dispositivo | Estado |
-|-------------|--------|
-| **EcoDrift / SmartDrift x.1 / x.3** (bomba de ondas) | ✅ Suportado |
-| **DC Runner x.1 / x.2 / x.3** (bomba de retorno) | ✅ Suportado |
-| **Reefdoser EVO** (bomba doseadora) | ❌ Ainda não — [contacte-me](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **T-Controller Twin** (controlador de temperatura) | ❌ Ainda não — [contacte-me](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **Aquarius / Spectrus** (iluminação) | ❌ Ainda não — [contacte-me](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-
-**Funcionalidades EcoDrift / SmartDrift:**
-- Ligar/desligar, tipo de onda (Pulso/Maré), modo alimentação, temporizador, modo controle 0-10V
-- Modos de onda: Clássica, Sinusoidal, Aleatória, Fluxo constante
-- Ligação: Independente, Master, Slave
-- Controle de caudal, frequência e duração de alimentação
-- Sensores de diagnóstico completos (sobrecorrente, sobretensão, sobreaquecimento, rotor bloqueado, funcionamento a seco, UART)
-
-**Funcionalidades DC Runner:**
-- Ligar/desligar, modo alimentação (pausa 10 min), modo controle 0-10V
-- Controle de caudal (30–100%)
-- Sensores de diagnóstico (funcionamento a seco, rotor bloqueado, tensão)
-
-**Instalação:** No HACS, adicione `https://github.com/Elwinmage/ha-aquamedic-component` como repositório personalizado (Integração), depois pesquise "Aqua Medic".
-
----
-
-### Cartões
-
-#### 🪸 [ha-reef-card](https://github.com/Elwinmage/ha-reef-card)
-
-**Cartão Lovelace personalizado para painéis de recife.**
-
-[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-card.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-card/releases)
-[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reef-card.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-card/commits/main)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Lit](https://img.shields.io/badge/Lit-3.3-blue?style=flat-square&logo=lit)](https://lit.dev/)
-
-O **Reef Card** para Home Assistant ajuda-o a gerir o seu aquário de recife diretamente a partir do painel. Combinado com [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component), deteta e suporta automaticamente os seus dispositivos Red Sea (ReefBeat).
-
-> Dispositivos não-Redsea também podem ser suportados — [solicite aqui](https://github.com/Elwinmage/ha-reef-card/discussions/2).
-
-**Dispositivos suportados:**
-
-| Dispositivo | Estado | Destaques |
-|-------------|--------|-----------|
-| **ReefDose** (RSDOSE2/4) | ✅ Implementado | Agendamento completo, dosagem manual, escorva/calibração, gestão de suplementos, rastreamento de uso |
-| **ReefMat** (RSMAT250/500/1200) | ✅ Implementado | Estado do rolo animado, avanço manual/auto/agendado, estado do sensor, gráficos semanais/mensais |
-| **ReefRun** (RSRUN) | ☑️ Em progresso | Controle de velocidade da bomba, gestão de sobre-espumação |
-| **ReefATO+** | ❌ Planeado | [Vote na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **ReefLed** (G1/G2) | ❌ Planeado | [Vote na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **ReefWave** | ❌ Planeado | [Vote na prioridade](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-
-**Destaques ReefDose:**
-- Cartão de 6 zonas: config/WiFi, estados, dosagem manual com atalhos, agendamento por cabeça com progresso circular, gestão de suplementos com imagens de marcas, e fila de próximas doses
-- Suporte a fluxos de escorva e calibração
-- Biblioteca de suplementos com imagens para Red Sea, Tropic Marin, Quantum, ATI, Aqua Forest e mais
-
-**Destaques ReefMat:**
-- Cartão de 7 zonas com fundo animado que muda conforme o uso do rolo (0%–100%)
-- Info em tempo real do rolo: comprimento restante, média diária, dias restantes estimados
-- Controles de avanço manual, automático e agendado
-- Exibição do estado do sensor de nível (conectado, desconectado, sujo)
-- Gráficos de consumo semanal e mensal
-
-**Instalação:** Disponível diretamente no [HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reef-card&category=plugin) — pesquise "reef-card".
-
-**Configuração:** Sem o parâmetro `device`, o cartão deteta automaticamente todos os dispositivos ReefBeat e permite-lhe escolher. Defina o parâmetro `device` para forçar um dispositivo específico.
-
-<table>
-<tr>
-<td><a href="https://www.youtube.com/watch?v=Qee5LH0T9wQ"><img src="https://img.youtube.com/vi/Qee5LH0T9wQ/0.jpg" alt="Demo ReefDose" width="300"/></a><br/><em>Demo ReefDose</em></td>
-<td><a href="https://www.youtube.com/watch?v=yyNyUSitb1E"><img src="https://img.youtube.com/vi/yyNyUSitb1E/0.jpg" alt="Demo ReefMat" width="300"/></a><br/><em>Demo ReefMat</em></td>
-</tr>
-</table>
 
 ---
 
@@ -242,8 +291,10 @@ O **Reef Card** para Home Assistant ajuda-o a gerir o seu aquário de recife dir
 
 ---
 
+<!-- generated:contact:start -->
 ## 💬 Contacto e suporte
 
-- **Perguntas e pedidos de funcionalidades:** Use a aba [Discussions](https://github.com/Elwinmage/ha-reefbeat-component/discussions) de cada projeto
-- **Reportar um bug:** Abra um [Issue](https://github.com/Elwinmage/ha-reefbeat-component/issues) com detalhes
+- **Perguntas e pedidos de funcionalidades:** abra uma discussão no projeto em causa — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues)
+- **Relatórios de erros:** abra uma issue nesse mesmo projeto, com os detalhes.
 - **Apoiar o projeto:** [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)
+<!-- generated:contact:end -->
