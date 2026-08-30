@@ -252,6 +252,21 @@ An interactive wizard configures everything: device scan, battery capacity, SoC 
 
 ---
 
+<!-- generated:blueprints:start -->
+#### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
+
+**Notification blueprints for the whole ecosystem.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-blueprints.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-blueprints/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+Alerts you on your phone about overdue maintenance, found through the shared `reef_role` attribute so every integration is covered, and about devices that went unreachable. Eight languages, one import button each.
+
+**Installation:** import from the repository, one button per language.
+<!-- generated:blueprints:end -->
+
+---
+
 ## 📐 3D Models
 
 ### ReefRun DC Skimmer

@@ -252,6 +252,21 @@ Un assistant interactif configure tout : scan des appareils, capacité batterie,
 
 ---
 
+<!-- generated:blueprints:start -->
+#### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
+
+**Blueprints de notification pour tout l'écosystème.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-blueprints.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-blueprints/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+Vous prévient sur votre téléphone des entretiens en retard, trouvés via l'attribut commun `reef_role` afin que toutes les intégrations soient couvertes, et des appareils devenus injoignables. Huit langues, un bouton d'import chacune.
+
+**Installation :** import depuis le dépôt, un bouton par langue.
+<!-- generated:blueprints:end -->
+
+---
+
 ## 📐 Modèles 3D
 
 ### ReefRun DC Skimmer

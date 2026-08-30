@@ -250,6 +250,21 @@ curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/i
 
 ---
 
+<!-- generated:blueprints:start -->
+#### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
+
+**Blueprint di notifica per tutto l'ecosistema.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-blueprints.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-blueprints/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+Vi avvisa sul telefono delle manutenzioni scadute, trovate tramite l'attributo comune `reef_role` così che ogni integrazione sia coperta, e dei dispositivi diventati irraggiungibili. Otto lingue, un pulsante di importazione ciascuna.
+
+**Installazione:** importate dal repository, un pulsante per lingua.
+<!-- generated:blueprints:end -->
+
+---
+
 ## 📐 Modelli 3D
 
 ### ReefRun DC Skimmer
