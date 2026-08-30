@@ -115,7 +115,7 @@ T: dict[str, dict[str, str]] = {
         "maint_features": "**Key features:**",
         "maint_f1": "Presets for Tunze, Jebao and generic gear, with manufacturer intervals where one is published",
         "maint_f2": "A shared library of 17 tasks, translated in 8 languages",
-        "maint_f3": "Backdating, so a new piece of equipment does not start from \"never done\"",
+        "maint_f3": 'Backdating, so a new piece of equipment does not start from "never done"',
         "maint_f4": "`reef_maintenance.reset` service — stick an NFC tag on the pump and scan it when you are done",
         "maint_f5": "Same `reef_role` contract as the connected integrations, so tasks land in the card's maintenance view",
         "install": "**Installation:**",
@@ -205,7 +205,7 @@ T: dict[str, dict[str, str]] = {
         "maint_features": "**Hauptfunktionen:**",
         "maint_f1": "Voreinstellungen für Tunze, Jebao und generische Geräte, mit Herstellerintervallen wo veröffentlicht",
         "maint_f2": "Eine gemeinsame Bibliothek mit 17 Aufgaben, in 8 Sprachen übersetzt",
-        "maint_f3": "Rückdatierung, damit ein neues Gerät nicht bei „nie gemacht\" beginnt",
+        "maint_f3": 'Rückdatierung, damit ein neues Gerät nicht bei „nie gemacht" beginnt',
         "maint_f4": "Dienst `reef_maintenance.reset` — NFC-Tag an die Pumpe kleben und nach getaner Arbeit scannen",
         "maint_f5": "Gleicher `reef_role`-Vertrag wie die verbundenen Integrationen: die Aufgaben erscheinen in der Wartungsansicht der Karte",
         "install": "**Installation:**",
@@ -338,7 +338,7 @@ T: dict[str, dict[str, str]] = {
         "maint_features": "**Główne funkcje:**",
         "maint_f1": "Ustawienia wstępne dla Tunze, Jebao i sprzętu generycznego, z interwałami producenta tam, gdzie są publikowane",
         "maint_f2": "Wspólna biblioteka 17 zadań, przetłumaczona na 8 języków",
-        "maint_f3": "Wsteczne datowanie, aby nowy sprzęt nie zaczynał od „nigdy nie wykonano\"",
+        "maint_f3": 'Wsteczne datowanie, aby nowy sprzęt nie zaczynał od „nigdy nie wykonano"',
         "maint_f4": "Usługa `reef_maintenance.reset` — przyklej tag NFC na pompie i zeskanuj go po zakończeniu",
         "maint_f5": "Ten sam kontrakt `reef_role` co integracje podłączone: zadania trafiają do widoku konserwacji karty",
         "install": "**Instalacja:**",
@@ -455,6 +455,44 @@ CARD_HIGHLIGHTS = {
     },
 }
 
+BLUEPRINTS = {
+    "en": (
+        "Notification blueprints for the whole ecosystem.",
+        "Alerts you on your phone about overdue maintenance, found through the shared `reef_role` attribute so every integration is covered, and about devices that went unreachable. Eight languages, one import button each.",
+        "**Installation:** import from the repository, one button per language.",
+    ),
+    "fr": (
+        "Blueprints de notification pour tout l'écosystème.",
+        "Vous prévient sur votre téléphone des entretiens en retard, trouvés via l'attribut commun `reef_role` afin que toutes les intégrations soient couvertes, et des appareils devenus injoignables. Huit langues, un bouton d'import chacune.",
+        "**Installation :** import depuis le dépôt, un bouton par langue.",
+    ),
+    "de": (
+        "Benachrichtigungs-Blueprints für das gesamte Ökosystem.",
+        "Meldet auf dem Telefon überfällige Wartungen, über das gemeinsame `reef_role`-Attribut gefunden, sodass jede Integration abgedeckt ist, sowie nicht mehr erreichbare Geräte. Acht Sprachen, je eine Import-Schaltfläche.",
+        "**Installation:** Import aus dem Repository, eine Schaltfläche je Sprache.",
+    ),
+    "es": (
+        "Blueprints de notificación para todo el ecosistema.",
+        "Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atributo común `reef_role` de modo que todas las integraciones quedan cubiertas, y de los dispositivos que dejaron de responder. Ocho idiomas, un botón de importación cada uno.",
+        "**Instalación:** importe desde el repositorio, un botón por idioma.",
+    ),
+    "it": (
+        "Blueprint di notifica per tutto l'ecosistema.",
+        "Vi avvisa sul telefono delle manutenzioni scadute, trovate tramite l'attributo comune `reef_role` così che ogni integrazione sia coperta, e dei dispositivi diventati irraggiungibili. Otto lingue, un pulsante di importazione ciascuna.",
+        "**Installazione:** importate dal repository, un pulsante per lingua.",
+    ),
+    "pl": (
+        "Blueprinty powiadomień dla całego ekosystemu.",
+        "Powiadamia na telefonie o zaległych konserwacjach, znajdowanych przez wspólny atrybut `reef_role`, dzięki czemu objęte są wszystkie integracje, oraz o urządzeniach, które przestały odpowiadać. Osiem języków, po jednym przycisku importu.",
+        "**Instalacja:** import z repozytorium, jeden przycisk na język.",
+    ),
+    "pt": (
+        "Blueprints de notificação para todo o ecossistema.",
+        "Avisa-o no telemóvel das manutenções em atraso, encontradas pelo atributo comum `reef_role` para que todas as integrações fiquem cobertas, e dos aparelhos que ficaram inacessíveis. Oito idiomas, um botão de importação cada.",
+        "**Instalação:** importe do repositório, um botão por idioma.",
+    ),
+}
+
 START = "<!-- generated:{name}:start -->"
 END = "<!-- generated:{name}:end -->"
 
@@ -515,28 +553,48 @@ def card_table(lang: str) -> str:
     return "\n".join(lines)
 
 
+def blueprints_section(lang: str) -> str:
+    """The shared notification blueprints, filed under Infrastructure.
+
+    Automations, so neither an integration nor a card.
+    """
+    title, body, install = BLUEPRINTS[lang]
+    repo = "https://github.com/Elwinmage/ha-reef-blueprints"
+    content = f"""#### 🔔 [ha-reef-blueprints]({repo})
+
+**{title}**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-blueprints.svg?style=flat-square)]({repo}/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+{body}
+
+{install}"""
+    return block("blueprints", content)
+
+
 def maintenance_section(lang: str) -> str:
     t = T[lang]
     repo = "https://github.com/Elwinmage/ha-reef-maintenance-component"
     body = f"""#### 🧰 [ha-reef-maintenance-component]({repo})
 
-**{t['maint_title']}**
+**{t["maint_title"]}**
 
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({repo}/releases)
 [![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({repo}/commits/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-{t['maint_intro']}
+{t["maint_intro"]}
 
-{t['maint_features']}
+{t["maint_features"]}
 
-- {t['maint_f1']}
-- {t['maint_f2']}
-- {t['maint_f3']}
-- {t['maint_f4']}
-- {t['maint_f5']}
+- {t["maint_f1"]}
+- {t["maint_f2"]}
+- {t["maint_f3"]}
+- {t["maint_f4"]}
+- {t["maint_f5"]}
 
-{t['install']} {t['maint_install']}"""
+{t["install"]} {t["maint_install"]}"""
     return block("maintenance", body)
 
 
@@ -558,11 +616,11 @@ def contact_section(lang: str) -> str:
         [f"[{r}]({DISCUSS.format(repo=r)})" for r in with_discussions]
         + [f"[{r}]({ISSUES.format(repo=r)})" for r in with_issues_only]
     )
-    body = f"""## {t['contact_title']}
+    body = f"""## {t["contact_title"]}
 
-- {t['contact_q']} {links}
-- {t['contact_b']}
-- {t['contact_s']} [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)"""
+- {t["contact_q"]} {links}
+- {t["contact_b"]}
+- {t["contact_s"]} [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)"""
     return block("contact", body)
 
 
@@ -574,8 +632,10 @@ def replace_table(text: str, name: str, heading: str, new: str, lang: str) -> st
     """
     if START.format(name=name) in text:
         pattern = re.compile(
-            re.escape(START.format(name=name)) + r".*?" + re.escape(END.format(name=name)),
-            re.S,
+            re.escape(START.format(name=name))
+            + r".*?"
+            + re.escape(END.format(name=name)),
+            re.DOTALL,
         )
         return pattern.sub(lambda _: block(name, new), text, count=1)
 
@@ -606,10 +666,16 @@ def restructure(text: str, lang: str) -> str:
     text = text[:start] + text[end:]
 
     # Re-file it after the card section, before the 3D models.
-    models = re.search(r"^## 📐 ", text, re.M)
+    models = re.search(r"^## 📐 ", text, re.MULTILINE)
     assert models, "3D models heading not found"
     header = f"## 🔌 {t['infrastructure']}\n\n---\n\n"
-    return text[: models.start()] + header + backup + "\n\n---\n\n" + text[models.start() :]
+    return (
+        text[: models.start()]
+        + header
+        + backup
+        + "\n\n---\n\n"
+        + text[models.start() :]
+    )
 
 
 def apply(lang: str) -> None:
@@ -635,13 +701,34 @@ def apply(lang: str) -> None:
             re.escape(START.format(name="maintenance"))
             + r".*?"
             + re.escape(END.format(name="maintenance")),
-            re.S,
+            re.DOTALL,
         )
         text = pattern.sub(lambda _: maintenance_section(lang), text, count=1)
     else:
         anchor = f"### {t['cards']}\n"
         assert anchor in text, f"{lang}: cards heading not found"
-        text = text.replace(anchor, maintenance_section(lang) + "\n\n---\n\n" + anchor, 1)
+        text = text.replace(
+            anchor, maintenance_section(lang) + "\n\n---\n\n" + anchor, 1
+        )
+
+    # Blueprints: filed under Infrastructure, before the 3D models.
+    if START.format(name="blueprints") in text:
+        pattern = re.compile(
+            re.escape(START.format(name="blueprints"))
+            + r".*?"
+            + re.escape(END.format(name="blueprints")),
+            re.DOTALL,
+        )
+        text = pattern.sub(lambda _: blueprints_section(lang), text, count=1)
+    else:
+        at = re.search(r"^## 📐 ", text, re.MULTILINE)
+        assert at, f"{lang}: 3D models heading not found"
+        text = (
+            text[: at.start()]
+            + blueprints_section(lang)
+            + "\n\n---\n\n"
+            + text[at.start() :]
+        )
 
     # Contact: every project has its own tracker.
     if START.format(name="contact") in text:
@@ -649,11 +736,11 @@ def apply(lang: str) -> None:
             re.escape(START.format(name="contact"))
             + r".*?"
             + re.escape(END.format(name="contact")),
-            re.S,
+            re.DOTALL,
         )
         text = pattern.sub(lambda _: contact_section(lang), text, count=1)
     else:
-        at = re.search(r"^## 💬 ", text, re.M)
+        at = re.search(r"^## 💬 ", text, re.MULTILINE)
         assert at, f"{lang}: contact heading not found"
         text = text[: at.start()] + contact_section(lang) + "\n"
 

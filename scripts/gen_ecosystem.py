@@ -32,8 +32,8 @@ SITE = "https://elwinmage.github.io/reeftank/"
 #
 # COLUMN_WIDTH must stay comfortably above ICON_WIDTH, or the column collapses
 # back onto the image and the icons shrink again.
-ICON_WIDTH = 200
-COLUMN_WIDTH = "200px"
+ICON_WIDTH = 64
+COLUMN_WIDTH = "100px"
 
 BLUEPRINT_BADGE = (
     "[![Open your Home Assistant instance and show the blueprint import dialog"
@@ -49,6 +49,7 @@ REPOS = [
     "ha-aquamedic-component",
     "ha-reef-maintenance-component",
     "ha-reef-card",
+    "ha-reef-blueprints",
     "reefbeatEnergyBackup",
 ]
 
@@ -73,9 +74,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reefbeat-component": (
             "Red Sea ReefBeat devices, controlled locally with no cloud: "
             "ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, "
-            "ReefMat, ReefRun and ReefWave.<br />Ships **ReefBeat watch**, an "
-            "alert blueprint for overdue maintenance, abnormal modes, low "
-            "battery and unreachable devices. " + BLUEPRINT_BADGE
+            "ReefMat, ReefRun and ReefWave.<br />"
+            "alert blueprint for abnormal modes, calibrations and low "
+            "battery. " + BLUEPRINT_BADGE
         ),
         "d_ha-aquamedic-component": (
             "Aqua Medic pumps through the Gizwits cloud API: EcoDrift and "
@@ -91,6 +92,11 @@ T: dict[str, dict[str, str]] = {
             "the only way to edit advanced schedules. Reads the three "
             "integrations above through the shared `reef_role` contract, with "
             "no card-side configuration."
+        ),
+        "d_ha-reef-blueprints": (
+            "Notification blueprints shared by the whole ecosystem: "
+            "overdue maintenance found through the `reef_role` contract, "
+            "and devices that went unreachable. Eight languages."
         ),
         "d_reefbeatEnergyBackup": (
             "Battery backup for power outages. A 24V LiFePO\u2084 pack driven "
@@ -117,10 +123,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reefbeat-component": (
             "Appareils Red Sea ReefBeat, pilotés en local sans cloud : "
             "ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, "
-            "ReefMat, ReefRun et ReefWave.<br />Fournit **ReefBeat watch**, un "
-            "blueprint d'alertes pour les maintenances dépassées, les modes "
-            "anormaux, les batteries faibles et les appareils injoignables. "
-            + BLUEPRINT_BADGE
+            "ReefMat, ReefRun et ReefWave.<br />"
+            "blueprint d'alertes pour les modes anormaux, les calibrations "
+            "et les batteries faibles. " + BLUEPRINT_BADGE
         ),
         "d_ha-aquamedic-component": (
             "Pompes Aqua Medic via l'API cloud Gizwits : brasseurs EcoDrift et "
@@ -136,6 +141,11 @@ T: dict[str, dict[str, str]] = {
             "bord, et seul moyen d'éditer les programmes avancés. Lit les "
             "trois intégrations ci-dessus via le contrat `reef_role` commun, "
             "sans configuration côté carte."
+        ),
+        "d_ha-reef-blueprints": (
+            "Blueprints de notification communs à tout l'écosystème : "
+            "entretiens en retard trouvés via le contrat `reef_role`, et "
+            "appareils devenus injoignables. Huit langues."
         ),
         "d_reefbeatEnergyBackup": (
             "Secours sur batterie en cas de coupure. Pack 24V LiFePO\u2084 "
@@ -162,10 +172,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reefbeat-component": (
             "Red Sea ReefBeat-Geräte, lokal gesteuert ohne Cloud: ReefATO+, "
             "ReefControl, ReefControl-Power, ReefDose, ReefLed, ReefMat, "
-            "ReefRun und ReefWave.<br />Enthält **ReefBeat watch**, ein "
-            "Alarm-Blueprint für überfällige Wartungen, abweichende Modi, "
-            "niedrigen Akkustand und nicht erreichbare Geräte. "
-            + BLUEPRINT_BADGE
+            "ReefRun und ReefWave.<br />"
+            "Alarm-Blueprint für abweichende Modi, Kalibrierungen und "
+            "niedrigen Akkustand. " + BLUEPRINT_BADGE
         ),
         "d_ha-aquamedic-component": (
             "Aqua Medic-Pumpen über die Gizwits-Cloud-API: EcoDrift- und "
@@ -182,6 +191,11 @@ T: dict[str, dict[str, str]] = {
             "und der einzige Weg, erweiterte Zeitpläne zu bearbeiten. Liest "
             "die drei Integrationen über den gemeinsamen `reef_role`-Vertrag, "
             "ohne Konfiguration auf Kartenseite."
+        ),
+        "d_ha-reef-blueprints": (
+            "Benachrichtigungs-Blueprints für das gesamte Ökosystem: "
+            "überfällige Wartungen, über den `reef_role`-Vertrag gefunden, "
+            "und nicht mehr erreichbare Geräte. Acht Sprachen."
         ),
         "d_reefbeatEnergyBackup": (
             "Batterie-Backup bei Stromausfall. Ein 24V LiFePO\u2084-Pack, "
@@ -208,10 +222,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reefbeat-component": (
             "Dispositivos Red Sea ReefBeat, controlados localmente sin cloud: "
             "ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, "
-            "ReefMat, ReefRun y ReefWave.<br />Incluye **ReefBeat watch**, un "
-            "blueprint de alertas para mantenimientos vencidos, modos "
-            "anómalos, batería baja y dispositivos inalcanzables. "
-            + BLUEPRINT_BADGE
+            "ReefMat, ReefRun y ReefWave.<br />"
+            "blueprint de alertas para modos anómalos, calibraciones y "
+            "batería baja. " + BLUEPRINT_BADGE
         ),
         "d_ha-aquamedic-component": (
             "Bombas Aqua Medic a través de la API cloud Gizwits: bombas de "
@@ -228,6 +241,11 @@ T: dict[str, dict[str, str]] = {
             "única forma de editar programaciones avanzadas. Lee las tres "
             "integraciones mediante el contrato `reef_role` común, sin "
             "configuración del lado de la tarjeta."
+        ),
+        "d_ha-reef-blueprints": (
+            "Blueprints de notificación comunes a todo el ecosistema: "
+            "mantenimientos vencidos encontrados por el contrato `reef_role`, "
+            "y dispositivos que dejaron de responder. Ocho idiomas."
         ),
         "d_reefbeatEnergyBackup": (
             "Respaldo por batería ante cortes de luz. Un pack 24V LiFePO\u2084 "
@@ -254,9 +272,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reefbeat-component": (
             "Dispositivi Red Sea ReefBeat, pilotati in locale senza cloud: "
             "ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, "
-            "ReefMat, ReefRun e ReefWave.<br />Include **ReefBeat watch**, un "
-            "blueprint di allerta per manutenzioni scadute, modalità anomale, "
-            "batteria scarica e dispositivi irraggiungibili. " + BLUEPRINT_BADGE
+            "ReefMat, ReefRun e ReefWave.<br />"
+            "blueprint di allerta per modalità anomale, calibrazioni e "
+            "batteria scarica. " + BLUEPRINT_BADGE
         ),
         "d_ha-aquamedic-component": (
             "Pompe Aqua Medic tramite l'API cloud Gizwits: pompe di movimento "
@@ -274,6 +292,11 @@ T: dict[str, dict[str, str]] = {
             "avanzate. Legge le tre integrazioni tramite il contratto "
             "`reef_role` comune, senza configurazione lato scheda."
         ),
+        "d_ha-reef-blueprints": (
+            "Blueprint di notifica comuni a tutto l'ecosistema: "
+            "manutenzioni scadute trovate tramite il contratto `reef_role`, "
+            "e dispositivi diventati irraggiungibili. Otto lingue."
+        ),
         "d_reefbeatEnergyBackup": (
             "Backup a batteria in caso di blackout. Un pacco 24V LiFePO\u2084 "
             "gestito da un Raspberry Pi, con degrado progressivo della "
@@ -282,6 +305,56 @@ T: dict[str, dict[str, str]] = {
         "w_integrations": "tutte e tre le integrazioni",
         "w_card": "ha-reef-card",
         "w_alone": "da solo, o insieme a ha-reefbeat-component",
+    },
+    "nl": {
+        "title": "Verwante projecten",
+        "intro": (
+            "De ReefTech-projecten grijpen in elkaar: de integraties brengen uw "
+            "apparatuur in Home Assistant, de kaart toont en bedient ze, en de "
+            "back-up houdt alles draaiend tijdens een stroomuitval. Elk werkt "
+            "ook op zichzelf."
+        ),
+        "h_project": "Project",
+        "h_what": "Rol",
+        "h_with": "Werkt samen met",
+        "this": "(deze repository)",
+        "footer": f"Alles staat samen gedocumenteerd op de [ReefTech-projectpagina]({SITE}).",
+        "d_ha-reefbeat-component": (
+            "Red Sea ReefBeat-apparaten, lokaal aangestuurd zonder cloud: "
+            "ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, "
+            "ReefMat, ReefRun en ReefWave.<br />"
+            "blueprint met meldingen voor afwijkende modi, kalibraties en "
+            "lage accu. " + BLUEPRINT_BADGE
+        ),
+        "d_ha-aquamedic-component": (
+            "Aqua Medic-pompen via de Gizwits-cloud-API: EcoDrift- en "
+            "SmartDrift-stromingspompen, DC Runner opvoer- en "
+            "afschuimerpompen."
+        ),
+        "d_ha-reef-maintenance-component": (
+            "Schoonmaak- en slijtageopvolging voor apparatuur die Home "
+            "Assistant niet kan uitlezen: stromingspompen, opvoerpompen, "
+            "eiwitafschuimers, reactoren, alles wat u met de hand onderhoudt."
+        ),
+        "d_ha-reef-card": (
+            "Interactieve grafische weergave van elk apparaat op uw dashboard, "
+            "en de enige manier om geavanceerde schema's te bewerken. Leest de "
+            "drie integraties via het gedeelde `reef_role`-contract, zonder "
+            "configuratie aan de kaartzijde."
+        ),
+        "d_ha-reef-blueprints": (
+            "Meldings-blueprints voor het hele ecosysteem: achterstallig "
+            "onderhoud gevonden via het `reef_role`-contract, en apparaten "
+            "die onbereikbaar zijn geworden. Acht talen."
+        ),
+        "d_reefbeatEnergyBackup": (
+            "Accuback-up bij stroomuitval. Een 24V LiFePO\u2084-pakket "
+            "aangestuurd door een Raspberry Pi, met de pompsnelheid die "
+            "geleidelijk zakt met de laadtoestand."
+        ),
+        "w_integrations": "alle drie de integraties",
+        "w_card": "ha-reef-card",
+        "w_alone": "zelfstandig, of samen met ha-reefbeat-component",
     },
     "pl": {
         "title": "Powiązane projekty",
@@ -299,10 +372,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reefbeat-component": (
             "Urządzenia Red Sea ReefBeat, sterowane lokalnie bez chmury: "
             "ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, "
-            "ReefMat, ReefRun i ReefWave.<br />Zawiera **ReefBeat watch**, "
-            "blueprint alertów dla zaległych konserwacji, nietypowych trybów, "
-            "niskiego poziomu baterii i niedostępnych urządzeń. "
-            + BLUEPRINT_BADGE
+            "ReefMat, ReefRun i ReefWave.<br />"
+            "blueprint alertów dla nietypowych trybów, kalibracji i "
+            "niskiego poziomu baterii. " + BLUEPRINT_BADGE
         ),
         "d_ha-aquamedic-component": (
             "Pompy Aqua Medic przez chmurowe API Gizwits: pompy cyrkulacyjne "
@@ -318,6 +390,11 @@ T: dict[str, dict[str, str]] = {
             "jedyny sposób edycji zaawansowanych harmonogramów. Odczytuje trzy "
             "integracje przez wspólny kontrakt `reef_role`, bez konfiguracji "
             "po stronie karty."
+        ),
+        "d_ha-reef-blueprints": (
+            "Blueprinty powiadomień wspólne dla całego ekosystemu: zaległe "
+            "konserwacje znajdowane przez kontrakt `reef_role` oraz "
+            "urządzenia, które przestały odpowiadać. Osiem języków."
         ),
         "d_reefbeatEnergyBackup": (
             "Zasilanie awaryjne na wypadek przerw w zasilaniu. Pakiet 24V "
@@ -344,9 +421,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reefbeat-component": (
             "Aparelhos Red Sea ReefBeat, comandados localmente sem cloud: "
             "ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, "
-            "ReefMat, ReefRun e ReefWave.<br />Inclui **ReefBeat watch**, um "
-            "blueprint de alertas para manutenções em atraso, modos anómalos, "
-            "bateria fraca e aparelhos inacessíveis. " + BLUEPRINT_BADGE
+            "ReefMat, ReefRun e ReefWave.<br />"
+            "blueprint de alertas para modos anómalos, calibrações e "
+            "bateria fraca. " + BLUEPRINT_BADGE
         ),
         "d_ha-aquamedic-component": (
             "Bombas Aqua Medic através da API cloud Gizwits: bombas de "
@@ -364,6 +441,11 @@ T: dict[str, dict[str, str]] = {
             "integrações através do contrato `reef_role` comum, sem "
             "configuração do lado do cartão."
         ),
+        "d_ha-reef-blueprints": (
+            "Blueprints de notificação comuns a todo o ecossistema: "
+            "manutenções em atraso encontradas pelo contrato `reef_role`, e "
+            "aparelhos que ficaram inacessíveis. Oito idiomas."
+        ),
         "d_reefbeatEnergyBackup": (
             "Backup por bateria em caso de corte. Um pack 24V LiFePO\u2084 "
             "comandado por um Raspberry Pi, com degradação progressiva da "
@@ -377,6 +459,7 @@ T: dict[str, dict[str, str]] = {
 
 WORKS_WITH = {
     "ha-reefbeat-component": "w_card",
+    "ha-reef-blueprints": "w_integrations",
     "ha-aquamedic-component": "w_card",
     "ha-reef-maintenance-component": "w_card",
     "ha-reef-card": "w_integrations",
@@ -396,7 +479,22 @@ ANCHORS = {
     ("ha-aquamedic-component", "it"): "## Dispositivi supportati",
     ("ha-aquamedic-component", "pl"): "## Obsługiwane urządzenia",
     ("ha-aquamedic-component", "pt"): "## Dispositivos suportados",
-    ("ha-reef-maintenance-component", "en"): "## How it works",
+    ("ha-reef-blueprints", "en"): "## Why a separate repository",
+    ("ha-reef-blueprints", "fr"): "## Pourquoi un dépôt séparé",
+    ("ha-reef-blueprints", "de"): "## Warum ein eigenes Repository",
+    ("ha-reef-blueprints", "es"): "## Por qué un repositorio aparte",
+    ("ha-reef-blueprints", "it"): "## Perché un repository separato",
+    ("ha-reef-blueprints", "nl"): "## Waarom een aparte repository",
+    ("ha-reef-blueprints", "pl"): "## Dlaczego osobne repozytorium",
+    ("ha-reef-blueprints", "pt"): "## Porquê um repositório separado",
+    ("ha-reef-maintenance-component", "en"): "## With ha-reef-card",
+    ("ha-reef-maintenance-component", "fr"): "## Avec ha-reef-card",
+    ("ha-reef-maintenance-component", "de"): "## Mit ha-reef-card",
+    ("ha-reef-maintenance-component", "es"): "## Con ha-reef-card",
+    ("ha-reef-maintenance-component", "it"): "## Con ha-reef-card",
+    ("ha-reef-maintenance-component", "nl"): "## Met ha-reef-card",
+    ("ha-reef-maintenance-component", "pl"): "## Z ha-reef-card",
+    ("ha-reef-maintenance-component", "pt"): "## Com o ha-reef-card",
     ("reefbeatEnergyBackup", "en"): "## \u26a1 Features",
     ("reefbeatEnergyBackup", "fr"): "## \u26a1 Fonctionnalités",
 }
@@ -414,9 +512,15 @@ def targets() -> list[tuple[Path, str, str]]:
     out: list[tuple[Path, str, str]] = [
         (Path(f"{repo}/README.md"), repo, "en") for repo in REPOS
     ]
-    out.append((Path("reefbeatEnergyBackup/README.fr.md"), "reefbeatEnergyBackup", "fr"))
+    out.append(
+        (Path("reefbeatEnergyBackup/README.fr.md"), "reefbeatEnergyBackup", "fr")
+    )
     for lang in ["fr", "de", "es", "it", "pl", "pt"]:
         for repo in ["ha-reefbeat-component", "ha-reef-card", "ha-aquamedic-component"]:
+            out.append((Path(f"{repo}/doc/{lang}/README.{lang}.md"), repo, lang))
+    # These two are translated into Dutch as well.
+    for repo in ["ha-reef-maintenance-component", "ha-reef-blueprints"]:
+        for lang in ["fr", "de", "es", "it", "nl", "pl", "pt"]:
             out.append((Path(f"{repo}/doc/{lang}/README.{lang}.md"), repo, lang))
     return out
 
@@ -460,7 +564,9 @@ def build_block(current: str, lang: str) -> str:
     ]
 
     for repo in REPOS:
-        icon = f'<img src="{RAW.format(repo=repo)}" width="{ICON_WIDTH}" alt="{repo}" />'
+        icon = (
+            f'<img src="{RAW.format(repo=repo)}" width="{ICON_WIDTH}" alt="{repo}" />'
+        )
         if repo == current:
             label = f"<b>{repo}</b><br /><i>{t['this']}</i>"
         else:
@@ -484,7 +590,7 @@ def drop_legacy(text: str) -> str:
         while heading in text:
             start = text.index(heading)
             after = text[start + len(heading) :]
-            nxt = re.search(r"^#{1,3} ", after, re.M)
+            nxt = re.search(r"^#{1,3} ", after, re.MULTILINE)
             end = start + len(heading) + (nxt.start() if nxt else len(after))
             text = text[:start] + text[end:]
     return text
@@ -496,7 +602,7 @@ def apply(path: Path, repo: str, lang: str) -> str:
     block = build_block(repo, lang)
 
     if START in text:
-        pattern = re.compile(re.escape(START) + r".*?" + re.escape(END), re.S)
+        pattern = re.compile(re.escape(START) + r".*?" + re.escape(END), re.DOTALL)
         return pattern.sub(lambda _: block, text, count=1)
 
     # Hand-written section under the localised heading: replace it whole, up
@@ -505,7 +611,7 @@ def apply(path: Path, repo: str, lang: str) -> str:
     if heading in text:
         start = text.index(heading)
         after = text[start + len(heading) :]
-        nxt = re.search(r"^#{1,2} ", after, re.M)
+        nxt = re.search(r"^#{1,2} ", after, re.MULTILINE)
         end = start + len(heading) + (nxt.start() if nxt else len(after))
         return text[:start] + block + "\n\n" + text[end:]
 
