@@ -62,7 +62,7 @@ Manage your Red Sea ReefBeat devices **locally** (no cloud required): ReefATO+, 
 > ✅ Supported &nbsp;|&nbsp; 🚧 In progress &nbsp;|&nbsp; 🧪 Untested (may work) &nbsp;|&nbsp; ❌ Not yet supported
 
 | Device | Models | Status |
-|---|---|---|
+|------|------|------|
 | **ReefATO+** | RSATO+ | ✅ |
 | **ReefControl** | RSCONTROLPRO | ✅ |
 | **ReefControl** | RSCONTROLLITE | 🧪 |
@@ -98,7 +98,7 @@ Control your Aqua Medic pumps from Home Assistant via the Gizwits cloud API (sam
 > ✅ Supported &nbsp;|&nbsp; 🚧 In progress &nbsp;|&nbsp; 🧪 Untested (may work) &nbsp;|&nbsp; ❌ Not yet supported
 
 | Device | Status |
-|---|---|
+|------|------|
 | **EcoDrift / SmartDrift x.1 / x.3** (wavemaker) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (return pump) | ✅ |
 | **DC Runner** (skimmer pump) | ✅ |
@@ -169,7 +169,7 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
 > ✅ Supported &nbsp;|&nbsp; 🚧 In progress &nbsp;|&nbsp; 🧪 Untested (may work) &nbsp;|&nbsp; ❌ Not yet supported
 
 | Device | Status | Highlights |
-|---|---|---|
+|------|------|------|
 | **ReefDose (RSDOSE2/4)** | ✅ | Full scheduling, manual dosing, priming and calibration, supplement management, usage tracking |
 | **ReefMat (RSMAT250/500/1200)** | ✅ | Animated roll status, manual/auto/scheduled advance, sensor status, weekly and monthly graphs |
 | **ReefRun (RSRUN)** | ✅ | Pump speed control, schedule editor, overskimming management |

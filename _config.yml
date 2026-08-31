@@ -23,6 +23,9 @@ encoding: UTF-8
 kramdown:
   input: GFM             # GitHub Flavored Markdown
   syntax_highlighter: rouge
+  typographic_symbols:
+    mdash: "---"          # Keep literal --- instead of converting to — (breaks table separators)
+    ndash: "--"           # Keep literal -- instead of converting to –
 
 # Exclusion de fichiers (pour ne pas polluer le site généré)
 exclude:

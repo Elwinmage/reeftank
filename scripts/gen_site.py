@@ -510,7 +510,7 @@ def beat_table(lang: str) -> str:
         f"> {t['legend']}",
         "",
         f"| {t['device']} | {t['models']} | {t['status']} |",
-        "|---|---|---|",
+        "|------|------|------|",
     ]
     for name, models, status in BEAT_DEVICES:
         lines.append(f"| **{name}** | {models} | {t[status]} |")
@@ -526,7 +526,7 @@ def aqua_table(lang: str) -> str:
         f"> {t['legend']}",
         "",
         f"| {t['device']} | {t['status']} |",
-        "|---|---|",
+        "|------|------|",
     ]
     for name, kind, status in AQUA_DEVICES:
         cell = t[status]
@@ -545,7 +545,7 @@ def card_table(lang: str) -> str:
         f"> {t['legend']}",
         "",
         f"| {t['device']} | {t['status']} | {t['highlights']} |",
-        "|---|---|---|",
+        "|------|------|------|",
     ]
     for name, status, key in CARD_DEVICES:
         note = hi.get(key) or t["vote"]

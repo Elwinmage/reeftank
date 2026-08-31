@@ -62,7 +62,7 @@ Verwalten Sie Ihre Red Sea ReefBeat-Geräte **lokal** (kein Cloud erforderlich):
 > ✅ Unterstützt &nbsp;|&nbsp; 🚧 In Arbeit &nbsp;|&nbsp; 🧪 Ungetestet (könnte funktionieren) &nbsp;|&nbsp; ❌ Noch nicht unterstützt
 
 | Gerät | Modelle | Status |
-|---|---|---|
+|------|------|------|
 | **ReefATO+** | RSATO+ | ✅ |
 | **ReefControl** | RSCONTROLPRO | ✅ |
 | **ReefControl** | RSCONTROLLITE | 🧪 |
@@ -98,7 +98,7 @@ Steuern Sie Ihre Aqua Medic Pumpen über Home Assistant mittels der Gizwits Clou
 > ✅ Unterstützt &nbsp;|&nbsp; 🚧 In Arbeit &nbsp;|&nbsp; 🧪 Ungetestet (könnte funktionieren) &nbsp;|&nbsp; ❌ Noch nicht unterstützt
 
 | Gerät | Status |
-|---|---|
+|------|------|
 | **EcoDrift / SmartDrift x.1 / x.3** (Strömungspumpe) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (Rückförderpumpe) | ✅ |
 | **DC Runner** (Abschäumerpumpe) | ✅ |
@@ -169,7 +169,7 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 > ✅ Unterstützt &nbsp;|&nbsp; 🚧 In Arbeit &nbsp;|&nbsp; 🧪 Ungetestet (könnte funktionieren) &nbsp;|&nbsp; ❌ Noch nicht unterstützt
 
 | Gerät | Status | Highlights |
-|---|---|---|
+|------|------|------|
 | **ReefDose (RSDOSE2/4)** | ✅ | Vollständige Planung, manuelle Dosierung, Entlüften und Kalibrieren, Zusatzstoffverwaltung, Verbrauchsverfolgung |
 | **ReefMat (RSMAT250/500/1200)** | ✅ | Animierter Rollenstatus, manueller/automatischer/geplanter Vorschub, Sensorstatus, Wochen- und Monatsgrafiken |
 | **ReefRun (RSRUN)** | ✅ | Pumpendrehzahl, Zeitplan-Editor, Überschäumen-Verwaltung |

@@ -62,7 +62,7 @@ Gestiona tus dispositivos Red Sea ReefBeat **localmente** (sin cloud): ReefATO+,
 > ✅ Soportado &nbsp;|&nbsp; 🚧 En curso &nbsp;|&nbsp; 🧪 Sin probar (puede funcionar) &nbsp;|&nbsp; ❌ Aún no soportado
 
 | Dispositivo | Modelos | Estado |
-|---|---|---|
+|------|------|------|
 | **ReefATO+** | RSATO+ | ✅ |
 | **ReefControl** | RSCONTROLPRO | ✅ |
 | **ReefControl** | RSCONTROLLITE | 🧪 |
@@ -98,7 +98,7 @@ Controla tus bombas Aqua Medic desde Home Assistant vía la API cloud Gizwits (m
 > ✅ Soportado &nbsp;|&nbsp; 🚧 En curso &nbsp;|&nbsp; 🧪 Sin probar (puede funcionar) &nbsp;|&nbsp; ❌ Aún no soportado
 
 | Dispositivo | Estado |
-|---|---|
+|------|------|
 | **EcoDrift / SmartDrift x.1 / x.3** (de movimiento) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (bomba de retorno) | ✅ |
 | **DC Runner** (bomba de skimmer) | ✅ |
@@ -169,7 +169,7 @@ La **Reef Card** para Home Assistant te ayuda a gestionar tu acuario de arrecife
 > ✅ Soportado &nbsp;|&nbsp; 🚧 En curso &nbsp;|&nbsp; 🧪 Sin probar (puede funcionar) &nbsp;|&nbsp; ❌ Aún no soportado
 
 | Dispositivo | Estado | Puntos fuertes |
-|---|---|---|
+|------|------|------|
 | **ReefDose (RSDOSE2/4)** | ✅ | Planificación completa, dosificación manual, cebado y calibración, gestión de suplementos, seguimiento de uso |
 | **ReefMat (RSMAT250/500/1200)** | ✅ | Estado del rollo animado, avance manual/automático/programado, estado del sensor, gráficos semanales y mensuales |
 | **ReefRun (RSRUN)** | ✅ | Control de velocidad de bomba, editor de programas, gestión del sobreespumado |

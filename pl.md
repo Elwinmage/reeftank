@@ -62,7 +62,7 @@ Zarządzaj urządzeniami Red Sea ReefBeat **lokalnie** (bez chmury): ReefATO+, R
 > ✅ Wspierane &nbsp;|&nbsp; 🚧 W trakcie &nbsp;|&nbsp; 🧪 Nieprzetestowane (może działać) &nbsp;|&nbsp; ❌ Jeszcze niewspierane
 
 | Urządzenie | Modele | Status |
-|---|---|---|
+|------|------|------|
 | **ReefATO+** | RSATO+ | ✅ |
 | **ReefControl** | RSCONTROLPRO | ✅ |
 | **ReefControl** | RSCONTROLLITE | 🧪 |
@@ -98,7 +98,7 @@ Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sa
 > ✅ Wspierane &nbsp;|&nbsp; 🚧 W trakcie &nbsp;|&nbsp; 🧪 Nieprzetestowane (może działać) &nbsp;|&nbsp; ❌ Jeszcze niewspierane
 
 | Urządzenie | Status |
-|---|---|
+|------|------|
 | **EcoDrift / SmartDrift x.1 / x.3** (cyrkulacyjna) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (pompa obiegowa) | ✅ |
 | **DC Runner** (pompa odpieniacza) | ✅ |
@@ -169,7 +169,7 @@ Pompy cyrkulacyjne, pompy obiegowe, odpieniacze, reaktory — wszystko, co czyś
 > ✅ Wspierane &nbsp;|&nbsp; 🚧 W trakcie &nbsp;|&nbsp; 🧪 Nieprzetestowane (może działać) &nbsp;|&nbsp; ❌ Jeszcze niewspierane
 
 | Urządzenie | Status | Najważniejsze |
-|---|---|---|
+|------|------|------|
 | **ReefDose (RSDOSE2/4)** | ✅ | Pełne harmonogramowanie, dozowanie ręczne, zalewanie i kalibracja, zarządzanie suplementami, śledzenie zużycia |
 | **ReefMat (RSMAT250/500/1200)** | ✅ | Animowany stan rolki, przesuw ręczny/automatyczny/zaplanowany, stan czujnika, wykresy tygodniowe i miesięczne |
 | **ReefRun (RSRUN)** | ✅ | Sterowanie prędkością pompy, edytor harmonogramów, zarządzanie nadmiernym odpienianiem |

@@ -62,7 +62,7 @@ Gérez vos appareils Red Sea ReefBeat **localement** (sans cloud) : ReefATO+, Re
 > ✅ Supporté &nbsp;|&nbsp; 🚧 En cours &nbsp;|&nbsp; 🧪 Non testé (peut fonctionner) &nbsp;|&nbsp; ❌ Pas encore supporté
 
 | Appareil | Modèles | Statut |
-|---|---|---|
+|------|------|------|
 | **ReefATO+** | RSATO+ | ✅ |
 | **ReefControl** | RSCONTROLPRO | ✅ |
 | **ReefControl** | RSCONTROLLITE | 🧪 |
@@ -98,7 +98,7 @@ Contrôlez vos pompes Aqua Medic depuis Home Assistant via l'API cloud Gizwits (
 > ✅ Supporté &nbsp;|&nbsp; 🚧 En cours &nbsp;|&nbsp; 🧪 Non testé (peut fonctionner) &nbsp;|&nbsp; ❌ Pas encore supporté
 
 | Appareil | Statut |
-|---|---|
+|------|------|
 | **EcoDrift / SmartDrift x.1 / x.3** (brassage) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (pompe de remontée) | ✅ |
 | **DC Runner** (pompe d'écumeur) | ✅ |
@@ -169,7 +169,7 @@ La **Reef Card** pour Home Assistant vous aide à gérer votre aquarium récifal
 > ✅ Supporté &nbsp;|&nbsp; 🚧 En cours &nbsp;|&nbsp; 🧪 Non testé (peut fonctionner) &nbsp;|&nbsp; ❌ Pas encore supporté
 
 | Appareil | Statut | Points forts |
-|---|---|---|
+|------|------|------|
 | **ReefDose (RSDOSE2/4)** | ✅ | Planification complète, dosage manuel, amorçage et calibration, gestion des suppléments, suivi de l'utilisation |
 | **ReefMat (RSMAT250/500/1200)** | ✅ | État du rouleau animé, avance manuelle/auto/programmée, état du capteur, graphiques hebdo et mensuels |
 | **ReefRun (RSRUN)** | ✅ | Contrôle de la vitesse de pompe, éditeur de programmes, gestion du surécumage |
