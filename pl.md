@@ -57,6 +57,7 @@ Zarządzaj urządzeniami Red Sea ReefBeat **lokalnie** (bez chmury): ReefATO+, R
 - Obsługa wielu języków
 
 <!-- generated:beat-devices:start -->
+
 **Obsługiwane urządzenia:**
 
 > ✅ Wspierane &nbsp;|&nbsp; 🚧 W trakcie &nbsp;|&nbsp; 🧪 Nieprzetestowane (może działać) &nbsp;|&nbsp; ❌ Jeszcze niewspierane
@@ -74,6 +75,7 @@ Zarządzaj urządzeniami Red Sea ReefBeat **lokalnie** (bez chmury): ReefATO+, R
 | **ReefMat** | RSMAT250, RSMAT500, RSMAT1200 | ✅ |
 | **ReefRun** | RSRUN | ✅ |
 | **ReefWave** | RSWAVE25, RSWAVE45 | ✅ |
+
 <!-- generated:beat-devices:end -->
 
 **Specyfika ReefWave:** ReefWave to jedyne urządzenie powiązane z chmurą ReefBeat. Dostępne są trzy tryby pracy — Cloud, Lokalny i Hybrydowy — abyś mógł wybrać równowagę między pełną kontrolą lokalną a synchronizacją z aplikacją mobilną ReefBeat.
@@ -93,6 +95,7 @@ Zarządzaj urządzeniami Red Sea ReefBeat **lokalnie** (bez chmury): ReefATO+, R
 Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sam backend co oficjalna aplikacja Aqua Medic).
 
 <!-- generated:aqua-devices:start -->
+
 **Obsługiwane urządzenia:**
 
 > ✅ Wspierane &nbsp;|&nbsp; 🚧 W trakcie &nbsp;|&nbsp; 🧪 Nieprzetestowane (może działać) &nbsp;|&nbsp; ❌ Jeszcze niewspierane
@@ -105,6 +108,7 @@ Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sa
 | **Reefdoser EVO** (pompa dozująca) | ❌ — [Poproś o to](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **T-Controller Twin** (sterownik temperatury) | ❌ — [Poproś o to](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 | **Aquarius / Spectrus** (oświetlenie) | ❌ — [Poproś o to](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
+
 <!-- generated:aqua-devices:end -->
 
 **Funkcje EcoDrift / SmartDrift:**
@@ -124,6 +128,7 @@ Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sa
 ---
 
 <!-- generated:maintenance:start -->
+
 #### 🧰 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
 
 **Śledzenie konserwacji sprzętu, do którego Home Assistant nie ma dostępu.**
@@ -143,6 +148,7 @@ Pompy cyrkulacyjne, pompy obiegowe, odpieniacze, reaktory — wszystko, co czyś
 - Ten sam kontrakt `reef_role` co integracje podłączone: zadania trafiają do widoku konserwacji karty
 
 **Instalacja:** W HACS dodaj `https://github.com/Elwinmage/ha-reef-maintenance-component` jako niestandardowe repozytorium (Integracja).
+
 <!-- generated:maintenance:end -->
 
 ---
@@ -164,6 +170,7 @@ Pompy cyrkulacyjne, pompy obiegowe, odpieniacze, reaktory — wszystko, co czyś
 > Urządzenia innych producentów mogą być również obsługiwane — [zgłoś zapotrzebowanie tutaj](https://github.com/Elwinmage/ha-reef-card/discussions/2).
 
 <!-- generated:card-devices:start -->
+
 **Obsługiwane urządzenia:**
 
 > ✅ Wspierane &nbsp;|&nbsp; 🚧 W trakcie &nbsp;|&nbsp; 🧪 Nieprzetestowane (może działać) &nbsp;|&nbsp; ❌ Jeszcze niewspierane
@@ -180,6 +187,7 @@ Pompy cyrkulacyjne, pompy obiegowe, odpieniacze, reaktory — wszystko, co czyś
 | **ReefWave** | ❌ | [Zagłosuj na priorytet](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
 | **Aqua Medic EcoDrift / SmartDrift** | ❌ | [Zagłosuj na priorytet](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
 | **Aqua Medic DC Runner (return, skimmer)** | ❌ | [Zagłosuj na priorytet](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+
 <!-- generated:card-devices:end -->
 
 **Najważniejsze ReefDose:**
@@ -251,6 +259,7 @@ curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/i
 ---
 
 <!-- generated:blueprints:start -->
+
 #### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
 
 **Blueprinty powiadomień dla całego ekosystemu.**
@@ -261,6 +270,7 @@ curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/i
 Powiadamia na telefonie o zaległych konserwacjach, znajdowanych przez wspólny atrybut `reef_role`, dzięki czemu objęte są wszystkie integracje, oraz o urządzeniach, które przestały odpowiadać. Osiem języków, po jednym przycisku importu.
 
 **Instalacja:** import z repozytorium, jeden przycisk na język.
+
 <!-- generated:blueprints:end -->
 
 ---
@@ -308,9 +318,11 @@ Powiadamia na telefonie o zaległych konserwacjach, znajdowanych przez wspólny 
 ---
 
 <!-- generated:contact:start -->
+
 ## 💬 Kontakt i wsparcie
 
 - **Pytania i propozycje funkcji:** otwórz dyskusję w odpowiednim projekcie — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues)
 - **Zgłoszenia błędów:** otwórz issue w tym samym projekcie, ze szczegółami.
 - **Wesprzyj projekt:** [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)
+
 <!-- generated:contact:end -->

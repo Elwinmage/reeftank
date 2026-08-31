@@ -498,8 +498,13 @@ END = "<!-- generated:{name}:end -->"
 
 
 def block(name: str, body: str) -> str:
-    """Wrap generated content in its markers."""
-    return f"{START.format(name=name)}\n{body}\n{END.format(name=name)}"
+    """Wrap generated content in its markers.
+
+    Blank lines around the HTML comments are mandatory: kramdown requires
+    tables (and other block elements) to start and end on block boundaries.
+    Without them the pipe-table is not recognised and renders as inline text.
+    """
+    return f"{START.format(name=name)}\n\n{body}\n\n{END.format(name=name)}"
 
 
 def beat_table(lang: str) -> str:
