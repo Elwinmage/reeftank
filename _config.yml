@@ -1,5 +1,5 @@
 # Informations générales du site
-title: Elwinmage - Reef Tech Projects
+title: ReefTech Project Ecosystem
 description: Documentation of my reef tank projects and Home Assistant integrations.
 url: "https://elwinmage.github.io" # Remplace par ton URL si besoin
 baseurl: "/reeftank"              # Le nom de ton dépôt GitHub
