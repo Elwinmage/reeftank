@@ -106,16 +106,20 @@ generated_paths() {
   local repo="$1" candidates existing=""
   case "$repo" in
     reeftank)
-      candidates="index.md fr.md de.md es.md it.md pl.md pt.md _config.yml" ;;
+      # Ajout de scripts/gen_*.py et scripts/regen.sh
+      candidates="index.md fr.md de.md es.md it.md pl.md pt.md _config.yml scripts/regen.sh scripts/gen_*.py" ;;
     ha-reef-blueprints)
-      candidates="README.md doc blueprints/automation" ;;
+      candidates="README.md doc blueprints/automation scripts/gen_*.py" ;;
     *)
-      candidates="README.md README.fr.md doc" ;;
+      # Ajout de scripts/gen_*.py pour tous les autres dépôts qui en possèdent
+      candidates="README.md README.*.md doc scripts/gen_*.py" ;;
   esac
-  # Only the paths that exist: `git add` fails on a missing pathspec, and not
-  # every repository has a doc/ directory or a French README.
+
   for path in $candidates; do
-    [ -e "$repo/$path" ] && existing="$existing $path"
+    # Boucle pour étendre les jokers comme gen_*.py ou README.*.md
+    for expanded in $repo/$path; do
+      [ -e "$expanded" ] && existing="$existing ${expanded#$repo/}"
+    done
   done
   echo "$existing"
 }
