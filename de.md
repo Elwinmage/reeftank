@@ -206,12 +206,20 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 
 **Konfiguration:** Ohne den Parameter `device` erkennt die Karte automatisch alle ReefBeat-Geräte und lässt Sie wählen. Setzen Sie den Parameter `device`, um ein bestimmtes Gerät zu erzwingen.
 
+<!-- generated:card-videos:start -->
+
 <table>
 <tr>
-<td><a href="https://www.youtube.com/watch?v=Qee5LH0T9wQ"><img src="https://img.youtube.com/vi/Qee5LH0T9wQ/0.jpg" alt="ReefDose Demo" width="300"/></a><br/><em>ReefDose Demo</em></td>
-<td><a href="https://www.youtube.com/watch?v=yyNyUSitb1E"><img src="https://img.youtube.com/vi/yyNyUSitb1E/0.jpg" alt="ReefMat Demo" width="300"/></a><br/><em>ReefMat Demo</em></td>
+<td><a href="https://www.youtube.com/watch?v=Qee5LH0T9wQ"><img src="https://img.youtube.com/vi/Qee5LH0T9wQ/0.jpg" alt="ReefDose-Demo" width="300"/></a><br/><em>ReefDose-Demo</em></td>
+<td><a href="https://www.youtube.com/watch?v=yyNyUSitb1E"><img src="https://img.youtube.com/vi/yyNyUSitb1E/0.jpg" alt="ReefMat-Demo" width="300"/></a><br/><em>ReefMat-Demo</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=Xxv38OPqiGI"><img src="https://img.youtube.com/vi/Xxv38OPqiGI/0.jpg" alt="ReefRun-Demo" width="300"/></a><br/><em>ReefRun-Demo</em></td>
+<td><a href="https://www.youtube.com/watch?v=Ko46fHonOP4"><img src="https://img.youtube.com/vi/Ko46fHonOP4/0.jpg" alt="Wartungs-Demo" width="300"/></a><br/><em>Wartungs-Demo</em></td>
 </tr>
 </table>
+
+<!-- generated:card-videos:end -->
 
 ---
 

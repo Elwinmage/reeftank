@@ -206,12 +206,20 @@ La **Reef Card** per Home Assistant ti aiuta a gestire il tuo acquario di barrie
 
 **Configurazione:** Senza il parametro `device`, la scheda rileva automaticamente tutti i dispositivi ReefBeat e ti permette di scegliere. Imposta il parametro `device` per forzare un dispositivo specifico.
 
+<!-- generated:card-videos:start -->
+
 <table>
 <tr>
 <td><a href="https://www.youtube.com/watch?v=Qee5LH0T9wQ"><img src="https://img.youtube.com/vi/Qee5LH0T9wQ/0.jpg" alt="Demo ReefDose" width="300"/></a><br/><em>Demo ReefDose</em></td>
 <td><a href="https://www.youtube.com/watch?v=yyNyUSitb1E"><img src="https://img.youtube.com/vi/yyNyUSitb1E/0.jpg" alt="Demo ReefMat" width="300"/></a><br/><em>Demo ReefMat</em></td>
 </tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=Xxv38OPqiGI"><img src="https://img.youtube.com/vi/Xxv38OPqiGI/0.jpg" alt="Demo ReefRun" width="300"/></a><br/><em>Demo ReefRun</em></td>
+<td><a href="https://www.youtube.com/watch?v=Ko46fHonOP4"><img src="https://img.youtube.com/vi/Ko46fHonOP4/0.jpg" alt="Demo Manutenzione" width="300"/></a><br/><em>Demo Manutenzione</em></td>
+</tr>
 </table>
+
+<!-- generated:card-videos:end -->
 
 ---
 

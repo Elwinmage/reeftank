@@ -455,6 +455,69 @@ CARD_HIGHLIGHTS = {
     },
 }
 
+# Demo videos for the card section. Each entry is (youtube_id, label_key).
+# Set youtube_id to None for a placeholder (not yet published).
+# To add a new video: append one line here and one label per language below.
+CARD_VIDEOS = [
+    ("Qee5LH0T9wQ", "demo_dose"),
+    ("yyNyUSitb1E", "demo_mat"),
+    ("Xxv38OPqiGI", "demo_run"),
+    ("Ko46fHonOP4", "demo_maint"),
+    # (None, "demo_ato"),  # uncomment when the ReefATO+ video is published
+]
+
+VIDEO_LABELS = {
+    "en": {
+        "demo_dose": "ReefDose demo",
+        "demo_mat": "ReefMat demo",
+        "demo_run": "ReefRun demo",
+        "demo_maint": "Maintenance demo",
+        "demo_ato": "ReefATO+ demo",
+    },
+    "fr": {
+        "demo_dose": "Démo ReefDose",
+        "demo_mat": "Démo ReefMat",
+        "demo_run": "Démo ReefRun",
+        "demo_maint": "Démo Maintenance",
+        "demo_ato": "Démo ReefATO+",
+    },
+    "de": {
+        "demo_dose": "ReefDose-Demo",
+        "demo_mat": "ReefMat-Demo",
+        "demo_run": "ReefRun-Demo",
+        "demo_maint": "Wartungs-Demo",
+        "demo_ato": "ReefATO+-Demo",
+    },
+    "es": {
+        "demo_dose": "Demo ReefDose",
+        "demo_mat": "Demo ReefMat",
+        "demo_run": "Demo ReefRun",
+        "demo_maint": "Demo Mantenimiento",
+        "demo_ato": "Demo ReefATO+",
+    },
+    "it": {
+        "demo_dose": "Demo ReefDose",
+        "demo_mat": "Demo ReefMat",
+        "demo_run": "Demo ReefRun",
+        "demo_maint": "Demo Manutenzione",
+        "demo_ato": "Demo ReefATO+",
+    },
+    "pl": {
+        "demo_dose": "Demo ReefDose",
+        "demo_mat": "Demo ReefMat",
+        "demo_run": "Demo ReefRun",
+        "demo_maint": "Demo Konserwacja",
+        "demo_ato": "Demo ReefATO+",
+    },
+    "pt": {
+        "demo_dose": "Demo ReefDose",
+        "demo_mat": "Demo ReefMat",
+        "demo_run": "Demo ReefRun",
+        "demo_maint": "Demo Manutenção",
+        "demo_ato": "Demo ReefATO+",
+    },
+}
+
 BLUEPRINTS = {
     "en": (
         "Notification blueprints for the whole ecosystem.",
@@ -556,6 +619,37 @@ def card_table(lang: str) -> str:
         note = hi.get(key) or t["vote"]
         lines.append(f"| **{name}** | {t[status]} | {note} |")
     return "\n".join(lines)
+
+
+def card_videos(lang: str) -> str:
+    """Build the demo-video gallery for the card section.
+
+    Videos are rendered as an HTML table with two columns, wrapping to new
+    rows automatically.  Only entries with a non-None youtube_id are shown,
+    so uncommenting a line in CARD_VIDEOS is all it takes to publish a new
+    video on every language page.
+    """
+    labels = VIDEO_LABELS[lang]
+    active = [(vid, labels[key]) for vid, key in CARD_VIDEOS if vid is not None]
+    if not active:
+        return ""
+
+    cols = 2
+    cells = []
+    for vid, label in active:
+        thumb = f"https://img.youtube.com/vi/{vid}/0.jpg"
+        url = f"https://www.youtube.com/watch?v={vid}"
+        cells.append(
+            f'<td><a href="{url}">'
+            f'<img src="{thumb}" alt="{label}" width="300"/>'
+            f"</a><br/><em>{label}</em></td>"
+        )
+
+    rows = []
+    for i in range(0, len(cells), cols):
+        rows.append("<tr>\n" + "\n".join(cells[i : i + cols]) + "\n</tr>")
+
+    return "<table>\n" + "\n".join(rows) + "\n</table>"
 
 
 def blueprints_section(lang: str) -> str:
@@ -699,6 +793,32 @@ def apply(lang: str) -> None:
     text = replace_table(
         text, "card-devices", "#### 🪸 [ha-reef-card]", card_table(lang), lang
     )
+
+    # Card demo videos: generated gallery replaces the static HTML table.
+    videos_html = card_videos(lang)
+    if START.format(name="card-videos") in text:
+        pattern = re.compile(
+            re.escape(START.format(name="card-videos"))
+            + r".*?"
+            + re.escape(END.format(name="card-videos")),
+            re.DOTALL,
+        )
+        text = pattern.sub(lambda _: block("card-videos", videos_html), text, count=1)
+    else:
+        # First run: find the existing static <table> with youtube thumbnails
+        # and replace it with the generated block.
+        yt_table = re.search(
+            r"<table>\s*<tr>\s*<td><a href=\"https://www\.youtube\.com/watch\?v=.*?"
+            r"</table>",
+            text,
+            re.DOTALL,
+        )
+        if yt_table:
+            text = (
+                text[: yt_table.start()]
+                + block("card-videos", videos_html)
+                + text[yt_table.end() :]
+            )
 
     # Maintenance goes last among the integrations, right before the cards.
     if START.format(name="maintenance") in text:
