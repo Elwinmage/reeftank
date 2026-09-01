@@ -129,7 +129,7 @@ Contrôlez vos pompes Aqua Medic depuis Home Assistant via l'API cloud Gizwits (
 
 <!-- generated:maintenance:start -->
 
-#### 🧰 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
+#### 🐙 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
 
 **Suivi de maintenance pour le matériel que Home Assistant ne voit pas.**
 
@@ -270,7 +270,7 @@ Un assistant interactif configure tout : scan des appareils, capacité batterie,
 
 <!-- generated:blueprints:start -->
 
-#### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
+#### 🐬 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
 
 **Blueprints de notification pour tout l'écosystème.**
 

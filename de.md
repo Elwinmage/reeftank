@@ -129,7 +129,7 @@ Steuern Sie Ihre Aqua Medic Pumpen über Home Assistant mittels der Gizwits Clou
 
 <!-- generated:maintenance:start -->
 
-#### 🧰 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
+#### 🐙 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
 
 **Wartungsverfolgung für Geräte, die Home Assistant nicht erreicht.**
 
@@ -268,7 +268,7 @@ curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/i
 
 <!-- generated:blueprints:start -->
 
-#### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
+#### 🐬 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
 
 **Benachrichtigungs-Blueprints für das gesamte Ökosystem.**
 

@@ -129,7 +129,7 @@ Control your Aqua Medic pumps from Home Assistant via the Gizwits cloud API (sam
 
 <!-- generated:maintenance:start -->
 
-#### 🧰 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
+#### 🐙 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
 
 **Maintenance tracking for equipment Home Assistant cannot reach.**
 
@@ -270,7 +270,7 @@ An interactive wizard configures everything: device scan, battery capacity, SoC 
 
 <!-- generated:blueprints:start -->
 
-#### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
+#### 🐬 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
 
 **Notification blueprints for the whole ecosystem.**
 

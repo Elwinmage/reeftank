@@ -129,7 +129,7 @@ Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sa
 
 <!-- generated:maintenance:start -->
 
-#### 🧰 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
+#### 🐙 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)
 
 **Śledzenie konserwacji sprzętu, do którego Home Assistant nie ma dostępu.**
 
@@ -268,7 +268,7 @@ curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/i
 
 <!-- generated:blueprints:start -->
 
-#### 🔔 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
+#### 🐬 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
 
 **Blueprinty powiadomień dla całego ekosystemu.**
 

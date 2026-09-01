@@ -53,6 +53,15 @@ REPOS = [
     "reefbeatEnergyBackup",
 ]
 
+EMOJI = {
+    "ha-reefbeat-component": "🐠",
+    "ha-aquamedic-component": "🌊",
+    "ha-reef-maintenance-component": "🐙",
+    "ha-reef-card": "🪸",
+    "ha-reef-blueprints": "🐬",
+    "reefbeatEnergyBackup": "⚡",
+}
+
 # --------------------------------------------------------------------------
 # Translations. "d_<repo>" is the description cell for that project.
 # --------------------------------------------------------------------------
@@ -568,9 +577,11 @@ def build_block(current: str, lang: str) -> str:
             f'<img src="{RAW.format(repo=repo)}" width="{ICON_WIDTH}" alt="{repo}" />'
         )
         if repo == current:
-            label = f"<b>{repo}</b><br /><i>{t['this']}</i>"
+            emoji = EMOJI.get(repo, "")
+            label = f"{emoji}<br /><b>{repo}</b><br /><i>{t['this']}</i>"
         else:
-            label = f'<a href="{GH.format(repo=repo)}"><b>{repo}</b></a>'
+            emoji = EMOJI.get(repo, "")
+            label = f'{emoji}<br /><a href="{GH.format(repo=repo)}"><b>{repo}</b></a>'
         lines += [
             "  <tr>",
             f"    <td>{icon}</td>",

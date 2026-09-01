@@ -659,7 +659,7 @@ def blueprints_section(lang: str) -> str:
     """
     title, body, install = BLUEPRINTS[lang]
     repo = "https://github.com/Elwinmage/ha-reef-blueprints"
-    content = f"""#### 🔔 [ha-reef-blueprints]({repo})
+    content = f"""#### 🐬 [ha-reef-blueprints]({repo})
 
 **{title}**
 
@@ -675,7 +675,7 @@ def blueprints_section(lang: str) -> str:
 def maintenance_section(lang: str) -> str:
     t = T[lang]
     repo = "https://github.com/Elwinmage/ha-reef-maintenance-component"
-    body = f"""#### 🧰 [ha-reef-maintenance-component]({repo})
+    body = f"""#### 🐙 [ha-reef-maintenance-component]({repo})
 
 **{t["maint_title"]}**
 
