@@ -217,6 +217,9 @@ La **Reef Card** pour Home Assistant vous aide à gérer votre aquarium récifal
 <td><a href="https://www.youtube.com/watch?v=Xxv38OPqiGI"><img src="https://img.youtube.com/vi/Xxv38OPqiGI/0.jpg" alt="Démo ReefRun" width="300"/></a><br/><em>Démo ReefRun</em></td>
 <td><a href="https://www.youtube.com/watch?v=Ko46fHonOP4"><img src="https://img.youtube.com/vi/Ko46fHonOP4/0.jpg" alt="Démo Maintenance" width="300"/></a><br/><em>Démo Maintenance</em></td>
 </tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=BOEswDYcNO8"><img src="https://img.youtube.com/vi/BOEswDYcNO8/0.jpg" alt="Démo ReefATO+" width="300"/></a><br/><em>Démo ReefATO+</em></td>
+</tr>
 </table>
 
 <!-- generated:card-videos:end -->
