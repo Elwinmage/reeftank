@@ -463,7 +463,7 @@ CARD_VIDEOS = [
     ("yyNyUSitb1E", "demo_mat"),
     ("Xxv38OPqiGI", "demo_run"),
     ("Ko46fHonOP4", "demo_maint"),
-    ("BOEswDYcNO8", "demo_ato"),
+    ("2R0DHp2eqT4", "demo_ato"),
     # (None, "demo_ato"),  # uncomment when the ReefATO+ video is published
 ]
 
