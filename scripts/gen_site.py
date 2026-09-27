@@ -484,7 +484,7 @@ CARD_VIDEOS = [
     ("Ko46fHonOP4", "demo_maint"),
     ("2R0DHp2eqT4", "demo_ato"),
     # Shared by ReefControl and ReefControl-Power: set the id once published
-    (None, "demo_control"),
+    ("voFobfc7Slk", "demo_control"),
 ]
 
 # Card documentation pages showing each video, by page slug: the video link
