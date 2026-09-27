@@ -221,7 +221,6 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 </tr>
 <tr>
 <td><a href="https://www.youtube.com/watch?v=2R0DHp2eqT4"><img src="https://img.youtube.com/vi/2R0DHp2eqT4/0.jpg" alt="ReefATO+-Demo" width="300"/></a><br/><em>ReefATO+-Demo</em></td>
-<td><a href="https://www.youtube.com/watch?v=voFobfc7Slk"><img src="https://img.youtube.com/vi/voFobfc7Slk/0.jpg" alt="ReefControl- & ReefControl-Power-Demo" width="300"/></a><br/><em>ReefControl- & ReefControl-Power-Demo</em></td>
 </tr>
 </table>
 

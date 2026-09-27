@@ -12,6 +12,9 @@ What it owns:
   * the status legend, normalised on the one used by the READMEs
   * the contact section, which used to send every project's users to the
     ha-reefbeat-component tracker
+  * the demo video links at the top of the ha-reef-card device pages
+    (doc/*/<device>*.md), from CARD_VIDEOS: publishing a video is one id set
+    there
 
 Device statuses come from STATUS_* below and must match the compatibility
 tables in the READMEs; that divergence between site and repos is the reason
@@ -481,8 +484,27 @@ CARD_VIDEOS = [
     ("Ko46fHonOP4", "demo_maint"),
     ("2R0DHp2eqT4", "demo_ato"),
     # Shared by ReefControl and ReefControl-Power: set the id once published
-    ("voFobfc7Slk", "demo_control"),
+    (None, "demo_control"),
 ]
+
+# Card documentation pages showing each video, by page slug: the video link
+# at the top of doc/en/<slug>.md and doc/<lang>/<slug>.<lang>.md in
+# ha-reef-card is rewritten with the id above, so publishing a video is one
+# edit here. A None id leaves the pages alone (their VIDEO_ID placeholder).
+CARD_VIDEO_PAGES = {
+    "demo_dose": ["reefdose"],
+    "demo_mat": ["reefmat"],
+    "demo_run": ["reefrun"],
+    "demo_maint": ["maintenance"],
+    "demo_ato": ["reefato"],
+    "demo_control": ["reefcontrol", "reefcontrol-power"],
+}
+
+# A YouTube thumbnail linking to its video, whatever id (or placeholder) it
+# currently carries: both ids are replaced together.
+_VIDEO_LINK = re.compile(
+    r"(https://img\.youtube\.com/vi/)[A-Za-z0-9_-]+(/0\.jpg\)\]\(https://www\.youtube\.com/watch\?v=)[A-Za-z0-9_-]+"
+)
 
 VIDEO_LABELS = {
     "en": {
@@ -898,9 +920,37 @@ def apply(lang: str) -> None:
     print("updated", path)
 
 
+def card_video_pages(card: Path = Path("ha-reef-card")) -> None:
+    """Put the published video ids into the card documentation pages.
+
+    Each page shows one video, at its top. Pages of a video without an id
+    yet are left as they are.
+    """
+    if not (card / "doc").is_dir():
+        print(f"skipped card video links: {card}/doc not found")
+        return
+    for vid, key in CARD_VIDEOS:
+        if vid is None:
+            continue
+        for slug in CARD_VIDEO_PAGES.get(key, []):
+            pages = [card / "doc" / "en" / f"{slug}.md"]
+            pages += sorted((card / "doc").glob(f"*/{slug}.*.md"))
+            for page in pages:
+                if not page.is_file():
+                    continue
+                text = page.read_text(encoding="utf-8")
+                new = _VIDEO_LINK.sub(
+                    lambda m: f"{m.group(1)}{vid}{m.group(2)}{vid}", text
+                )
+                if new != text:
+                    page.write_text(new, encoding="utf-8")
+                    print("updated", page)
+
+
 def main() -> None:
     for lang in LANGS:
         apply(lang)
+    card_video_pages()
 
 
 if __name__ == "__main__":

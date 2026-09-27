@@ -72,7 +72,7 @@ step "Maintenance README (8 languages)"
 # 2. Cross-repo generators
 # ---------------------------------------------------------------------------
 
-step "Documentation site (7 pages)"
+step "Documentation site (7 pages) and card video links"
 python3 reeftank/scripts/gen_site.py
 
 step "Related projects block (40 files, 6 repositories)"
