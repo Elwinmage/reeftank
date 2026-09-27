@@ -64,9 +64,11 @@ CARD_DEVICES = [
     ("ReefMat (RSMAT250/500/1200)", OK, "mat"),
     ("ReefRun (RSRUN)", OK, "run"),
     ("ReefATO+", OK, "ato"),
-    ("ReefControl-Power (RSPOWER6/8)", WIP, "power"),
-    ("ReefControl (RSCONTROLPRO/LITE)", NO, "vote"),
-    ("ReefLed (G1/G2)", NO, "vote"),
+    ("ReefControl (RSCONTROLPRO)", OK, "control"),
+    ("ReefControl (RSCONTROLLITE)", UNTESTED, "control"),
+    ("ReefControl-Power (RSPOWER6)", OK, "power"),
+    ("ReefControl-Power (RSPOWER8)", UNTESTED, "power"),
+    ("ReefLed (G1/G2)", WIP, "led"),
     ("ReefWave", NO, "vote"),
     ("Aqua Medic EcoDrift / SmartDrift", NO, "vote"),
     ("Aqua Medic DC Runner (return, skimmer)", NO, "vote"),
@@ -402,7 +404,9 @@ CARD_HIGHLIGHTS = {
         "mat": "Animated roll status, manual/auto/scheduled advance, sensor status, weekly and monthly graphs",
         "run": "Pump speed control, schedule editor, overskimming management",
         "ato": "Water level, leak probe, pump diagnostics, consumption graph, leak buzzer",
-        "power": "Per-socket control",
+        "control": "Probes with level bars and 24 h history, guided pH/EC/ORP/temperature calibration, 12V ports, ATO, buzzer, paired power center",
+        "power": "Per-socket control, on/off/schedule/probe modes, linked devices, local temperature probe or ReefControl link",
+        "led": "Next step on the roadmap",
         "vote": None,
     },
     "fr": {
@@ -410,7 +414,9 @@ CARD_HIGHLIGHTS = {
         "mat": "État du rouleau animé, avance manuelle/auto/programmée, état du capteur, graphiques hebdo et mensuels",
         "run": "Contrôle de la vitesse de pompe, éditeur de programmes, gestion du surécumage",
         "ato": "Niveau d'eau, sonde de fuite, diagnostic pompe, graphe de consommation, buzzer de fuite",
-        "power": "Contrôle par prise",
+        "control": "Sondes avec barres de niveau et historique 24 h, calibration guidée pH/EC/ORP/température, ports 12V, ATO, buzzer, multiprise appairée",
+        "power": "Contrôle par prise, modes marche/arrêt/programme/sonde, appareils liés, sonde de température locale ou lien ReefControl",
+        "led": "Prochaine étape de la feuille de route",
         "vote": None,
     },
     "de": {
@@ -418,7 +424,9 @@ CARD_HIGHLIGHTS = {
         "mat": "Animierter Rollenstatus, manueller/automatischer/geplanter Vorschub, Sensorstatus, Wochen- und Monatsgrafiken",
         "run": "Pumpendrehzahl, Zeitplan-Editor, Überschäumen-Verwaltung",
         "ato": "Wasserstand, Lecksonde, Pumpendiagnose, Verbrauchsdiagramm, Leck-Summer",
-        "power": "Steuerung pro Steckdose",
+        "control": "Sonden mit Pegelbalken und 24-h-Verlauf, geführte pH/EC/ORP/Temperatur-Kalibrierung, 12V-Ports, ATO, Summer, gekoppelte Steckdosenleiste",
+        "power": "Steuerung pro Steckdose, Modi Ein/Aus/Zeitplan/Sonde, verknüpfte Geräte, lokale Temperatursonde oder ReefControl-Verbindung",
+        "led": "Nächster Schritt auf der Roadmap",
         "vote": None,
     },
     "es": {
@@ -426,7 +434,9 @@ CARD_HIGHLIGHTS = {
         "mat": "Estado del rollo animado, avance manual/automático/programado, estado del sensor, gráficos semanales y mensuales",
         "run": "Control de velocidad de bomba, editor de programas, gestión del sobreespumado",
         "ato": "Nivel de agua, sonda de fugas, diagnóstico de bomba, gráfico de consumo, zumbador de fuga",
-        "power": "Control por toma",
+        "control": "Sondas con barras de nivel e historial de 24 h, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada",
+        "power": "Control por toma, modos encendido/apagado/programa/sonda, dispositivos vinculados, sonda de temperatura local o enlace ReefControl",
+        "led": "Próximo paso de la hoja de ruta",
         "vote": None,
     },
     "it": {
@@ -434,7 +444,9 @@ CARD_HIGHLIGHTS = {
         "mat": "Stato del rotolo animato, avanzamento manuale/automatico/programmato, stato del sensore, grafici settimanali e mensili",
         "run": "Controllo della velocità della pompa, editor dei programmi, gestione della sovraschiumazione",
         "ato": "Livello dell'acqua, sonda perdite, diagnostica pompa, grafico dei consumi, buzzer perdite",
-        "power": "Controllo per presa",
+        "control": "Sonde con barre di livello e storico 24 h, calibrazione guidata pH/EC/ORP/temperatura, porte 12V, ATO, buzzer, multipresa associata",
+        "power": "Controllo per presa, modalità acceso/spento/programma/sonda, dispositivi collegati, sonda di temperatura locale o collegamento ReefControl",
+        "led": "Prossimo passo della roadmap",
         "vote": None,
     },
     "pl": {
@@ -442,7 +454,9 @@ CARD_HIGHLIGHTS = {
         "mat": "Animowany stan rolki, przesuw ręczny/automatyczny/zaplanowany, stan czujnika, wykresy tygodniowe i miesięczne",
         "run": "Sterowanie prędkością pompy, edytor harmonogramów, zarządzanie nadmiernym odpienianiem",
         "ato": "Poziom wody, sonda wycieku, diagnostyka pompy, wykres zużycia, buzzer wycieku",
-        "power": "Sterowanie per gniazdo",
+        "control": "Sondy z paskami poziomu i historią 24 h, prowadzona kalibracja pH/EC/ORP/temperatury, porty 12V, ATO, buzzer, sparowana listwa zasilająca",
+        "power": "Sterowanie per gniazdo, tryby wł./wył./harmonogram/sonda, powiązane urządzenia, lokalna sonda temperatury lub połączenie z ReefControl",
+        "led": "Następny krok w planie rozwoju",
         "vote": None,
     },
     "pt": {
@@ -450,7 +464,9 @@ CARD_HIGHLIGHTS = {
         "mat": "Estado do rolo animado, avanço manual/automático/programado, estado do sensor, gráficos semanais e mensais",
         "run": "Controlo da velocidade da bomba, editor de programas, gestão da sobre-escumação",
         "ato": "Nível de água, sonda de fugas, diagnóstico da bomba, gráfico de consumo, buzzer de fuga",
-        "power": "Controlo por tomada",
+        "control": "Sondas com barras de nível e histórico de 24 h, calibração guiada pH/EC/ORP/temperatura, portas 12V, ATO, buzzer, régua emparelhada",
+        "power": "Controlo por tomada, modos ligado/desligado/programa/sonda, aparelhos associados, sonda de temperatura local ou ligação ReefControl",
+        "led": "Próximo passo do roteiro",
         "vote": None,
     },
 }
@@ -464,7 +480,8 @@ CARD_VIDEOS = [
     ("Xxv38OPqiGI", "demo_run"),
     ("Ko46fHonOP4", "demo_maint"),
     ("2R0DHp2eqT4", "demo_ato"),
-    # (None, "demo_ato"),  # uncomment when the ReefATO+ video is published
+    # Shared by ReefControl and ReefControl-Power: set the id once published
+    ("voFobfc7Slk", "demo_control"),
 ]
 
 VIDEO_LABELS = {
@@ -474,6 +491,7 @@ VIDEO_LABELS = {
         "demo_run": "ReefRun demo",
         "demo_maint": "Maintenance demo",
         "demo_ato": "ReefATO+ demo",
+        "demo_control": "ReefControl & ReefControl-Power demo",
     },
     "fr": {
         "demo_dose": "Démo ReefDose",
@@ -481,6 +499,7 @@ VIDEO_LABELS = {
         "demo_run": "Démo ReefRun",
         "demo_maint": "Démo Maintenance",
         "demo_ato": "Démo ReefATO+",
+        "demo_control": "Démo ReefControl & ReefControl-Power",
     },
     "de": {
         "demo_dose": "ReefDose-Demo",
@@ -488,6 +507,7 @@ VIDEO_LABELS = {
         "demo_run": "ReefRun-Demo",
         "demo_maint": "Wartungs-Demo",
         "demo_ato": "ReefATO+-Demo",
+        "demo_control": "ReefControl- & ReefControl-Power-Demo",
     },
     "es": {
         "demo_dose": "Demo ReefDose",
@@ -495,6 +515,7 @@ VIDEO_LABELS = {
         "demo_run": "Demo ReefRun",
         "demo_maint": "Demo Mantenimiento",
         "demo_ato": "Demo ReefATO+",
+        "demo_control": "Demo ReefControl & ReefControl-Power",
     },
     "it": {
         "demo_dose": "Demo ReefDose",
@@ -502,6 +523,7 @@ VIDEO_LABELS = {
         "demo_run": "Demo ReefRun",
         "demo_maint": "Demo Manutenzione",
         "demo_ato": "Demo ReefATO+",
+        "demo_control": "Demo ReefControl & ReefControl-Power",
     },
     "pl": {
         "demo_dose": "Demo ReefDose",
@@ -509,6 +531,7 @@ VIDEO_LABELS = {
         "demo_run": "Demo ReefRun",
         "demo_maint": "Demo Konserwacja",
         "demo_ato": "Demo ReefATO+",
+        "demo_control": "Demo ReefControl & ReefControl-Power",
     },
     "pt": {
         "demo_dose": "Demo ReefDose",
@@ -516,6 +539,7 @@ VIDEO_LABELS = {
         "demo_run": "Demo ReefRun",
         "demo_maint": "Demo Manutenção",
         "demo_ato": "Demo ReefATO+",
+        "demo_control": "Demo ReefControl & ReefControl-Power",
     },
 }
 

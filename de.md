@@ -181,9 +181,11 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 | **ReefMat (RSMAT250/500/1200)** | ✅ | Animierter Rollenstatus, manueller/automatischer/geplanter Vorschub, Sensorstatus, Wochen- und Monatsgrafiken |
 | **ReefRun (RSRUN)** | ✅ | Pumpendrehzahl, Zeitplan-Editor, Überschäumen-Verwaltung |
 | **ReefATO+** | ✅ | Wasserstand, Lecksonde, Pumpendiagnose, Verbrauchsdiagramm, Leck-Summer |
-| **ReefControl-Power (RSPOWER6/8)** | 🚧 | Steuerung pro Steckdose |
-| **ReefControl (RSCONTROLPRO/LITE)** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **ReefLed (G1/G2)** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **ReefControl (RSCONTROLPRO)** | ✅ | Sonden mit Pegelbalken und 24-h-Verlauf, geführte pH/EC/ORP/Temperatur-Kalibrierung, 12V-Ports, ATO, Summer, gekoppelte Steckdosenleiste |
+| **ReefControl (RSCONTROLLITE)** | 🧪 | Sonden mit Pegelbalken und 24-h-Verlauf, geführte pH/EC/ORP/Temperatur-Kalibrierung, 12V-Ports, ATO, Summer, gekoppelte Steckdosenleiste |
+| **ReefControl-Power (RSPOWER6)** | ✅ | Steuerung pro Steckdose, Modi Ein/Aus/Zeitplan/Sonde, verknüpfte Geräte, lokale Temperatursonde oder ReefControl-Verbindung |
+| **ReefControl-Power (RSPOWER8)** | 🧪 | Steuerung pro Steckdose, Modi Ein/Aus/Zeitplan/Sonde, verknüpfte Geräte, lokale Temperatursonde oder ReefControl-Verbindung |
+| **ReefLed (G1/G2)** | 🚧 | Nächster Schritt auf der Roadmap |
 | **ReefWave** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
 | **Aqua Medic EcoDrift / SmartDrift** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
 | **Aqua Medic DC Runner (return, skimmer)** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
@@ -219,6 +221,7 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 </tr>
 <tr>
 <td><a href="https://www.youtube.com/watch?v=2R0DHp2eqT4"><img src="https://img.youtube.com/vi/2R0DHp2eqT4/0.jpg" alt="ReefATO+-Demo" width="300"/></a><br/><em>ReefATO+-Demo</em></td>
+<td><a href="https://www.youtube.com/watch?v=voFobfc7Slk"><img src="https://img.youtube.com/vi/voFobfc7Slk/0.jpg" alt="ReefControl- & ReefControl-Power-Demo" width="300"/></a><br/><em>ReefControl- & ReefControl-Power-Demo</em></td>
 </tr>
 </table>
 

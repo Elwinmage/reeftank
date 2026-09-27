@@ -85,12 +85,29 @@ python3 reeftank/scripts/gen_ecosystem.py
 step "Validate the blueprints"
 (cd ha-reef-blueprints && python3 scripts/check_blueprints.py)
 
+# Every repository shipping scripts/check_doc_images.py checks its own
+# markdown, sibling checkouts included (images referenced across repos).
+# Blocking: nothing is offered for commit while an image is broken. All the
+# repositories are checked first, so one run reports every problem.
+step "Check the documentation images"
+broken=()
+for repo in "${REPOS[@]}"; do
+  [ -f "$repo/scripts/check_doc_images.py" ] || continue
+  printf -- '--- %s\n' "$repo"
+  (cd "$repo" && python3 scripts/check_doc_images.py) || broken+=("$repo")
+done
+if [ ${#broken[@]} -gt 0 ]; then
+  printf '\nBroken images in: %s\n' "${broken[*]}" >&2
+  echo "Fix them, then run this script again. Nothing was committed." >&2
+  exit 1
+fi
+
 # ha-reef-card is the only repository whose markdown is under prettier, and
 # the injected block leaves it non-conforming. Skipped when npx is absent so
 # the script still works without a Node toolchain.
 if command -v npx >/dev/null 2>&1; then
   step "Format the card markdown"
-  (cd ha-reef-card && npx --yes prettier --write README.md doc/*/README.*.md >/dev/null)
+  (cd ha-reef-card && npx --yes prettier --write README.md "doc/*/*.md" >/dev/null)
 else
   printf '\n=== Skipping prettier: npx not found\n' >&2
   echo "    Run it in ha-reef-card before committing." >&2
