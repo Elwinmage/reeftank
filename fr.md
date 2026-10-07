@@ -105,9 +105,6 @@ Contrôlez vos pompes Aqua Medic depuis Home Assistant via l'API cloud Gizwits (
 | **EcoDrift / SmartDrift x.1 / x.3** (brassage) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (pompe de remontée) | ✅ |
 | **DC Runner** (pompe d'écumeur) | ✅ |
-| **Reefdoser EVO** (pompe doseuse) | ❌ — [Demandez-le](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **T-Controller Twin** (contrôleur de température) | ❌ — [Demandez-le](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **Aquarius / Spectrus** (éclairage) | ❌ — [Demandez-le](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 
 <!-- generated:aqua-devices:end -->
 
@@ -185,10 +182,11 @@ La **Reef Card** pour Home Assistant vous aide à gérer votre aquarium récifal
 | **ReefControl (RSCONTROLLITE)** | 🧪 | Sondes avec barres de niveau et historique 24 h, calibration guidée pH/EC/ORP/température, ports 12V, ATO, buzzer, multiprise appairée |
 | **ReefControl-Power (RSPOWER6)** | ✅ | Contrôle par prise, modes marche/arrêt/programme/sonde, appareils liés, sonde de température locale ou lien ReefControl |
 | **ReefControl-Power (RSPOWER8)** | 🧪 | Contrôle par prise, modes marche/arrêt/programme/sonde, appareils liés, sonde de température locale ou lien ReefControl |
-| **ReefLed (G1/G2)** | 🚧 | Prochaine étape de la feuille de route |
-| **ReefWave** | ❌ | [Voter pour la priorité](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic EcoDrift / SmartDrift** | ❌ | [Voter pour la priorité](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic DC Runner (return, skimmer)** | ❌ | [Voter pour la priorité](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **ReefLed (G1)** | ✅ | Ciel avec soleil et lune, faisceau avec le programme du jour, curseurs intensité/couleur ou blanc/bleu, éditeur de programmes (kelvin ou blanc/bleu, nuages), mode météo, groupes avec lever décalé, acclimatation |
+| **ReefLed (G2)** | 🧪 | Ciel avec soleil et lune, faisceau avec le programme du jour, curseurs intensité/couleur ou blanc/bleu, éditeur de programmes (kelvin ou blanc/bleu, nuages), mode météo, groupes avec lever décalé, acclimatation |
+| **ReefWave (RSWAVE25/45)** | ✅ | Vue animée de la pompe, vitesse et direction, librairie de vagues, éditeur de programme par créneaux, groupes de pompes |
+| **Aqua Medic EcoDrift / SmartDrift** | ✅ | Vitesse de la pompe sur l'image, défauts, pause nourrissage, éditeur de programme par créneaux |
+| **Aqua Medic DC Runner (return, skimmer)** | ✅ | Vue pompe de remontée ou d'écumeur selon le rôle de l'intégration, vitesse, défauts, éditeur de programme par créneaux |
 
 <!-- generated:card-devices:end -->
 
@@ -222,6 +220,13 @@ La **Reef Card** pour Home Assistant vous aide à gérer votre aquarium récifal
 <tr>
 <td><a href="https://www.youtube.com/watch?v=2R0DHp2eqT4"><img src="https://img.youtube.com/vi/2R0DHp2eqT4/0.jpg" alt="Démo ReefATO+" width="300"/></a><br/><em>Démo ReefATO+</em></td>
 <td><a href="https://www.youtube.com/watch?v=voFobfc7Slk"><img src="https://img.youtube.com/vi/voFobfc7Slk/0.jpg" alt="Démo ReefControl & ReefControl-Power" width="300"/></a><br/><em>Démo ReefControl & ReefControl-Power</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=pA49z8QjTN4"><img src="https://img.youtube.com/vi/pA49z8QjTN4/0.jpg" alt="Démo ReefLed" width="300"/></a><br/><em>Démo ReefLed</em></td>
+<td><a href="https://www.youtube.com/watch?v=sYVeE0zV3eo"><img src="https://img.youtube.com/vi/sYVeE0zV3eo/0.jpg" alt="Démo ReefWave" width="300"/></a><br/><em>Démo ReefWave</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Démo Aqua Medic" width="300"/></a><br/><em>Démo Aqua Medic</em></td>
 </tr>
 </table>
 

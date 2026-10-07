@@ -105,9 +105,6 @@ Control your Aqua Medic pumps from Home Assistant via the Gizwits cloud API (sam
 | **EcoDrift / SmartDrift x.1 / x.3** (wavemaker) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (return pump) | ✅ |
 | **DC Runner** (skimmer pump) | ✅ |
-| **Reefdoser EVO** (dosing pump) | ❌ — [Ask for it](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **T-Controller Twin** (temperature controller) | ❌ — [Ask for it](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **Aquarius / Spectrus** (lighting) | ❌ — [Ask for it](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 
 <!-- generated:aqua-devices:end -->
 
@@ -185,10 +182,11 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
 | **ReefControl (RSCONTROLLITE)** | 🧪 | Probes with level bars and 24 h history, guided pH/EC/ORP/temperature calibration, 12V ports, ATO, buzzer, paired power center |
 | **ReefControl-Power (RSPOWER6)** | ✅ | Per-socket control, on/off/schedule/probe modes, linked devices, local temperature probe or ReefControl link |
 | **ReefControl-Power (RSPOWER8)** | 🧪 | Per-socket control, on/off/schedule/probe modes, linked devices, local temperature probe or ReefControl link |
-| **ReefLed (G1/G2)** | 🚧 | Next step on the roadmap |
-| **ReefWave** | ❌ | [Vote for priority](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic EcoDrift / SmartDrift** | ❌ | [Vote for priority](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic DC Runner (return, skimmer)** | ❌ | [Vote for priority](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **ReefLed (G1)** | ✅ | Sky with sun and moon, beam with the day's program, intensity/colour or white/blue sliders, program editor (kelvin or white/blue, clouds), weather mode, groups with staggered sunrise, acclimation |
+| **ReefLed (G2)** | 🧪 | Sky with sun and moon, beam with the day's program, intensity/colour or white/blue sliders, program editor (kelvin or white/blue, clouds), weather mode, groups with staggered sunrise, acclimation |
+| **ReefWave (RSWAVE25/45)** | ✅ | Animated pump view, speed and direction, wave library, schedule editor with time slots, pump groups |
+| **Aqua Medic EcoDrift / SmartDrift** | ✅ | Pump speed on the picture, faults, feed pause, time-slot program editor |
+| **Aqua Medic DC Runner (return, skimmer)** | ✅ | Return or skimmer pump view following the integration's role, speed, faults, time-slot program editor |
 
 <!-- generated:card-devices:end -->
 
@@ -222,6 +220,13 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
 <tr>
 <td><a href="https://www.youtube.com/watch?v=2R0DHp2eqT4"><img src="https://img.youtube.com/vi/2R0DHp2eqT4/0.jpg" alt="ReefATO+ demo" width="300"/></a><br/><em>ReefATO+ demo</em></td>
 <td><a href="https://www.youtube.com/watch?v=voFobfc7Slk"><img src="https://img.youtube.com/vi/voFobfc7Slk/0.jpg" alt="ReefControl & ReefControl-Power demo" width="300"/></a><br/><em>ReefControl & ReefControl-Power demo</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=pA49z8QjTN4"><img src="https://img.youtube.com/vi/pA49z8QjTN4/0.jpg" alt="ReefLed demo" width="300"/></a><br/><em>ReefLed demo</em></td>
+<td><a href="https://www.youtube.com/watch?v=sYVeE0zV3eo"><img src="https://img.youtube.com/vi/sYVeE0zV3eo/0.jpg" alt="ReefWave demo" width="300"/></a><br/><em>ReefWave demo</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Aqua Medic demo" width="300"/></a><br/><em>Aqua Medic demo</em></td>
 </tr>
 </table>
 

@@ -105,9 +105,6 @@ Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sa
 | **EcoDrift / SmartDrift x.1 / x.3** (cyrkulacyjna) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (pompa obiegowa) | ✅ |
 | **DC Runner** (pompa odpieniacza) | ✅ |
-| **Reefdoser EVO** (pompa dozująca) | ❌ — [Poproś o to](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **T-Controller Twin** (sterownik temperatury) | ❌ — [Poproś o to](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **Aquarius / Spectrus** (oświetlenie) | ❌ — [Poproś o to](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 
 <!-- generated:aqua-devices:end -->
 
@@ -185,10 +182,11 @@ Pompy cyrkulacyjne, pompy obiegowe, odpieniacze, reaktory — wszystko, co czyś
 | **ReefControl (RSCONTROLLITE)** | 🧪 | Sondy z paskami poziomu i historią 24 h, prowadzona kalibracja pH/EC/ORP/temperatury, porty 12V, ATO, buzzer, sparowana listwa zasilająca |
 | **ReefControl-Power (RSPOWER6)** | ✅ | Sterowanie per gniazdo, tryby wł./wył./harmonogram/sonda, powiązane urządzenia, lokalna sonda temperatury lub połączenie z ReefControl |
 | **ReefControl-Power (RSPOWER8)** | 🧪 | Sterowanie per gniazdo, tryby wł./wył./harmonogram/sonda, powiązane urządzenia, lokalna sonda temperatury lub połączenie z ReefControl |
-| **ReefLed (G1/G2)** | 🚧 | Następny krok w planie rozwoju |
-| **ReefWave** | ❌ | [Zagłosuj na priorytet](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic EcoDrift / SmartDrift** | ❌ | [Zagłosuj na priorytet](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic DC Runner (return, skimmer)** | ❌ | [Zagłosuj na priorytet](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **ReefLed (G1)** | ✅ | Niebo ze słońcem i księżycem, wiązka z programem dnia, suwaki intensywność/kolor lub biały/niebieski, edytor programów (kelwiny lub biały/niebieski, chmury), tryb pogodowy, grupy z przesuniętym wschodem, aklimatyzacja |
+| **ReefLed (G2)** | 🧪 | Niebo ze słońcem i księżycem, wiązka z programem dnia, suwaki intensywność/kolor lub biały/niebieski, edytor programów (kelwiny lub biały/niebieski, chmury), tryb pogodowy, grupy z przesuniętym wschodem, aklimatyzacja |
+| **ReefWave (RSWAVE25/45)** | ✅ | Animowany widok pompy, prędkość i kierunek, biblioteka fal, edytor harmonogramu w przedziałach czasu, grupy pomp |
+| **Aqua Medic EcoDrift / SmartDrift** | ✅ | Prędkość pompy na obrazie, usterki, pauza karmienia, edytor programu w przedziałach czasu |
+| **Aqua Medic DC Runner (return, skimmer)** | ✅ | Widok pompy powrotnej lub odpieniacza zgodnie z rolą w integracji, prędkość, usterki, edytor programu w przedziałach czasu |
 
 <!-- generated:card-devices:end -->
 
@@ -222,6 +220,13 @@ Pompy cyrkulacyjne, pompy obiegowe, odpieniacze, reaktory — wszystko, co czyś
 <tr>
 <td><a href="https://www.youtube.com/watch?v=2R0DHp2eqT4"><img src="https://img.youtube.com/vi/2R0DHp2eqT4/0.jpg" alt="Demo ReefATO+" width="300"/></a><br/><em>Demo ReefATO+</em></td>
 <td><a href="https://www.youtube.com/watch?v=voFobfc7Slk"><img src="https://img.youtube.com/vi/voFobfc7Slk/0.jpg" alt="Demo ReefControl & ReefControl-Power" width="300"/></a><br/><em>Demo ReefControl & ReefControl-Power</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=pA49z8QjTN4"><img src="https://img.youtube.com/vi/pA49z8QjTN4/0.jpg" alt="Demo ReefLed" width="300"/></a><br/><em>Demo ReefLed</em></td>
+<td><a href="https://www.youtube.com/watch?v=sYVeE0zV3eo"><img src="https://img.youtube.com/vi/sYVeE0zV3eo/0.jpg" alt="Demo ReefWave" width="300"/></a><br/><em>Demo ReefWave</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Demo Aqua Medic" width="300"/></a><br/><em>Demo Aqua Medic</em></td>
 </tr>
 </table>
 

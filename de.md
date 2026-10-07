@@ -105,9 +105,6 @@ Steuern Sie Ihre Aqua Medic Pumpen über Home Assistant mittels der Gizwits Clou
 | **EcoDrift / SmartDrift x.1 / x.3** (Strömungspumpe) | ✅ |
 | **DC Runner x.1 / x.2 / x.3** (Rückförderpumpe) | ✅ |
 | **DC Runner** (Abschäumerpumpe) | ✅ |
-| **Reefdoser EVO** (Dosierpumpe) | ❌ — [Anfragen](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **T-Controller Twin** (Temperaturregler) | ❌ — [Anfragen](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
-| **Aquarius / Spectrus** (Beleuchtung) | ❌ — [Anfragen](https://github.com/Elwinmage/ha-aquamedic-component/discussions) |
 
 <!-- generated:aqua-devices:end -->
 
@@ -185,10 +182,11 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 | **ReefControl (RSCONTROLLITE)** | 🧪 | Sonden mit Pegelbalken und 24-h-Verlauf, geführte pH/EC/ORP/Temperatur-Kalibrierung, 12V-Ports, ATO, Summer, gekoppelte Steckdosenleiste |
 | **ReefControl-Power (RSPOWER6)** | ✅ | Steuerung pro Steckdose, Modi Ein/Aus/Zeitplan/Sonde, verknüpfte Geräte, lokale Temperatursonde oder ReefControl-Verbindung |
 | **ReefControl-Power (RSPOWER8)** | 🧪 | Steuerung pro Steckdose, Modi Ein/Aus/Zeitplan/Sonde, verknüpfte Geräte, lokale Temperatursonde oder ReefControl-Verbindung |
-| **ReefLed (G1/G2)** | 🚧 | Nächster Schritt auf der Roadmap |
-| **ReefWave** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic EcoDrift / SmartDrift** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
-| **Aqua Medic DC Runner (return, skimmer)** | ❌ | [Für Priorität abstimmen](https://github.com/Elwinmage/ha-reef-card/discussions/22) |
+| **ReefLed (G1)** | ✅ | Himmel mit Sonne und Mond, Lichtkegel mit dem Tagesprogramm, Regler für Intensität/Farbe oder Weiß/Blau, Programm-Editor (Kelvin oder Weiß/Blau, Wolken), Wettermodus, Gruppen mit versetztem Sonnenaufgang, Akklimatisierung |
+| **ReefLed (G2)** | 🧪 | Himmel mit Sonne und Mond, Lichtkegel mit dem Tagesprogramm, Regler für Intensität/Farbe oder Weiß/Blau, Programm-Editor (Kelvin oder Weiß/Blau, Wolken), Wettermodus, Gruppen mit versetztem Sonnenaufgang, Akklimatisierung |
+| **ReefWave (RSWAVE25/45)** | ✅ | Animierte Pumpenansicht, Geschwindigkeit und Richtung, Wellenbibliothek, Zeitplan-Editor mit Zeitfenstern, Pumpengruppen |
+| **Aqua Medic EcoDrift / SmartDrift** | ✅ | Pumpendrehzahl im Bild, Störungen, Fütterungspause, Zeitfenster-Programm-Editor |
+| **Aqua Medic DC Runner (return, skimmer)** | ✅ | Ansicht als Förder- oder Abschäumerpumpe je nach Rolle in der Integration, Drehzahl, Störungen, Zeitfenster-Programm-Editor |
 
 <!-- generated:card-devices:end -->
 
@@ -222,6 +220,13 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 <tr>
 <td><a href="https://www.youtube.com/watch?v=2R0DHp2eqT4"><img src="https://img.youtube.com/vi/2R0DHp2eqT4/0.jpg" alt="ReefATO+-Demo" width="300"/></a><br/><em>ReefATO+-Demo</em></td>
 <td><a href="https://www.youtube.com/watch?v=voFobfc7Slk"><img src="https://img.youtube.com/vi/voFobfc7Slk/0.jpg" alt="ReefControl- & ReefControl-Power-Demo" width="300"/></a><br/><em>ReefControl- & ReefControl-Power-Demo</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=pA49z8QjTN4"><img src="https://img.youtube.com/vi/pA49z8QjTN4/0.jpg" alt="ReefLed-Demo" width="300"/></a><br/><em>ReefLed-Demo</em></td>
+<td><a href="https://www.youtube.com/watch?v=sYVeE0zV3eo"><img src="https://img.youtube.com/vi/sYVeE0zV3eo/0.jpg" alt="ReefWave-Demo" width="300"/></a><br/><em>ReefWave-Demo</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Aqua-Medic-Demo" width="300"/></a><br/><em>Aqua-Medic-Demo</em></td>
 </tr>
 </table>
 

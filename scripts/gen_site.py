@@ -15,6 +15,8 @@ What it owns:
   * the demo video links at the top of the ha-reef-card device pages
     (doc/*/<device>*.md), from CARD_VIDEOS: publishing a video is one id set
     there
+  * the demo video gallery of the READMEs (every language) of ha-reef-card,
+    ha-reefbeat-component and ha-aquamedic-component, from README_VIDEOS
 
 Device statuses come from STATUS_* below and must match the compatibility
 tables in the READMEs; that divergence between site and repos is the reason
@@ -56,9 +58,6 @@ AQUA_DEVICES = [
     ("EcoDrift / SmartDrift x.1 / x.3", "wavemaker", OK),
     ("DC Runner x.1 / x.2 / x.3", "return", OK),
     ("DC Runner", "skimmer", OK),
-    ("Reefdoser EVO", "dosing", NO),
-    ("T-Controller Twin", "temperature", NO),
-    ("Aquarius / Spectrus", "lighting", NO),
 ]
 
 # ha-reef-card. Highlights are per language, see CARD_HIGHLIGHTS.
@@ -71,10 +70,11 @@ CARD_DEVICES = [
     ("ReefControl (RSCONTROLLITE)", UNTESTED, "control"),
     ("ReefControl-Power (RSPOWER6)", OK, "power"),
     ("ReefControl-Power (RSPOWER8)", UNTESTED, "power"),
-    ("ReefLed (G1/G2)", WIP, "led"),
-    ("ReefWave", NO, "vote"),
-    ("Aqua Medic EcoDrift / SmartDrift", NO, "vote"),
-    ("Aqua Medic DC Runner (return, skimmer)", NO, "vote"),
+    ("ReefLed (G1)", OK, "led"),
+    ("ReefLed (G2)", UNTESTED, "led"),
+    ("ReefWave (RSWAVE25/45)", OK, "wave"),
+    ("Aqua Medic EcoDrift / SmartDrift", OK, "drift"),
+    ("Aqua Medic DC Runner (return, skimmer)", OK, "runner"),
 ]
 
 VOTE = "https://github.com/Elwinmage/ha-reef-card/discussions/22"
@@ -104,9 +104,6 @@ T: dict[str, dict[str, str]] = {
         "wavemaker": "wavemaker",
         "return": "return pump",
         "skimmer": "skimmer pump",
-        "dosing": "dosing pump",
-        "temperature": "temperature controller",
-        "lighting": "lighting",
         "vote": f"[Vote for priority]({VOTE})",
         "ask": "Ask for it",
         "maint_title": "Maintenance tracking for equipment Home Assistant cannot reach.",
@@ -148,9 +145,6 @@ T: dict[str, dict[str, str]] = {
         "wavemaker": "brassage",
         "return": "pompe de remontée",
         "skimmer": "pompe d'écumeur",
-        "dosing": "pompe doseuse",
-        "temperature": "contrôleur de température",
-        "lighting": "éclairage",
         "vote": f"[Voter pour la priorité]({VOTE})",
         "ask": "Demandez-le",
         "maint_title": "Suivi de maintenance pour le matériel que Home Assistant ne voit pas.",
@@ -193,9 +187,6 @@ T: dict[str, dict[str, str]] = {
         "wavemaker": "Strömungspumpe",
         "return": "Rückförderpumpe",
         "skimmer": "Abschäumerpumpe",
-        "dosing": "Dosierpumpe",
-        "temperature": "Temperaturregler",
-        "lighting": "Beleuchtung",
         "vote": f"[Für Priorität abstimmen]({VOTE})",
         "ask": "Anfragen",
         "maint_title": "Wartungsverfolgung für Geräte, die Home Assistant nicht erreicht.",
@@ -238,9 +229,6 @@ T: dict[str, dict[str, str]] = {
         "wavemaker": "de movimiento",
         "return": "bomba de retorno",
         "skimmer": "bomba de skimmer",
-        "dosing": "bomba dosificadora",
-        "temperature": "controlador de temperatura",
-        "lighting": "iluminación",
         "vote": f"[Votar por prioridad]({VOTE})",
         "ask": "Solicitarlo",
         "maint_title": "Seguimiento de mantenimiento para equipos que Home Assistant no alcanza.",
@@ -282,9 +270,6 @@ T: dict[str, dict[str, str]] = {
         "wavemaker": "di movimento",
         "return": "pompa di risalita",
         "skimmer": "pompa dello schiumatoio",
-        "dosing": "pompa dosatrice",
-        "temperature": "controllore di temperatura",
-        "lighting": "illuminazione",
         "vote": f"[Vota per la priorità]({VOTE})",
         "ask": "Richiedilo",
         "maint_title": "Tracciamento della manutenzione per le apparecchiature che Home Assistant non raggiunge.",
@@ -326,9 +311,6 @@ T: dict[str, dict[str, str]] = {
         "wavemaker": "cyrkulacyjna",
         "return": "pompa obiegowa",
         "skimmer": "pompa odpieniacza",
-        "dosing": "pompa dozująca",
-        "temperature": "sterownik temperatury",
-        "lighting": "oświetlenie",
         "vote": f"[Zagłosuj na priorytet]({VOTE})",
         "ask": "Poproś o to",
         "maint_title": "Śledzenie konserwacji sprzętu, do którego Home Assistant nie ma dostępu.",
@@ -371,9 +353,6 @@ T: dict[str, dict[str, str]] = {
         "wavemaker": "de circulação",
         "return": "bomba de retorno",
         "skimmer": "bomba do escumador",
-        "dosing": "bomba doseadora",
-        "temperature": "controlador de temperatura",
-        "lighting": "iluminação",
         "vote": f"[Votar na prioridade]({VOTE})",
         "ask": "Peça-o",
         "maint_title": "Acompanhamento de manutenção para equipamento que o Home Assistant não alcança.",
@@ -409,7 +388,10 @@ CARD_HIGHLIGHTS = {
         "ato": "Water level, leak probe, pump diagnostics, consumption graph, leak buzzer",
         "control": "Probes with level bars and 24 h history, guided pH/EC/ORP/temperature calibration, 12V ports, ATO, buzzer, paired power center",
         "power": "Per-socket control, on/off/schedule/probe modes, linked devices, local temperature probe or ReefControl link",
-        "led": "Next step on the roadmap",
+        "led": "Sky with sun and moon, beam with the day's program, intensity/colour or white/blue sliders, program editor (kelvin or white/blue, clouds), weather mode, groups with staggered sunrise, acclimation",
+        "wave": "Animated pump view, speed and direction, wave library, schedule editor with time slots, pump groups",
+        "drift": "Pump speed on the picture, faults, feed pause, time-slot program editor",
+        "runner": "Return or skimmer pump view following the integration's role, speed, faults, time-slot program editor",
         "vote": None,
     },
     "fr": {
@@ -419,7 +401,10 @@ CARD_HIGHLIGHTS = {
         "ato": "Niveau d'eau, sonde de fuite, diagnostic pompe, graphe de consommation, buzzer de fuite",
         "control": "Sondes avec barres de niveau et historique 24 h, calibration guidée pH/EC/ORP/température, ports 12V, ATO, buzzer, multiprise appairée",
         "power": "Contrôle par prise, modes marche/arrêt/programme/sonde, appareils liés, sonde de température locale ou lien ReefControl",
-        "led": "Prochaine étape de la feuille de route",
+        "led": "Ciel avec soleil et lune, faisceau avec le programme du jour, curseurs intensité/couleur ou blanc/bleu, éditeur de programmes (kelvin ou blanc/bleu, nuages), mode météo, groupes avec lever décalé, acclimatation",
+        "wave": "Vue animée de la pompe, vitesse et direction, librairie de vagues, éditeur de programme par créneaux, groupes de pompes",
+        "drift": "Vitesse de la pompe sur l'image, défauts, pause nourrissage, éditeur de programme par créneaux",
+        "runner": "Vue pompe de remontée ou d'écumeur selon le rôle de l'intégration, vitesse, défauts, éditeur de programme par créneaux",
         "vote": None,
     },
     "de": {
@@ -429,7 +414,10 @@ CARD_HIGHLIGHTS = {
         "ato": "Wasserstand, Lecksonde, Pumpendiagnose, Verbrauchsdiagramm, Leck-Summer",
         "control": "Sonden mit Pegelbalken und 24-h-Verlauf, geführte pH/EC/ORP/Temperatur-Kalibrierung, 12V-Ports, ATO, Summer, gekoppelte Steckdosenleiste",
         "power": "Steuerung pro Steckdose, Modi Ein/Aus/Zeitplan/Sonde, verknüpfte Geräte, lokale Temperatursonde oder ReefControl-Verbindung",
-        "led": "Nächster Schritt auf der Roadmap",
+        "led": "Himmel mit Sonne und Mond, Lichtkegel mit dem Tagesprogramm, Regler für Intensität/Farbe oder Weiß/Blau, Programm-Editor (Kelvin oder Weiß/Blau, Wolken), Wettermodus, Gruppen mit versetztem Sonnenaufgang, Akklimatisierung",
+        "wave": "Animierte Pumpenansicht, Geschwindigkeit und Richtung, Wellenbibliothek, Zeitplan-Editor mit Zeitfenstern, Pumpengruppen",
+        "drift": "Pumpendrehzahl im Bild, Störungen, Fütterungspause, Zeitfenster-Programm-Editor",
+        "runner": "Ansicht als Förder- oder Abschäumerpumpe je nach Rolle in der Integration, Drehzahl, Störungen, Zeitfenster-Programm-Editor",
         "vote": None,
     },
     "es": {
@@ -439,7 +427,10 @@ CARD_HIGHLIGHTS = {
         "ato": "Nivel de agua, sonda de fugas, diagnóstico de bomba, gráfico de consumo, zumbador de fuga",
         "control": "Sondas con barras de nivel e historial de 24 h, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada",
         "power": "Control por toma, modos encendido/apagado/programa/sonda, dispositivos vinculados, sonda de temperatura local o enlace ReefControl",
-        "led": "Próximo paso de la hoja de ruta",
+        "led": "Cielo con sol y luna, haz con el programa del día, deslizadores intensidad/color o blanco/azul, editor de programas (kelvin o blanco/azul, nubes), modo meteorológico, grupos con amanecer escalonado, aclimatación",
+        "wave": "Vista animada de la bomba, velocidad y dirección, biblioteca de olas, editor de programa por franjas, grupos de bombas",
+        "drift": "Velocidad de la bomba en la imagen, fallos, pausa de alimentación, editor de programa por franjas",
+        "runner": "Vista de bomba de retorno o de skimmer según el rol de la integración, velocidad, fallos, editor de programa por franjas",
         "vote": None,
     },
     "it": {
@@ -449,7 +440,10 @@ CARD_HIGHLIGHTS = {
         "ato": "Livello dell'acqua, sonda perdite, diagnostica pompa, grafico dei consumi, buzzer perdite",
         "control": "Sonde con barre di livello e storico 24 h, calibrazione guidata pH/EC/ORP/temperatura, porte 12V, ATO, buzzer, multipresa associata",
         "power": "Controllo per presa, modalità acceso/spento/programma/sonda, dispositivi collegati, sonda di temperatura locale o collegamento ReefControl",
-        "led": "Prossimo passo della roadmap",
+        "led": "Cielo con sole e luna, fascio con il programma del giorno, cursori intensità/colore o bianco/blu, editor dei programmi (kelvin o bianco/blu, nuvole), modalità meteo, gruppi con alba sfalsata, acclimatazione",
+        "wave": "Vista animata della pompa, velocità e direzione, libreria delle onde, editor del programma a fasce orarie, gruppi di pompe",
+        "drift": "Velocità della pompa sull'immagine, guasti, pausa alimentazione, editor del programma a fasce orarie",
+        "runner": "Vista pompa di risalita o dello schiumatoio secondo il ruolo nell'integrazione, velocità, guasti, editor del programma a fasce orarie",
         "vote": None,
     },
     "pl": {
@@ -459,7 +453,10 @@ CARD_HIGHLIGHTS = {
         "ato": "Poziom wody, sonda wycieku, diagnostyka pompy, wykres zużycia, buzzer wycieku",
         "control": "Sondy z paskami poziomu i historią 24 h, prowadzona kalibracja pH/EC/ORP/temperatury, porty 12V, ATO, buzzer, sparowana listwa zasilająca",
         "power": "Sterowanie per gniazdo, tryby wł./wył./harmonogram/sonda, powiązane urządzenia, lokalna sonda temperatury lub połączenie z ReefControl",
-        "led": "Następny krok w planie rozwoju",
+        "led": "Niebo ze słońcem i księżycem, wiązka z programem dnia, suwaki intensywność/kolor lub biały/niebieski, edytor programów (kelwiny lub biały/niebieski, chmury), tryb pogodowy, grupy z przesuniętym wschodem, aklimatyzacja",
+        "wave": "Animowany widok pompy, prędkość i kierunek, biblioteka fal, edytor harmonogramu w przedziałach czasu, grupy pomp",
+        "drift": "Prędkość pompy na obrazie, usterki, pauza karmienia, edytor programu w przedziałach czasu",
+        "runner": "Widok pompy powrotnej lub odpieniacza zgodnie z rolą w integracji, prędkość, usterki, edytor programu w przedziałach czasu",
         "vote": None,
     },
     "pt": {
@@ -469,7 +466,10 @@ CARD_HIGHLIGHTS = {
         "ato": "Nível de água, sonda de fugas, diagnóstico da bomba, gráfico de consumo, buzzer de fuga",
         "control": "Sondas com barras de nível e histórico de 24 h, calibração guiada pH/EC/ORP/temperatura, portas 12V, ATO, buzzer, régua emparelhada",
         "power": "Controlo por tomada, modos ligado/desligado/programa/sonda, aparelhos associados, sonda de temperatura local ou ligação ReefControl",
-        "led": "Próximo passo do roteiro",
+        "led": "Céu com sol e lua, feixe com o programa do dia, cursores intensidade/cor ou branco/azul, editor de programas (kelvin ou branco/azul, nuvens), modo meteorológico, grupos com nascer escalonado, aclimatação",
+        "wave": "Vista animada da bomba, velocidade e direção, biblioteca de ondas, editor de programa por faixas horárias, grupos de bombas",
+        "drift": "Velocidade da bomba na imagem, falhas, pausa de alimentação, editor de programa por faixas horárias",
+        "runner": "Vista de bomba de retorno ou de escumador segundo o papel na integração, velocidade, falhas, editor de programa por faixas horárias",
         "vote": None,
     },
 }
@@ -485,6 +485,9 @@ CARD_VIDEOS = [
     ("2R0DHp2eqT4", "demo_ato"),
     # Shared by ReefControl and ReefControl-Power: set the id once published
     ("voFobfc7Slk", "demo_control"),
+    ("pA49z8QjTN4", "demo_led"),
+    ("sYVeE0zV3eo", "demo_wave"),
+    ("9Gh4YE6Ck9g", "demo_aquamedic"),
 ]
 
 # Card documentation pages showing each video, by page slug: the video link
@@ -498,6 +501,38 @@ CARD_VIDEO_PAGES = {
     "demo_maint": ["maintenance"],
     "demo_ato": ["reefato"],
     "demo_control": ["reefcontrol", "reefcontrol-power"],
+    "demo_led": ["reefled"],
+    "demo_wave": ["reefwave"],
+    "demo_aquamedic": ["aquamedic"],
+}
+
+# README demo galleries: the videos each repository shows, between the
+# demo-videos markers of README.md and doc/<lang>/README.<lang>.md (put
+# right before the Related projects block on a first run). Each integration
+# shows the videos of its devices, the card all of them.
+README_VIDEOS = {
+    "ha-reef-card": [key for _, key in CARD_VIDEOS],
+    "ha-reefbeat-component": [
+        "demo_dose",
+        "demo_mat",
+        "demo_run",
+        "demo_ato",
+        "demo_control",
+        "demo_led",
+        "demo_wave",
+    ],
+    "ha-aquamedic-component": ["demo_aquamedic"],
+}
+
+# Title of the README gallery, per language.
+README_VIDEO_TITLE = {
+    "en": "Demo videos",
+    "fr": "Vidéos de démonstration",
+    "de": "Demo-Videos",
+    "es": "Vídeos de demostración",
+    "it": "Video dimostrativi",
+    "pl": "Filmy demonstracyjne",
+    "pt": "Vídeos de demonstração",
 }
 
 # A YouTube thumbnail linking to its video, whatever id (or placeholder) it
@@ -514,6 +549,9 @@ VIDEO_LABELS = {
         "demo_maint": "Maintenance demo",
         "demo_ato": "ReefATO+ demo",
         "demo_control": "ReefControl & ReefControl-Power demo",
+        "demo_led": "ReefLed demo",
+        "demo_wave": "ReefWave demo",
+        "demo_aquamedic": "Aqua Medic demo",
     },
     "fr": {
         "demo_dose": "Démo ReefDose",
@@ -522,6 +560,9 @@ VIDEO_LABELS = {
         "demo_maint": "Démo Maintenance",
         "demo_ato": "Démo ReefATO+",
         "demo_control": "Démo ReefControl & ReefControl-Power",
+        "demo_led": "Démo ReefLed",
+        "demo_wave": "Démo ReefWave",
+        "demo_aquamedic": "Démo Aqua Medic",
     },
     "de": {
         "demo_dose": "ReefDose-Demo",
@@ -530,6 +571,9 @@ VIDEO_LABELS = {
         "demo_maint": "Wartungs-Demo",
         "demo_ato": "ReefATO+-Demo",
         "demo_control": "ReefControl- & ReefControl-Power-Demo",
+        "demo_led": "ReefLed-Demo",
+        "demo_wave": "ReefWave-Demo",
+        "demo_aquamedic": "Aqua-Medic-Demo",
     },
     "es": {
         "demo_dose": "Demo ReefDose",
@@ -538,6 +582,9 @@ VIDEO_LABELS = {
         "demo_maint": "Demo Mantenimiento",
         "demo_ato": "Demo ReefATO+",
         "demo_control": "Demo ReefControl & ReefControl-Power",
+        "demo_led": "Demo ReefLed",
+        "demo_wave": "Demo ReefWave",
+        "demo_aquamedic": "Demo Aqua Medic",
     },
     "it": {
         "demo_dose": "Demo ReefDose",
@@ -546,6 +593,9 @@ VIDEO_LABELS = {
         "demo_maint": "Demo Manutenzione",
         "demo_ato": "Demo ReefATO+",
         "demo_control": "Demo ReefControl & ReefControl-Power",
+        "demo_led": "Demo ReefLed",
+        "demo_wave": "Demo ReefWave",
+        "demo_aquamedic": "Demo Aqua Medic",
     },
     "pl": {
         "demo_dose": "Demo ReefDose",
@@ -554,6 +604,9 @@ VIDEO_LABELS = {
         "demo_maint": "Demo Konserwacja",
         "demo_ato": "Demo ReefATO+",
         "demo_control": "Demo ReefControl & ReefControl-Power",
+        "demo_led": "Demo ReefLed",
+        "demo_wave": "Demo ReefWave",
+        "demo_aquamedic": "Demo Aqua Medic",
     },
     "pt": {
         "demo_dose": "Demo ReefDose",
@@ -562,6 +615,9 @@ VIDEO_LABELS = {
         "demo_maint": "Demo Manutenção",
         "demo_ato": "Demo ReefATO+",
         "demo_control": "Demo ReefControl & ReefControl-Power",
+        "demo_led": "Demo ReefLed",
+        "demo_wave": "Demo ReefWave",
+        "demo_aquamedic": "Demo Aqua Medic",
     },
 }
 
@@ -668,16 +724,21 @@ def card_table(lang: str) -> str:
     return "\n".join(lines)
 
 
-def card_videos(lang: str) -> str:
+def card_videos(lang: str, keys: list[str] | None = None) -> str:
     """Build the demo-video gallery for the card section.
 
     Videos are rendered as an HTML table with two columns, wrapping to new
     rows automatically.  Only entries with a non-None youtube_id are shown,
     so uncommenting a line in CARD_VIDEOS is all it takes to publish a new
     video on every language page.
+    @param keys: the videos to show (all of them by default)
     """
     labels = VIDEO_LABELS[lang]
-    active = [(vid, labels[key]) for vid, key in CARD_VIDEOS if vid is not None]
+    active = [
+        (vid, labels[key])
+        for vid, key in CARD_VIDEOS
+        if vid is not None and (keys is None or key in keys)
+    ]
     if not active:
         return ""
 
@@ -947,10 +1008,58 @@ def card_video_pages(card: Path = Path("ha-reef-card")) -> None:
                     print("updated", page)
 
 
+def readme_videos(root: Path = Path(".")) -> None:
+    """Put the demo gallery of each repository into its READMEs.
+
+    Replaced between its demo-videos markers; on a first run, inserted right
+    before the Related projects block (ecosystem markers, present in every
+    language). A README holding neither is left alone.
+    """
+    eco = "<!-- ecosystem:start -->"
+    for repo, keys in README_VIDEOS.items():
+        base = root / repo
+        if not base.is_dir():
+            print(f"skipped {repo} videos: {base} not found")
+            continue
+        for lang in LANGS:
+            page = (
+                base / "README.md"
+                if lang == "en"
+                else base / "doc" / lang / f"README.{lang}.md"
+            )
+            if not page.is_file():
+                continue
+            gallery = card_videos(lang, keys)
+            if not gallery:
+                continue
+            content = block(
+                "demo-videos", f"## 🎬 {README_VIDEO_TITLE[lang]}\n\n{gallery}"
+            )
+            text = page.read_text(encoding="utf-8")
+            start = START.format(name="demo-videos")
+            if start in text:
+                pattern = re.compile(
+                    re.escape(start)
+                    + r".*?"
+                    + re.escape(END.format(name="demo-videos")),
+                    re.DOTALL,
+                )
+                new = pattern.sub(lambda _: content, text, count=1)
+            elif eco in text:
+                new = text.replace(eco, content + "\n\n" + eco, 1)
+            else:
+                print(f"skipped {page}: no ecosystem block")
+                continue
+            if new != text:
+                page.write_text(new, encoding="utf-8")
+                print("updated", page)
+
+
 def main() -> None:
     for lang in LANGS:
         apply(lang)
     card_video_pages()
+    readme_videos()
 
 
 if __name__ == "__main__":

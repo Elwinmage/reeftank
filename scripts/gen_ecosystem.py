@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the shared "Related projects" block in every README, every language.
 
-One source, twenty files. Blocks are delimited by ecosystem:start/end markers
+One source, every README of the six repositories (39 files). Blocks are delimited by ecosystem:start/end markers
 so re-running updates them in place -- same convention as the
 maintenance-section markers already used in ha-aquamedic-component.
 
@@ -100,7 +100,8 @@ T: dict[str, dict[str, str]] = {
             "Interactive graphical view of each device on your dashboard, and "
             "the only way to edit advanced schedules. Reads the three "
             "integrations above through the shared `reef_role` contract, with "
-            "no card-side configuration."
+            "no card-side configuration. "
+            "Also draws the power flows of reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Notification blueprints shared by the whole ecosystem: "
@@ -114,7 +115,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "all three integrations",
         "w_card": "ha-reef-card",
-        "w_alone": "standalone, or alongside ha-reefbeat-component",
+        "w_alone": "standalone, or alongside ha-reefbeat-component and ha-reef-card",
     },
     "fr": {
         "title": "Projets liés",
@@ -149,7 +150,8 @@ T: dict[str, dict[str, str]] = {
             "Vue graphique interactive de chaque appareil sur votre tableau de "
             "bord, et seul moyen d'éditer les programmes avancés. Lit les "
             "trois intégrations ci-dessus via le contrat `reef_role` commun, "
-            "sans configuration côté carte."
+            "sans configuration côté carte. "
+            "Dessine aussi les flux d'énergie de reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Blueprints de notification communs à tout l'écosystème : "
@@ -163,7 +165,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "les trois intégrations",
         "w_card": "ha-reef-card",
-        "w_alone": "seul, ou avec ha-reefbeat-component",
+        "w_alone": "seul, ou avec ha-reefbeat-component et ha-reef-card",
     },
     "de": {
         "title": "Verwandte Projekte",
@@ -199,7 +201,8 @@ T: dict[str, dict[str, str]] = {
             "Interaktive grafische Ansicht jedes Geräts auf Ihrem Dashboard "
             "und der einzige Weg, erweiterte Zeitpläne zu bearbeiten. Liest "
             "die drei Integrationen über den gemeinsamen `reef_role`-Vertrag, "
-            "ohne Konfiguration auf Kartenseite."
+            "ohne Konfiguration auf Kartenseite. "
+            "Zeichnet außerdem die Energieflüsse von reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Benachrichtigungs-Blueprints für das gesamte Ökosystem: "
@@ -213,7 +216,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "alle drei Integrationen",
         "w_card": "ha-reef-card",
-        "w_alone": "eigenständig oder zusammen mit ha-reefbeat-component",
+        "w_alone": (
+            "eigenständig oder zusammen mit ha-reefbeat-component und ha-reef-card"
+        ),
     },
     "es": {
         "title": "Proyectos relacionados",
@@ -249,7 +254,8 @@ T: dict[str, dict[str, str]] = {
             "Vista gráfica interactiva de cada dispositivo en tu panel, y la "
             "única forma de editar programaciones avanzadas. Lee las tres "
             "integraciones mediante el contrato `reef_role` común, sin "
-            "configuración del lado de la tarjeta."
+            "configuración del lado de la tarjeta. "
+            "También dibuja los flujos de energía de reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Blueprints de notificación comunes a todo el ecosistema: "
@@ -263,7 +269,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "las tres integraciones",
         "w_card": "ha-reef-card",
-        "w_alone": "por su cuenta, o junto a ha-reefbeat-component",
+        "w_alone": "por su cuenta, o junto a ha-reefbeat-component y ha-reef-card",
     },
     "it": {
         "title": "Progetti correlati",
@@ -299,7 +305,8 @@ T: dict[str, dict[str, str]] = {
             "Vista grafica interattiva di ogni dispositivo sulla tua "
             "dashboard, e unico modo per modificare le programmazioni "
             "avanzate. Legge le tre integrazioni tramite il contratto "
-            "`reef_role` comune, senza configurazione lato scheda."
+            "`reef_role` comune, senza configurazione lato scheda. "
+            "Disegna anche i flussi di energia di reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Blueprint di notifica comuni a tutto l'ecosistema: "
@@ -313,7 +320,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "tutte e tre le integrazioni",
         "w_card": "ha-reef-card",
-        "w_alone": "da solo, o insieme a ha-reefbeat-component",
+        "w_alone": "da solo, o insieme a ha-reefbeat-component e ha-reef-card",
     },
     "nl": {
         "title": "Verwante projecten",
@@ -349,7 +356,8 @@ T: dict[str, dict[str, str]] = {
             "Interactieve grafische weergave van elk apparaat op uw dashboard, "
             "en de enige manier om geavanceerde schema's te bewerken. Leest de "
             "drie integraties via het gedeelde `reef_role`-contract, zonder "
-            "configuratie aan de kaartzijde."
+            "configuratie aan de kaartzijde. "
+            "Tekent ook de energiestromen van reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Meldings-blueprints voor het hele ecosysteem: achterstallig "
@@ -363,7 +371,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "alle drie de integraties",
         "w_card": "ha-reef-card",
-        "w_alone": "zelfstandig, of samen met ha-reefbeat-component",
+        "w_alone": "zelfstandig, of samen met ha-reefbeat-component en ha-reef-card",
     },
     "pl": {
         "title": "Powiązane projekty",
@@ -398,7 +406,8 @@ T: dict[str, dict[str, str]] = {
             "Interaktywny widok graficzny każdego urządzenia na pulpicie i "
             "jedyny sposób edycji zaawansowanych harmonogramów. Odczytuje trzy "
             "integracje przez wspólny kontrakt `reef_role`, bez konfiguracji "
-            "po stronie karty."
+            "po stronie karty. "
+            "Rysuje też przepływy energii z reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Blueprinty powiadomień wspólne dla całego ekosystemu: zaległe "
@@ -412,7 +421,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "wszystkie trzy integracje",
         "w_card": "ha-reef-card",
-        "w_alone": "samodzielnie lub razem z ha-reefbeat-component",
+        "w_alone": "samodzielnie lub razem z ha-reefbeat-component i ha-reef-card",
     },
     "pt": {
         "title": "Projetos relacionados",
@@ -448,7 +457,8 @@ T: dict[str, dict[str, str]] = {
             "Vista gráfica interativa de cada aparelho no seu painel, e a "
             "única forma de editar os programas avançados. Lê as três "
             "integrações através do contrato `reef_role` comum, sem "
-            "configuração do lado do cartão."
+            "configuração do lado do cartão. "
+            "Desenha também os fluxos de energia do reefbeatEnergyBackup."
         ),
         "d_ha-reef-blueprints": (
             "Blueprints de notificação comuns a todo o ecossistema: "
@@ -462,7 +472,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "w_integrations": "as três integrações",
         "w_card": "ha-reef-card",
-        "w_alone": "sozinho, ou a par do ha-reefbeat-component",
+        "w_alone": "sozinho, ou a par do ha-reefbeat-component e do ha-reef-card",
     },
 }
 

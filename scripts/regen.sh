@@ -75,7 +75,7 @@ step "Maintenance README (8 languages)"
 step "Documentation site (7 pages) and card video links"
 python3 reeftank/scripts/gen_site.py
 
-step "Related projects block (40 files, 6 repositories)"
+step "Related projects block (39 files, 6 repositories)"
 python3 reeftank/scripts/gen_ecosystem.py
 
 # ---------------------------------------------------------------------------
