@@ -8,6 +8,7 @@ Usage, from the directory holding every checkout side by side::
 What it owns:
   * the three top-level sections (Integrations / Cards / Infrastructure)
   * the ha-reef-maintenance-component section, which did not exist
+  * the ha-reeftank-component section (with its catalog)
   * the device tables of the three integrations and of the card
   * the status legend, normalised on the one used by the READMEs
   * the contact section, which used to send every project's users to the
@@ -122,6 +123,14 @@ T: dict[str, dict[str, str]] = {
         "maint_f5": "Same `reef_role` contract as the connected integrations, so tasks land in the card's maintenance view",
         "install": "**Installation:**",
         "maint_install": "In HACS, add `https://github.com/Elwinmage/ha-reef-maintenance-component` as a custom repository (Integration).",
+        "tank_title": "A living picture of your aquarium on the dashboard.",
+        "tank_intro": "The integration behind the aquarium card of ha-reef-card: your photo, the water lit by your real lamps, animated fish and corals, and your devices and entities on it. It stores the aquariums, their pictures and their livestock, and records the feedings.",
+        "tank_f1": "Outline the water, the sand and the rocks on your own photo — or draw the tank with rock and sand textures",
+        "tank_f2": "Fish that shoal, cruise, crawl on the sand or peek out of their burrow, and hide behind the rocks at night",
+        "tank_f3": "Water tinted by your lamps (ReefLED or any light), corals swaying with the pumps",
+        "tank_f4": "Feedings recorded from feeders, shortcuts or a service; fish and coral counts as sensors",
+        "tank_f5": "Species from the [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), kept up to date automatically",
+        "tank_install": "In HACS, add `https://github.com/Elwinmage/ha-reeftank-component` as a custom repository (Integration), and install ha-reef-card for the card.",
         "contact_title": "💬 Contact & Support",
         "contact_q": "**Questions and feature requests:** open a discussion on the project concerned —",
         "contact_b": "**Bug reports:** open an issue on that same project, with the details.",
@@ -164,6 +173,14 @@ T: dict[str, dict[str, str]] = {
         "maint_f5": "Même contrat `reef_role` que les intégrations connectées : les tâches arrivent dans la vue maintenance de la carte",
         "install": "**Installation :**",
         "maint_install": "Dans HACS, ajoutez `https://github.com/Elwinmage/ha-reef-maintenance-component` en dépôt personnalisé (Intégration).",
+        "tank_title": "Une image vivante de votre aquarium sur le tableau de bord.",
+        "tank_intro": "L'intégration derrière la carte aquarium de ha-reef-card : votre photo, l'eau éclairée par vos vraies lampes, des poissons et des coraux animés, et vos appareils et entités dessus. Elle stocke les aquariums, leurs images et leur population, et enregistre les nourrissages.",
+        "tank_f1": "Détourez l'eau, le sable et les roches sur votre propre photo — ou dessinez le bac avec des textures de roche et de sable",
+        "tank_f2": "Des poissons en banc, en pleine eau, sur le sable ou qui sortent la tête de leur terrier, et se cachent derrière les roches la nuit",
+        "tank_f3": "L'eau teintée par vos lampes (ReefLED ou n'importe quelle lumière), des coraux qui ondulent avec les pompes",
+        "tank_f4": "Nourrissages enregistrés depuis les nourrisseurs, les raccourcis ou un service ; nombre de poissons et de coraux en capteurs",
+        "tank_f5": "Espèces du [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), tenues à jour automatiquement",
+        "tank_install": "Dans HACS, ajoutez `https://github.com/Elwinmage/ha-reeftank-component` en dépôt personnalisé (Intégration), et installez ha-reef-card pour la carte.",
         "contact_title": "💬 Contact & Support",
         "contact_q": "**Questions et demandes de fonctionnalités :** ouvrez une discussion sur le projet concerné —",
         "contact_b": "**Signalement de bugs :** ouvrez une issue sur ce même projet, avec les détails.",
@@ -206,6 +223,14 @@ T: dict[str, dict[str, str]] = {
         "maint_f5": "Gleicher `reef_role`-Vertrag wie die verbundenen Integrationen: die Aufgaben erscheinen in der Wartungsansicht der Karte",
         "install": "**Installation:**",
         "maint_install": "In HACS `https://github.com/Elwinmage/ha-reef-maintenance-component` als benutzerdefiniertes Repository (Integration) hinzufügen.",
+        "tank_title": "Ein lebendiges Bild Ihres Aquariums auf dem Dashboard.",
+        "tank_intro": "Die Integration hinter der Aquariumkarte von ha-reef-card: Ihr Foto, das Wasser beleuchtet von Ihren echten Lampen, animierte Fische und Korallen und Ihre Geräte und Entitäten darauf. Sie speichert die Aquarien, ihre Bilder und ihren Besatz und protokolliert die Fütterungen.",
+        "tank_f1": "Wasser, Sand und Steine auf Ihrem eigenen Foto umranden — oder das Becken mit Stein- und Sandtexturen zeichnen",
+        "tank_f2": "Fische im Schwarm, im Freiwasser, auf dem Sand oder aus ihrer Höhle schauend, die sich nachts hinter den Steinen verstecken",
+        "tank_f3": "Wasser in der Farbe Ihrer Lampen (ReefLED oder jedes Licht), Korallen, die sich mit den Pumpen wiegen",
+        "tank_f4": "Fütterungen von Futterautomaten, Kurzbefehlen oder einem Dienst; Fisch- und Korallenzahl als Sensoren",
+        "tank_f5": "Arten aus dem [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), automatisch aktuell gehalten",
+        "tank_install": "In HACS `https://github.com/Elwinmage/ha-reeftank-component` als benutzerdefiniertes Repository (Integration) hinzufügen und ha-reef-card für die Karte installieren.",
         "contact_title": "💬 Kontakt & Support",
         "contact_q": "**Fragen und Funktionswünsche:** eröffnen Sie eine Diskussion im betreffenden Projekt —",
         "contact_b": "**Fehlerberichte:** eröffnen Sie ein Issue im selben Projekt, mit den Details.",
@@ -247,6 +272,14 @@ T: dict[str, dict[str, str]] = {
         "maint_f5": "Mismo contrato `reef_role` que las integraciones conectadas: las tareas aparecen en la vista de mantenimiento de la tarjeta",
         "install": "**Instalación:**",
         "maint_install": "En HACS, añada `https://github.com/Elwinmage/ha-reef-maintenance-component` como repositorio personalizado (Integración).",
+        "tank_title": "Una imagen viva de su acuario en el panel.",
+        "tank_intro": "La integración detrás de la tarjeta de acuario de ha-reef-card: su foto, el agua iluminada por sus lámparas reales, peces y corales animados, y sus dispositivos y entidades encima. Guarda los acuarios, sus imágenes y su fauna, y registra las alimentaciones.",
+        "tank_f1": "Contornee el agua, la arena y las rocas en su propia foto — o dibuje el acuario con texturas de roca y arena",
+        "tank_f2": "Peces en cardumen, en aguas abiertas, sobre la arena o asomando de su madriguera, que se esconden tras las rocas de noche",
+        "tank_f3": "Agua teñida por sus lámparas (ReefLED o cualquier luz), corales que se mecen con las bombas",
+        "tank_f4": "Alimentaciones registradas desde comederos, atajos o un servicio; número de peces y corales como sensores",
+        "tank_f5": "Especies del [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), actualizadas automáticamente",
+        "tank_install": "En HACS, añada `https://github.com/Elwinmage/ha-reeftank-component` como repositorio personalizado (Integración) e instale ha-reef-card para la tarjeta.",
         "contact_title": "💬 Contacto y soporte",
         "contact_q": "**Preguntas y peticiones de funciones:** abra una discusión en el proyecto correspondiente —",
         "contact_b": "**Informes de errores:** abra una issue en ese mismo proyecto, con los detalles.",
@@ -288,6 +321,14 @@ T: dict[str, dict[str, str]] = {
         "maint_f5": "Stesso contratto `reef_role` delle integrazioni connesse: le attività compaiono nella vista manutenzione della scheda",
         "install": "**Installazione:**",
         "maint_install": "In HACS, aggiungete `https://github.com/Elwinmage/ha-reef-maintenance-component` come repository personalizzato (Integrazione).",
+        "tank_title": "Un'immagine viva del vostro acquario sulla plancia.",
+        "tank_intro": "L'integrazione dietro la scheda acquario di ha-reef-card: la vostra foto, l'acqua illuminata dalle vostre vere lampade, pesci e coralli animati, e sopra i vostri dispositivi ed entità. Conserva gli acquari, le loro immagini e la loro fauna, e registra le alimentazioni.",
+        "tank_f1": "Contornate l'acqua, la sabbia e le rocce sulla vostra foto — o disegnate la vasca con texture di roccia e sabbia",
+        "tank_f2": "Pesci in banco, in acque libere, sulla sabbia o che spuntano dalla tana, e di notte si nascondono dietro le rocce",
+        "tank_f3": "Acqua tinta dalle vostre lampade (ReefLED o qualsiasi luce), coralli che ondeggiano con le pompe",
+        "tank_f4": "Alimentazioni registrate da alimentatori, scorciatoie o un servizio; numero di pesci e coralli come sensori",
+        "tank_f5": "Specie dal [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aggiornate automaticamente",
+        "tank_install": "In HACS, aggiungete `https://github.com/Elwinmage/ha-reeftank-component` come repository personalizzato (Integrazione) e installate ha-reef-card per la scheda.",
         "contact_title": "💬 Contatti e supporto",
         "contact_q": "**Domande e richieste di funzionalità:** aprite una discussione sul progetto interessato —",
         "contact_b": "**Segnalazione bug:** aprite una issue sullo stesso progetto, con i dettagli.",
@@ -330,6 +371,14 @@ T: dict[str, dict[str, str]] = {
         "maint_f5": "Ten sam kontrakt `reef_role` co integracje podłączone: zadania trafiają do widoku konserwacji karty",
         "install": "**Instalacja:**",
         "maint_install": "W HACS dodaj `https://github.com/Elwinmage/ha-reef-maintenance-component` jako niestandardowe repozytorium (Integracja).",
+        "tank_title": "Żywy obraz Twojego akwarium na pulpicie.",
+        "tank_intro": "Integracja stojąca za kartą akwarium z ha-reef-card: Twoje zdjęcie, woda oświetlona prawdziwymi lampami, animowane ryby i koralowce oraz Twoje urządzenia i encje. Przechowuje akwaria, ich zdjęcia i obsadę oraz rejestruje karmienia.",
+        "tank_f1": "Obrysuj wodę, piasek i skały na własnym zdjęciu — lub narysuj zbiornik z teksturami skał i piasku",
+        "tank_f2": "Ryby w ławicy, w otwartej wodzie, na piasku lub wyglądające z norki, nocą chowające się za skałami",
+        "tank_f3": "Woda zabarwiona przez Twoje lampy (ReefLED lub dowolne światło), koralowce falujące z pompami",
+        "tank_f4": "Karmienia z karmników, skrótów lub usługi; liczba ryb i koralowców jako sensory",
+        "tank_f5": "Gatunki z [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aktualizowane automatycznie",
+        "tank_install": "W HACS dodaj `https://github.com/Elwinmage/ha-reeftank-component` jako niestandardowe repozytorium (Integracja) i zainstaluj ha-reef-card dla karty.",
         "contact_title": "💬 Kontakt i wsparcie",
         "contact_q": "**Pytania i propozycje funkcji:** otwórz dyskusję w odpowiednim projekcie —",
         "contact_b": "**Zgłoszenia błędów:** otwórz issue w tym samym projekcie, ze szczegółami.",
@@ -371,6 +420,14 @@ T: dict[str, dict[str, str]] = {
         "maint_f5": "Mesmo contrato `reef_role` das integrações ligadas: as tarefas aparecem na vista de manutenção do cartão",
         "install": "**Instalação:**",
         "maint_install": "No HACS, adicione `https://github.com/Elwinmage/ha-reef-maintenance-component` como repositório personalizado (Integração).",
+        "tank_title": "Uma imagem viva do seu aquário no painel.",
+        "tank_intro": "A integração por trás do cartão de aquário do ha-reef-card: a sua foto, a água iluminada pelas suas lâmpadas reais, peixes e corais animados, e os seus dispositivos e entidades. Guarda os aquários, as suas imagens e a sua fauna, e regista as alimentações.",
+        "tank_f1": "Contorne a água, a areia e as rochas na sua própria foto — ou desenhe o aquário com texturas de rocha e areia",
+        "tank_f2": "Peixes em cardume, em águas abertas, na areia ou a espreitar da toca, que se escondem atrás das rochas à noite",
+        "tank_f3": "Água tingida pelas suas lâmpadas (ReefLED ou qualquer luz), corais a ondular com as bombas",
+        "tank_f4": "Alimentações registadas a partir de alimentadores, atalhos ou um serviço; número de peixes e corais como sensores",
+        "tank_f5": "Espécies do [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), atualizadas automaticamente",
+        "tank_install": "No HACS, adicione `https://github.com/Elwinmage/ha-reeftank-component` como repositório personalizado (Integração) e instale o ha-reef-card para o cartão.",
         "contact_title": "💬 Contacto e suporte",
         "contact_q": "**Perguntas e pedidos de funcionalidades:** abra uma discussão no projeto em causa —",
         "contact_b": "**Relatórios de erros:** abra uma issue nesse mesmo projeto, com os detalhes.",
@@ -805,6 +862,41 @@ def maintenance_section(lang: str) -> str:
     return block("maintenance", body)
 
 
+def reeftank_section(lang: str) -> str:
+    """The aquarium integration, filed among the integrations.
+
+    Its catalog repository is presented with it: it only ships data.
+    """
+    t = T[lang]
+    repo = "https://github.com/Elwinmage/ha-reeftank-component"
+    preview = (
+        "https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/"
+        "main/doc/img/preview.webp"
+    )
+    body = f"""#### 🐟 [ha-reeftank-component]({repo})
+
+**{t["tank_title"]}**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reeftank-component.svg?style=flat-square)]({repo}/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reeftank-component.svg?style=flat-square)]({repo}/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+<p align="center"><img src="{preview}" width="70%" alt="ReefTank"/></p>
+
+{t["tank_intro"]}
+
+{t["maint_features"]}
+
+- {t["tank_f1"]}
+- {t["tank_f2"]}
+- {t["tank_f3"]}
+- {t["tank_f4"]}
+- {t["tank_f5"]}
+
+{t["install"]} {t["tank_install"]}"""
+    return block("reeftank", body)
+
+
 def contact_section(lang: str) -> str:
     t = T[lang]
     # Discussions is a per-repo setting: two of them have the tab turned off,
@@ -817,6 +909,8 @@ def contact_section(lang: str) -> str:
     ]
     with_issues_only = [
         "ha-reef-maintenance-component",
+        "ha-reeftank-component",
+        "reeftank-catalog",
         "reefbeatEnergyBackup",
     ]
     links = " · ".join(
@@ -943,6 +1037,18 @@ def apply(lang: str) -> None:
         text = text.replace(
             anchor, maintenance_section(lang) + "\n\n---\n\n" + anchor, 1
         )
+
+    # ReefTank: after the maintenance integration, before the cards.
+    start = START.format(name="reeftank")
+    if start in text:
+        pattern = re.compile(
+            re.escape(start) + r".*?" + re.escape(END.format(name="reeftank")),
+            re.DOTALL,
+        )
+        text = pattern.sub(lambda _: reeftank_section(lang), text, count=1)
+    else:
+        anchor = END.format(name="maintenance")
+        text = text.replace(anchor, anchor + "\n\n---\n\n" + reeftank_section(lang), 1)
 
     # Blueprints: filed under Infrastructure, before the 3D models.
     if START.format(name="blueprints") in text:

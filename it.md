@@ -150,6 +150,34 @@ Pompe di movimento, pompe di risalita, schiumatoi, reattori — tutto ciò che p
 
 ---
 
+<!-- generated:reeftank:start -->
+
+#### 🐟 [ha-reeftank-component](https://github.com/Elwinmage/ha-reeftank-component)
+
+**Un'immagine viva del vostro acquario sulla plancia.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reeftank-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reeftank-component/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reeftank-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reeftank-component/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+<p align="center"><img src="https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/main/doc/img/preview.webp" width="70%" alt="ReefTank"/></p>
+
+L'integrazione dietro la scheda acquario di ha-reef-card: la vostra foto, l'acqua illuminata dalle vostre vere lampade, pesci e coralli animati, e sopra i vostri dispositivi ed entità. Conserva gli acquari, le loro immagini e la loro fauna, e registra le alimentazioni.
+
+**Funzioni principali:**
+
+- Contornate l'acqua, la sabbia e le rocce sulla vostra foto — o disegnate la vasca con texture di roccia e sabbia
+- Pesci in banco, in acque libere, sulla sabbia o che spuntano dalla tana, e di notte si nascondono dietro le rocce
+- Acqua tinta dalle vostre lampade (ReefLED o qualsiasi luce), coralli che ondeggiano con le pompe
+- Alimentazioni registrate da alimentatori, scorciatoie o un servizio; numero di pesci e coralli come sensori
+- Specie dal [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aggiornate automaticamente
+
+**Installazione:** In HACS, aggiungete `https://github.com/Elwinmage/ha-reeftank-component` come repository personalizzato (Integrazione) e installate ha-reef-card per la scheda.
+
+<!-- generated:reeftank:end -->
+
+---
+
 ### Schede
 
 #### 🪸 [ha-reef-card](https://github.com/Elwinmage/ha-reef-card)
@@ -340,7 +368,7 @@ Vi avvisa sul telefono delle manutenzioni scadute, trovate tramite l'attributo c
 
 ## 💬 Contatti e supporto
 
-- **Domande e richieste di funzionalità:** aprite una discussione sul progetto interessato — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues)
+- **Domande e richieste di funzionalità:** aprite una discussione sul progetto interessato — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [ha-reeftank-component](https://github.com/Elwinmage/ha-reeftank-component/issues) · [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues)
 - **Segnalazione bug:** aprite una issue sullo stesso progetto, con i dettagli.
 - **Sostieni il progetto:** [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)
 

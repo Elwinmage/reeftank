@@ -150,6 +150,34 @@ Pompy cyrkulacyjne, pompy obiegowe, odpieniacze, reaktory — wszystko, co czyś
 
 ---
 
+<!-- generated:reeftank:start -->
+
+#### 🐟 [ha-reeftank-component](https://github.com/Elwinmage/ha-reeftank-component)
+
+**Żywy obraz Twojego akwarium na pulpicie.**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reeftank-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reeftank-component/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reeftank-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reeftank-component/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+<p align="center"><img src="https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/main/doc/img/preview.webp" width="70%" alt="ReefTank"/></p>
+
+Integracja stojąca za kartą akwarium z ha-reef-card: Twoje zdjęcie, woda oświetlona prawdziwymi lampami, animowane ryby i koralowce oraz Twoje urządzenia i encje. Przechowuje akwaria, ich zdjęcia i obsadę oraz rejestruje karmienia.
+
+**Główne funkcje:**
+
+- Obrysuj wodę, piasek i skały na własnym zdjęciu — lub narysuj zbiornik z teksturami skał i piasku
+- Ryby w ławicy, w otwartej wodzie, na piasku lub wyglądające z norki, nocą chowające się za skałami
+- Woda zabarwiona przez Twoje lampy (ReefLED lub dowolne światło), koralowce falujące z pompami
+- Karmienia z karmników, skrótów lub usługi; liczba ryb i koralowców jako sensory
+- Gatunki z [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aktualizowane automatycznie
+
+**Instalacja:** W HACS dodaj `https://github.com/Elwinmage/ha-reeftank-component` jako niestandardowe repozytorium (Integracja) i zainstaluj ha-reef-card dla karty.
+
+<!-- generated:reeftank:end -->
+
+---
+
 ### Karty
 
 #### 🪸 [ha-reef-card](https://github.com/Elwinmage/ha-reef-card)
@@ -340,7 +368,7 @@ Powiadamia na telefonie o zaległych konserwacjach, znajdowanych przez wspólny 
 
 ## 💬 Kontakt i wsparcie
 
-- **Pytania i propozycje funkcji:** otwórz dyskusję w odpowiednim projekcie — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues)
+- **Pytania i propozycje funkcji:** otwórz dyskusję w odpowiednim projekcie — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [ha-reeftank-component](https://github.com/Elwinmage/ha-reeftank-component/issues) · [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues)
 - **Zgłoszenia błędów:** otwórz issue w tym samym projekcie, ze szczegółami.
 - **Wesprzyj projekt:** [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)
 

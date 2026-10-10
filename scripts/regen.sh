@@ -39,6 +39,8 @@ REPOS=(
   ha-reefbeat-component
   ha-aquamedic-component
   ha-reef-card
+  ha-reeftank-component
+  reeftank-catalog
   reefbeatEnergyBackup
   reeftank
 )
@@ -68,6 +70,15 @@ step "Blueprints README (8 languages)"
 step "Maintenance README (8 languages)"
 (cd ha-reef-maintenance-component && python3 scripts/gen_readme.py)
 
+step "ReefTank README (8 languages)"
+(cd ha-reeftank-component && python3 scripts/gen_readme.py)
+
+# The catalog writes its species tables, and keeps the ecosystem block of its
+# translations; it has its own requirements, hence a python3 that may lack
+# them: run it in the catalog's environment if this step fails.
+step "Catalog READMEs (8 languages)"
+(cd reeftank-catalog && python3 scripts/make_readme.py)
+
 # ---------------------------------------------------------------------------
 # 2. Cross-repo generators
 # ---------------------------------------------------------------------------
@@ -75,7 +86,7 @@ step "Maintenance README (8 languages)"
 step "Documentation site (7 pages) and card video links"
 python3 reeftank/scripts/gen_site.py
 
-step "Related projects block (39 files, 6 repositories)"
+step "Related projects block (55 files, 8 repositories)"
 python3 reeftank/scripts/gen_ecosystem.py
 
 # ---------------------------------------------------------------------------
