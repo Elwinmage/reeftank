@@ -362,6 +362,15 @@ Vi avvisa sul telefono delle manutenzioni scadute, trovate tramite l'attributo c
   Your browser does not support the video tag.
 </video>
 
+
+<!-- generated:skimmer-risers:start -->
+
+#### 📦 [*Rialzi per i piedini dello skimmer DC Red Sea*](https://www.thingiverse.com/thing:7420525)
+
+Rialzi per i piedini dello schiumatoio DC Red Sea, per regolarne l'altezza nella sump. Quattro versioni: 80, 70, 60 e 50 mm.
+
+<!-- generated:skimmer-risers:end -->
+
 ---
 
 <!-- generated:contact:start -->

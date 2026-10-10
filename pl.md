@@ -362,6 +362,15 @@ Powiadamia na telefonie o zaległych konserwacjach, znajdowanych przez wspólny 
   Your browser does not support the video tag.
 </video>
 
+
+<!-- generated:skimmer-risers:start -->
+
+#### 📦 [*Podwyższenia nóżek odpieniacza DC Red Sea*](https://www.thingiverse.com/thing:7420525)
+
+Podwyższenia nóżek odpieniacza DC Red Sea, do ustawienia jego wysokości w sumpie. Cztery wersje: 80, 70, 60 i 50 mm.
+
+<!-- generated:skimmer-risers:end -->
+
 ---
 
 <!-- generated:contact:start -->

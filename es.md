@@ -362,6 +362,15 @@ Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atribut
   Your browser does not support the video tag.
 </video>
 
+
+<!-- generated:skimmer-risers:start -->
+
+#### 📦 [*Elevadores de patas para skimmer DC Red Sea*](https://www.thingiverse.com/thing:7420525)
+
+Elevadores para las patas del skimmer DC Red Sea, para ajustar su altura en el sump. Cuatro versiones: 80, 70, 60 y 50 mm.
+
+<!-- generated:skimmer-risers:end -->
+
 ---
 
 <!-- generated:contact:start -->

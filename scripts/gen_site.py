@@ -9,6 +9,7 @@ What it owns:
   * the three top-level sections (Integrations / Cards / Infrastructure)
   * the ha-reef-maintenance-component section, which did not exist
   * the ha-reeftank-component section (with its catalog)
+  * the DC skimmer foot risers in the 3D models section
   * the device tables of the three integrations and of the card
   * the status legend, normalised on the one used by the READMEs
   * the contact section, which used to send every project's users to the
@@ -716,6 +717,47 @@ BLUEPRINTS = {
     ),
 }
 
+# 3D models of the ReefRun DC Skimmer, filed with the impeller tool. Only the
+# risers are generated; the tool entry and its viewer are hand-written.
+RISERS_URL = "https://www.thingiverse.com/thing:7420525"
+RISERS = {
+    "en": (
+        "Red Sea DC Skimmer foot risers",
+        "Risers for the feet of the Red Sea DC skimmer, to set its height in "
+        "the sump. Four versions: 80, 70, 60 and 50 mm.",
+    ),
+    "fr": (
+        "Rehausseurs de pieds pour écumeur DC Red Sea",
+        "Rehausseurs pour les pieds de l'écumeur DC Red Sea, pour régler sa "
+        "hauteur dans la décante. Quatre versions : 80, 70, 60 et 50 mm.",
+    ),
+    "de": (
+        "Fußerhöhungen für den Red Sea DC Skimmer",
+        "Erhöhungen für die Füße des Red Sea DC Abschäumers, um seine Höhe im "
+        "Technikbecken einzustellen. Vier Versionen: 80, 70, 60 und 50 mm.",
+    ),
+    "es": (
+        "Elevadores de patas para skimmer DC Red Sea",
+        "Elevadores para las patas del skimmer DC Red Sea, para ajustar su "
+        "altura en el sump. Cuatro versiones: 80, 70, 60 y 50 mm.",
+    ),
+    "it": (
+        "Rialzi per i piedini dello skimmer DC Red Sea",
+        "Rialzi per i piedini dello schiumatoio DC Red Sea, per regolarne "
+        "l'altezza nella sump. Quattro versioni: 80, 70, 60 e 50 mm.",
+    ),
+    "pl": (
+        "Podwyższenia nóżek odpieniacza DC Red Sea",
+        "Podwyższenia nóżek odpieniacza DC Red Sea, do ustawienia jego "
+        "wysokości w sumpie. Cztery wersje: 80, 70, 60 i 50 mm.",
+    ),
+    "pt": (
+        "Elevadores dos pés do skimmer DC Red Sea",
+        "Elevadores para os pés do escumador DC Red Sea, para ajustar a sua "
+        "altura na sump. Quatro versões: 80, 70, 60 e 50 mm.",
+    ),
+}
+
 START = "<!-- generated:{name}:start -->"
 END = "<!-- generated:{name}:end -->"
 
@@ -897,6 +939,12 @@ def reeftank_section(lang: str) -> str:
     return block("reeftank", body)
 
 
+def risers_section(lang: str) -> str:
+    """The DC skimmer foot risers, next to the impeller tool."""
+    title, body = RISERS[lang]
+    return block("skimmer-risers", f"#### 📦 [*{title}*]({RISERS_URL})\n\n{body}")
+
+
 def contact_section(lang: str) -> str:
     t = T[lang]
     # Discussions is a per-repo setting: two of them have the tab turned off,
@@ -1068,6 +1116,21 @@ def apply(lang: str) -> None:
             + "\n\n---\n\n"
             + text[at.start() :]
         )
+
+    # DC skimmer risers: at the end of the 3D models section, after the
+    # impeller tool of the same skimmer.
+    start = START.format(name="skimmer-risers")
+    if start in text:
+        pattern = re.compile(
+            re.escape(start) + r".*?" + re.escape(END.format(name="skimmer-risers")),
+            re.DOTALL,
+        )
+        text = pattern.sub(lambda _: risers_section(lang), text, count=1)
+    else:
+        at = re.search(r"^## 📐 ", text, re.MULTILINE)
+        assert at, f"{lang}: 3D models heading not found"
+        end = text.index("\n---\n", at.end())
+        text = text[:end] + "\n\n" + risers_section(lang) + "\n" + text[end:]
 
     # Contact: every project has its own tracker.
     if START.format(name="contact") in text:

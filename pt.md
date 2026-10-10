@@ -361,6 +361,15 @@ Avisa-o no telemóvel das manutenções em atraso, encontradas pelo atributo com
   Your browser does not support the video tag.
 </video>
 
+
+<!-- generated:skimmer-risers:start -->
+
+#### 📦 [*Elevadores dos pés do skimmer DC Red Sea*](https://www.thingiverse.com/thing:7420525)
+
+Elevadores para os pés do escumador DC Red Sea, para ajustar a sua altura na sump. Quatro versões: 80, 70, 60 e 50 mm.
+
+<!-- generated:skimmer-risers:end -->
+
 ---
 
 <!-- generated:contact:start -->

@@ -362,6 +362,15 @@ Meldet auf dem Telefon überfällige Wartungen, über das gemeinsame `reef_role`
   });
 </script>
 
+
+<!-- generated:skimmer-risers:start -->
+
+#### 📦 [*Fußerhöhungen für den Red Sea DC Skimmer*](https://www.thingiverse.com/thing:7420525)
+
+Erhöhungen für die Füße des Red Sea DC Abschäumers, um seine Höhe im Technikbecken einzustellen. Vier Versionen: 80, 70, 60 und 50 mm.
+
+<!-- generated:skimmer-risers:end -->
+
 ---
 
 <!-- generated:contact:start -->
