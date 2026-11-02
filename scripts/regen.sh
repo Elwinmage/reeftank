@@ -83,6 +83,11 @@ step "Catalog READMEs (8 languages)"
 # 2. Cross-repo generators
 # ---------------------------------------------------------------------------
 
+# Before the site and the READMEs, which show what it draws. Reads the icon of
+# every repository; skipped with a message when Pillow is missing.
+step "Project flower (thumbnails and README image)"
+python3 reeftank/scripts/gen_flower.py
+
 step "Documentation site (7 pages) and card video links"
 python3 reeftank/scripts/gen_site.py
 
@@ -135,7 +140,7 @@ generated_paths() {
   case "$repo" in
     reeftank)
       # Ajout de scripts/gen_*.py et scripts/regen.sh
-      candidates="index.md fr.md de.md es.md it.md pl.md pt.md _config.yml scripts/regen.sh scripts/gen_*.py" ;;
+      candidates="index.md fr.md de.md es.md it.md pl.md pt.md _config.yml _includes/ecosystem-flower.html assets/flower scripts/regen.sh scripts/gen_*.py" ;;
     ha-reef-blueprints)
       candidates="README.md doc blueprints/automation scripts/gen_*.py" ;;
     *)

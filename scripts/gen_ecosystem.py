@@ -19,6 +19,16 @@ import re
 import sys
 from pathlib import Path
 
+# reeftank has no .gitignore: keep scripts/ free of __pycache__.
+sys.dont_write_bytecode = True
+
+from gen_flower import (  # noqa: E402
+    PROJECTS,
+    README_IMAGE,
+    README_IMAGE_ALT,
+    README_IMAGE_WIDTH,
+)
+
 RAW = "https://raw.githubusercontent.com/Elwinmage/{repo}/main/icon.png"
 GH = "https://github.com/Elwinmage/{repo}"
 SITE = "https://elwinmage.github.io/reeftank/"
@@ -701,6 +711,9 @@ def build_block(current: str, lang: str) -> str:
         "",
         t["intro"],
         "",
+        f'<p align="center"><a href="{SITE}"><img src="{README_IMAGE}"'
+        f' width="{README_IMAGE_WIDTH}" alt="{README_IMAGE_ALT}" /></a></p>',
+        "",
         "<table>",
         "  <tr>",
         f'    <th width="{COLUMN_WIDTH}"></th>',
@@ -771,6 +784,8 @@ def apply(path: Path, repo: str, lang: str) -> str:
 
 
 def main() -> None:
+    if set(REPOS) != set(PROJECTS):
+        raise SystemExit("REPOS here and PROJECTS in gen_flower.py differ")
     for path, repo, lang in targets():
         if not path.exists():
             print("skipped (missing)", path)

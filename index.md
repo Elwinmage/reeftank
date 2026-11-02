@@ -21,6 +21,59 @@ Welcome to the documentation of my reef tank projects.
        style="width:100%; border-radius: 8px;height: 390px;object-fit: cover;">
 </video>
 
+<!-- generated:flower:start -->
+
+{% include ecosystem-flower.html %}
+
+<nav class="eco-flower" aria-label="ReefTech projects" data-open="Open project" data-hint="Eight projects that fit together. Each one also works on its own.">
+  <div class="eco-center">
+    <strong>ReefTech</strong>
+    <span>Eight projects that fit together. Each one also works on its own.</span>
+  </div>
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-card" data-repo="ha-reef-card" data-links="ha-reefbeat-component ha-aquamedic-component ha-reef-maintenance-component ha-reeftank-component reefbeatEnergyBackup" style="--a:0deg;--x:50.00%;--y:14.00%;--c:#0f7f47">
+    <img src="{{ '/assets/flower/ha-reef-card.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">Reef Card</span>
+    <span class="eco-text"><strong>ha-reef-card</strong><span>Interactive view of every device on your dashboard, and the only way to edit advanced schedules.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reefbeat-component" data-repo="ha-reefbeat-component" data-links="ha-reef-blueprints reefbeatEnergyBackup ha-reef-card" style="--a:45deg;--x:75.46%;--y:24.54%;--c:#1e6bb8">
+    <img src="{{ '/assets/flower/ha-reefbeat-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">ReefBeat</span>
+    <span class="eco-text"><strong>ha-reefbeat-component</strong><span>Red Sea ReefBeat devices in Home Assistant, controlled locally with no cloud.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-aquamedic-component" data-repo="ha-aquamedic-component" data-links="ha-reef-blueprints ha-reef-card" style="--a:90deg;--x:86.00%;--y:50.00%;--c:#1e6bb8">
+    <img src="{{ '/assets/flower/ha-aquamedic-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">Aqua Medic</span>
+    <span class="eco-text"><strong>ha-aquamedic-component</strong><span>Aqua Medic wavemakers, return and skimmer pumps in Home Assistant, through the Gizwits cloud API.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-maintenance-component" data-repo="ha-reef-maintenance-component" data-links="ha-reef-blueprints ha-reef-card" style="--a:135deg;--x:75.46%;--y:75.46%;--c:#1e6bb8">
+    <img src="{{ '/assets/flower/ha-reef-maintenance-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">Maintenance</span>
+    <span class="eco-text"><strong>ha-reef-maintenance-component</strong><span>Cleaning and wear tracking for the equipment Home Assistant cannot talk to.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-blueprints" data-repo="ha-reef-blueprints" data-links="ha-reefbeat-component ha-aquamedic-component ha-reef-maintenance-component" style="--a:180deg;--x:50.00%;--y:86.00%;--c:#a86a00">
+    <img src="{{ '/assets/flower/ha-reef-blueprints.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">Blueprints</span>
+    <span class="eco-text"><strong>ha-reef-blueprints</strong><span>Shared notifications for overdue maintenance and for devices that went unreachable.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/reefbeatEnergyBackup" data-repo="reefbeatEnergyBackup" data-links="ha-reef-card ha-reefbeat-component" style="--a:225deg;--x:24.54%;--y:75.46%;--c:#a86a00">
+    <img src="{{ '/assets/flower/reefbeatEnergyBackup.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">Energy Backup</span>
+    <span class="eco-text"><strong>reefbeatEnergyBackup</strong><span>Battery backup for outages, slowing your pumps progressively as the charge drops.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/reeftank-catalog" data-repo="reeftank-catalog" data-links="ha-reeftank-component" style="--a:270deg;--x:14.00%;--y:50.00%;--c:#c8431f">
+    <img src="{{ '/assets/flower/reeftank-catalog.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">Catalog</span>
+    <span class="eco-text"><strong>reeftank-catalog</strong><span>Fish, corals and textures of the aquarium card, kept up to date automatically.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reeftank-component" data-repo="ha-reeftank-component" data-links="reeftank-catalog ha-reef-card" style="--a:315deg;--x:24.54%;--y:24.54%;--c:#c8431f">
+    <img src="{{ '/assets/flower/ha-reeftank-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">ReefTank</span>
+    <span class="eco-text"><strong>ha-reeftank-component</strong><span>A living picture of your tank: your photo, your real lamps, animated fish and corals.</span></span>
+  </a>
+</nav>
+
+<!-- generated:flower:end -->
+
 {% include toc-generator.html %}
 
 * Table of Contents / Sommaire

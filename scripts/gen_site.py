@@ -7,6 +7,7 @@ Usage, from the directory holding every checkout side by side::
 
 What it owns:
   * the three top-level sections (Integrations / Cards / Infrastructure)
+  * the project flower at the top of the page, from gen_flower.py
   * the ha-reef-maintenance-component section, which did not exist
   * the ha-reeftank-component section (with its catalog)
   * the DC skimmer foot risers in the 3D models section
@@ -30,6 +31,11 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+
+# reeftank has no .gitignore: keep scripts/ free of __pycache__.
+sys.dont_write_bytecode = True
+
+from gen_flower import site_html as flower_html  # noqa: E402
 
 LANGS = ["en", "fr", "de", "es", "it", "pl", "pt"]
 PAGES = {lang: ("index.md" if lang == "en" else f"{lang}.md") for lang in LANGS}
@@ -1033,6 +1039,22 @@ def apply(lang: str) -> None:
     t = T[lang]
 
     text = restructure(text, lang)
+
+    # Project flower: right above the table of contents. It adds no heading,
+    # so the table of contents stays the same. Pages without texts yet get none.
+    flower = flower_html(lang)
+    if flower is not None:
+        start = START.format(name="flower")
+        if start in text:
+            pattern = re.compile(
+                re.escape(start) + r".*?" + re.escape(END.format(name="flower")),
+                re.DOTALL,
+            )
+            text = pattern.sub(lambda _: block("flower", flower), text, count=1)
+        else:
+            anchor = "{% include toc-generator.html %}"
+            assert anchor in text, f"{lang}: table of contents not found"
+            text = text.replace(anchor, block("flower", flower) + "\n\n" + anchor, 1)
 
     text = replace_table(
         text, "beat-devices", "#### 🐠 [ha-reefbeat-component]", beat_table(lang), lang
