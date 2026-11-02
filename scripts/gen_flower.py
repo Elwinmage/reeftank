@@ -6,7 +6,9 @@ links, relations and short texts. It provides:
 
   * site_html(), injected into the pages by gen_site.py;
   * README_IMAGE, shown above the Related projects table by gen_ecosystem.py;
-  * the static assets of assets/flower/, when run as a script.
+  * the static assets of assets/flower/, when run as a script, among them an
+    animated SVG: a README can show one as an image, but GitHub strips anything
+    that would let it react to the mouse, so it plays on its own.
 
 Usage, from the directory holding every checkout side by side::
 
@@ -20,6 +22,7 @@ The CSS and JS live in _includes/ecosystem-flower.html.
 
 from __future__ import annotations
 
+import base64
 import math
 import sys
 from html import escape
@@ -42,6 +45,11 @@ README_IMAGE_WIDTH = 480
 RADIUS = 36.0
 
 THUMB_SIZE = 192
+
+# Animated SVG: one step showing the whole flower, then one per project.
+SVG_STEP_SECONDS = 2.2
+SVG_SIZE = 960
+SVG_FONT = "'Segoe UI',Helvetica,Arial,sans-serif"
 
 # White label text sits on these: keep a contrast of at least 4.5:1.
 COLORS = {
@@ -324,6 +332,121 @@ def readme_image(root: Path, out: Path) -> None:
     print("updated", target)
 
 
+def svg_keyframes(name: str, values: list[str]) -> str:
+    """One @keyframes rule holding each step's value, with a short fade.
+
+    values[step] is a CSS declaration; the first one is also the loop point.
+    """
+    fade = 0.4 / (len(values) * SVG_STEP_SECONDS) * 100
+    width = 100 / len(values)
+    stops = [f"0%,{width - fade:.2f}%{{{values[0]}}}"]
+    for step, value in enumerate(values[1:], 1):
+        begin, end = step * width, (step + 1) * width - fade
+        stops.append(f"{begin:.2f}%,{end:.2f}%{{{value}}}")
+    stops.append(f"100%{{{values[0]}}}")
+    return f"@keyframes {name}{{{''.join(stops)}}}"
+
+
+def animated_svg(out: Path) -> None:
+    """Draw the flower as a self-contained animated SVG.
+
+    The thumbnails must exist: an SVG shown as an image cannot load anything,
+    so they are embedded. Text is limited to names, which need no translation.
+    The first frame of the CSS is the whole flower, which is also what shows
+    when animations are off.
+    """
+    repos = list(PROJECTS)
+    size = SVG_SIZE
+    mid = size / 2
+    half = size * 0.09
+    duration = (len(repos) + 1) * SVG_STEP_SECONDS
+
+    css = [
+        f"text{{font-family:{SVG_FONT};font-weight:700;text-anchor:middle}}",
+        ".p{transform-box:fill-box;transform-origin:center}",
+    ]
+    petals, icons, names = [], [], []
+    for index, repo in enumerate(repos):
+        lit = set(related(repo))
+        scale, shape, icon, name = ["transform:none"], ["opacity:.16"], [], []
+        icon.append("opacity:1")
+        name.append("opacity:0")
+        # A project is lit when it is shown, or when the one shown relates to it.
+        for shown in repos:
+            current = shown == repo
+            linked = shown in lit
+            scale.append(f"transform:scale({1.14 if current else 1})")
+            shape.append(f"opacity:{0.34 if current or linked else 0.06}")
+            icon.append(f"opacity:{1 if current or linked else 0.35}")
+            name.append(f"opacity:{1 if current else 0}")
+        css.append(svg_keyframes(f"s{index}", shape))
+        css.append(svg_keyframes(f"i{index}", icon))
+        css.append(svg_keyframes(f"z{index}", scale))
+        css.append(svg_keyframes(f"n{index}", name))
+        for kind, opening in (("s", "#e"), ("i", "#g"), ("z", "#p"), ("n", "#t")):
+            css.append(
+                f"{opening}{index}{{animation:{kind}{index} {duration:g}s infinite}}"
+            )
+
+        project = PROJECTS[repo]
+        color = COLORS[project["family"]]
+        x, y = center_of(index)
+        cx, cy = size * x / 100, size * y / 100
+        data = base64.b64encode((out / f"{repo}.webp").read_bytes()).decode()
+        label = project["label"]
+        # No font metrics here: wide enough for the widest of the fallbacks.
+        pill = len(label) * 12.5 + 28
+        petals.append(
+            f'<ellipse id="e{index}" cx="{mid:g}" cy="280" rx="101" ry="250"'
+            f' fill="{color}" opacity=".16"'
+            f' transform="rotate({angle(index):g} {mid:g} {mid:g})"/>'
+        )
+        icons.append(
+            f'<g id="g{index}"><g id="p{index}" class="p">'
+            f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{half + 7:g}" fill="{color}"/>'
+            f'<image x="{cx - half:.1f}" y="{cy - half:.1f}" width="{2 * half:g}"'
+            f' height="{2 * half:g}" href="data:image/webp;base64,{data}"/>'
+            f'<rect x="{cx - pill / 2:.1f}" y="{cy + half - 16:.1f}"'
+            f' width="{pill:g}" height="32" rx="16" fill="{color}"/>'
+            f'<text x="{cx:.1f}" y="{cy + half + 7:.1f}" font-size="20"'
+            f' fill="#fff">{escape(label)}</text></g></g>'
+        )
+        names.append(
+            f'<g id="t{index}" opacity="0" fill="{color}">'
+            f'<text x="{mid:g}" y="{mid + 2:g}" font-size="38">{escape(label)}</text>'
+            f'<text x="{mid:g}" y="{mid + 34:g}" font-size="15.5"'
+            f' fill-opacity=".85">{repo}</text></g>'
+        )
+
+    # Not "title": preview sanitizers drop any id named after a property of
+    # document, which would leave this text on screen for the whole cycle.
+    css.append(svg_keyframes("brand", ["opacity:1"] + ["opacity:0"] * len(repos)))
+    css.append(f"#brand{{animation:brand {duration:g}s infinite}}")
+    css.append("@media (prefers-reduced-motion:reduce){*{animation:none!important}}")
+
+    svg = "\n".join(
+        [
+            f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}"'
+            f' width="{size}" height="{size}" role="img"'
+            f' aria-label="{README_IMAGE_ALT}">',
+            f"<title>{README_IMAGE_ALT}</title>",
+            f"<style>{''.join(css)}</style>",
+            *petals,
+            *icons,
+            f'<circle cx="{mid:g}" cy="{mid:g}" r="134" fill="#fff"'
+            ' stroke="#dce6f0" stroke-width="2"/>',
+            f'<text id="brand" x="{mid:g}" y="{mid + 15:g}" font-size="44"'
+            f' fill="#155799">ReefTech</text>',
+            *names,
+            "</svg>",
+            "",
+        ]
+    )
+    target = out / "ecosystem-flower.svg"
+    target.write_text(svg, encoding="utf-8")
+    print("updated", target)
+
+
 def main() -> int:
     root = Path(".")
     out = root / "reeftank" / ASSETS
@@ -339,6 +462,7 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     thumbnails(root, out)
     readme_image(root, out)
+    animated_svg(out)
     return 0
 
 
