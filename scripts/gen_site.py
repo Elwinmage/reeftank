@@ -576,6 +576,7 @@ CARD_VIDEOS = [
     ("pA49z8QjTN4", "demo_led"),
     ("sYVeE0zV3eo", "demo_wave"),
     ("9Gh4YE6Ck9g", "demo_aquamedic"),
+    ("ZtYobmQZf9k", "demo_aquarium"),
 ]
 
 # Card documentation pages showing each video, by page slug: the video link
@@ -592,6 +593,7 @@ CARD_VIDEO_PAGES = {
     "demo_led": ["reefled"],
     "demo_wave": ["reefwave"],
     "demo_aquamedic": ["aquamedic"],
+    "demo_aquarium": ["aquarium"],
 }
 
 # README demo galleries: the videos each repository shows, between the
@@ -640,6 +642,7 @@ VIDEO_LABELS = {
         "demo_led": "ReefLed demo",
         "demo_wave": "ReefWave demo",
         "demo_aquamedic": "Aqua Medic demo",
+        "demo_aquarium": "Aquarium view demo",
     },
     "fr": {
         "demo_dose": "Démo ReefDose",
@@ -651,6 +654,7 @@ VIDEO_LABELS = {
         "demo_led": "Démo ReefLed",
         "demo_wave": "Démo ReefWave",
         "demo_aquamedic": "Démo Aqua Medic",
+        "demo_aquarium": "Démo vue aquarium",
     },
     "de": {
         "demo_dose": "ReefDose-Demo",
@@ -662,6 +666,7 @@ VIDEO_LABELS = {
         "demo_led": "ReefLed-Demo",
         "demo_wave": "ReefWave-Demo",
         "demo_aquamedic": "Aqua-Medic-Demo",
+        "demo_aquarium": "Aquarienansicht-Demo",
     },
     "es": {
         "demo_dose": "Demo ReefDose",
@@ -673,6 +678,7 @@ VIDEO_LABELS = {
         "demo_led": "Demo ReefLed",
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
+        "demo_aquarium": "Demo vista de acuario",
     },
     "it": {
         "demo_dose": "Demo ReefDose",
@@ -684,6 +690,7 @@ VIDEO_LABELS = {
         "demo_led": "Demo ReefLed",
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
+        "demo_aquarium": "Demo vista acquario",
     },
     "pl": {
         "demo_dose": "Demo ReefDose",
@@ -695,6 +702,7 @@ VIDEO_LABELS = {
         "demo_led": "Demo ReefLed",
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
+        "demo_aquarium": "Demo widoku akwarium",
     },
     "pt": {
         "demo_dose": "Demo ReefDose",
@@ -706,6 +714,7 @@ VIDEO_LABELS = {
         "demo_led": "Demo ReefLed",
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
+        "demo_aquarium": "Demo vista de aquário",
     },
 }
 
