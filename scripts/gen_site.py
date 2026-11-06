@@ -7,7 +7,10 @@ Usage, from the directory holding every checkout side by side::
 
 What it owns:
   * the three top-level sections (Integrations / Cards / Infrastructure)
+  * the project flower at the top of the page, from gen_flower.py
   * the ha-reef-maintenance-component section, which did not exist
+  * the ha-reeftank-component section (with its catalog)
+  * the 3D models listed after the impeller tool (MODELS)
   * the device tables of the three integrations and of the card
   * the status legend, normalised on the one used by the READMEs
   * the contact section, which used to send every project's users to the
@@ -28,6 +31,11 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+
+# reeftank has no .gitignore: keep scripts/ free of __pycache__.
+sys.dont_write_bytecode = True
+
+from gen_flower import site_html as flower_html  # noqa: E402
 
 LANGS = ["en", "fr", "de", "es", "it", "pl", "pt"]
 PAGES = {lang: ("index.md" if lang == "en" else f"{lang}.md") for lang in LANGS}
@@ -75,6 +83,9 @@ CARD_DEVICES = [
     ("ReefWave (RSWAVE25/45)", OK, "wave"),
     ("Aqua Medic EcoDrift / SmartDrift", OK, "drift"),
     ("Aqua Medic DC Runner (return, skimmer)", OK, "runner"),
+    ("Energy Backup (reefbeatEnergyBackup)", OK, "backup"),
+    ("VSON fish feeder (hacked, ESPHome)", OK, "feeder"),
+    ("Aquarium view (ha-reeftank-component)", OK, "aquarium"),
 ]
 
 VOTE = "https://github.com/Elwinmage/ha-reef-card/discussions/22"
@@ -116,12 +127,20 @@ T: dict[str, dict[str, str]] = {
         ),
         "maint_features": "**Key features:**",
         "maint_f1": "Presets for Tunze, Jebao and generic gear, with manufacturer intervals where one is published",
-        "maint_f2": "A shared library of 17 tasks, translated in 8 languages",
+        "maint_f2": "A shared library of 22 tasks, translated in 8 languages",
         "maint_f3": 'Backdating, so a new piece of equipment does not start from "never done"',
         "maint_f4": "`reef_maintenance.reset` service — stick an NFC tag on the pump and scan it when you are done",
         "maint_f5": "Same `reef_role` contract as the connected integrations, so tasks land in the card's maintenance view",
         "install": "**Installation:**",
-        "maint_install": "In HACS, add `https://github.com/Elwinmage/ha-reef-maintenance-component` as a custom repository (Integration).",
+        "maint_install": "Search for \"reef-maintenance\" in *Settings > Marketplace*.",
+        "tank_title": "A living picture of your aquarium on the dashboard.",
+        "tank_intro": "The integration behind the aquarium card of ha-reef-card: your photo, the water lit by your real lamps, animated fish and corals, and your devices and entities on it. It stores the aquariums, their pictures and their livestock, and records the feedings.",
+        "tank_f1": "Outline the water, the sand and the rocks on your own photo — or draw the tank with rock and sand textures",
+        "tank_f2": "Fish that shoal, cruise, crawl on the sand or peek out of their burrow, and hide behind the rocks at night",
+        "tank_f3": "Water tinted by your lamps (ReefLED or any light), corals swaying with the pumps",
+        "tank_f4": "Feedings recorded from feeders, shortcuts or a service; fish and coral counts as sensors; pH and ORP watched against the tank's own history",
+        "tank_f5": "Species from the [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), kept up to date automatically",
+        "tank_install": "Search for \"ReefTank\" in *Settings > Marketplace*, and install ha-reef-card for the card.",
         "contact_title": "💬 Contact & Support",
         "contact_q": "**Questions and feature requests:** open a discussion on the project concerned —",
         "contact_b": "**Bug reports:** open an issue on that same project, with the details.",
@@ -158,12 +177,20 @@ T: dict[str, dict[str, str]] = {
         ),
         "maint_features": "**Fonctions principales :**",
         "maint_f1": "Préréglages Tunze, Jebao et matériel générique, avec les intervalles du fabricant quand il en publie",
-        "maint_f2": "Une bibliothèque commune de 17 tâches, traduite en 8 langues",
+        "maint_f2": "Une bibliothèque commune de 22 tâches, traduite en 8 langues",
         "maint_f3": "Antidatage, pour qu'un nouvel équipement ne démarre pas à « jamais fait »",
         "maint_f4": "Service `reef_maintenance.reset` — collez un tag NFC sur la pompe et scannez-le une fois le travail terminé",
         "maint_f5": "Même contrat `reef_role` que les intégrations connectées : les tâches arrivent dans la vue maintenance de la carte",
         "install": "**Installation :**",
-        "maint_install": "Dans HACS, ajoutez `https://github.com/Elwinmage/ha-reef-maintenance-component` en dépôt personnalisé (Intégration).",
+        "maint_install": "Cherchez \"reef-maintenance\" dans *Paramètres > Marketplace*.",
+        "tank_title": "Une image vivante de votre aquarium sur le tableau de bord.",
+        "tank_intro": "L'intégration derrière la carte aquarium de ha-reef-card : votre photo, l'eau éclairée par vos vraies lampes, des poissons et des coraux animés, et vos appareils et entités dessus. Elle stocke les aquariums, leurs images et leur population, et enregistre les nourrissages.",
+        "tank_f1": "Détourez l'eau, le sable et les roches sur votre propre photo — ou dessinez le bac avec des textures de roche et de sable",
+        "tank_f2": "Des poissons en banc, en pleine eau, sur le sable ou qui sortent la tête de leur terrier, et se cachent derrière les roches la nuit",
+        "tank_f3": "L'eau teintée par vos lampes (ReefLED ou n'importe quelle lumière), des coraux qui ondulent avec les pompes",
+        "tank_f4": "Nourrissages enregistrés depuis les nourrisseurs, les raccourcis ou un service ; nombre de poissons et de coraux en capteurs; pH et ORP surveillés par rapport à l'historique du bac",
+        "tank_f5": "Espèces du [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), tenues à jour automatiquement",
+        "tank_install": "Cherchez \"ReefTank\" dans *Paramètres > Marketplace*, et installez ha-reef-card pour la carte.",
         "contact_title": "💬 Contact & Support",
         "contact_q": "**Questions et demandes de fonctionnalités :** ouvrez une discussion sur le projet concerné —",
         "contact_b": "**Signalement de bugs :** ouvrez une issue sur ce même projet, avec les détails.",
@@ -200,12 +227,20 @@ T: dict[str, dict[str, str]] = {
         ),
         "maint_features": "**Hauptfunktionen:**",
         "maint_f1": "Voreinstellungen für Tunze, Jebao und generische Geräte, mit Herstellerintervallen wo veröffentlicht",
-        "maint_f2": "Eine gemeinsame Bibliothek mit 17 Aufgaben, in 8 Sprachen übersetzt",
+        "maint_f2": "Eine gemeinsame Bibliothek mit 22 Aufgaben, in 8 Sprachen übersetzt",
         "maint_f3": 'Rückdatierung, damit ein neues Gerät nicht bei „nie gemacht" beginnt',
         "maint_f4": "Dienst `reef_maintenance.reset` — NFC-Tag an die Pumpe kleben und nach getaner Arbeit scannen",
         "maint_f5": "Gleicher `reef_role`-Vertrag wie die verbundenen Integrationen: die Aufgaben erscheinen in der Wartungsansicht der Karte",
         "install": "**Installation:**",
-        "maint_install": "In HACS `https://github.com/Elwinmage/ha-reef-maintenance-component` als benutzerdefiniertes Repository (Integration) hinzufügen.",
+        "maint_install": "Suchen Sie in *Einstellungen > Marketplace* nach \"reef-maintenance\".",
+        "tank_title": "Ein lebendiges Bild Ihres Aquariums auf dem Dashboard.",
+        "tank_intro": "Die Integration hinter der Aquariumkarte von ha-reef-card: Ihr Foto, das Wasser beleuchtet von Ihren echten Lampen, animierte Fische und Korallen und Ihre Geräte und Entitäten darauf. Sie speichert die Aquarien, ihre Bilder und ihren Besatz und protokolliert die Fütterungen.",
+        "tank_f1": "Wasser, Sand und Steine auf Ihrem eigenen Foto umranden — oder das Becken mit Stein- und Sandtexturen zeichnen",
+        "tank_f2": "Fische im Schwarm, im Freiwasser, auf dem Sand oder aus ihrer Höhle schauend, die sich nachts hinter den Steinen verstecken",
+        "tank_f3": "Wasser in der Farbe Ihrer Lampen (ReefLED oder jedes Licht), Korallen, die sich mit den Pumpen wiegen",
+        "tank_f4": "Fütterungen von Futterautomaten, Kurzbefehlen oder einem Dienst; Fisch- und Korallenzahl als Sensoren; pH und ORP werden mit dem eigenen Verlauf des Beckens verglichen",
+        "tank_f5": "Arten aus dem [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), automatisch aktuell gehalten",
+        "tank_install": "Suchen Sie in *Einstellungen > Marketplace* nach \"ReefTank\" und installieren Sie ha-reef-card für die Karte.",
         "contact_title": "💬 Kontakt & Support",
         "contact_q": "**Fragen und Funktionswünsche:** eröffnen Sie eine Diskussion im betreffenden Projekt —",
         "contact_b": "**Fehlerberichte:** eröffnen Sie ein Issue im selben Projekt, mit den Details.",
@@ -241,12 +276,20 @@ T: dict[str, dict[str, str]] = {
         ),
         "maint_features": "**Funciones principales:**",
         "maint_f1": "Preajustes para Tunze, Jebao y equipos genéricos, con los intervalos del fabricante cuando los publica",
-        "maint_f2": "Una biblioteca común de 17 tareas, traducida a 8 idiomas",
+        "maint_f2": "Una biblioteca común de 22 tareas, traducida a 8 idiomas",
         "maint_f3": "Retrodatación, para que un equipo nuevo no empiece en «nunca hecho»",
         "maint_f4": "Servicio `reef_maintenance.reset` — pegue una etiqueta NFC en la bomba y escanéela al terminar",
         "maint_f5": "Mismo contrato `reef_role` que las integraciones conectadas: las tareas aparecen en la vista de mantenimiento de la tarjeta",
         "install": "**Instalación:**",
-        "maint_install": "En HACS, añada `https://github.com/Elwinmage/ha-reef-maintenance-component` como repositorio personalizado (Integración).",
+        "maint_install": "Busque \"reef-maintenance\" en *Ajustes > Marketplace*.",
+        "tank_title": "Una imagen viva de su acuario en el panel.",
+        "tank_intro": "La integración detrás de la tarjeta de acuario de ha-reef-card: su foto, el agua iluminada por sus lámparas reales, peces y corales animados, y sus dispositivos y entidades encima. Guarda los acuarios, sus imágenes y su fauna, y registra las alimentaciones.",
+        "tank_f1": "Contornee el agua, la arena y las rocas en su propia foto — o dibuje el acuario con texturas de roca y arena",
+        "tank_f2": "Peces en cardumen, en aguas abiertas, sobre la arena o asomando de su madriguera, que se esconden tras las rocas de noche",
+        "tank_f3": "Agua teñida por sus lámparas (ReefLED o cualquier luz), corales que se mecen con las bombas",
+        "tank_f4": "Alimentaciones registradas desde comederos, atajos o un servicio; número de peces y corales como sensores; pH y ORP vigilados frente al propio historial del acuario",
+        "tank_f5": "Especies del [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), actualizadas automáticamente",
+        "tank_install": "Busque \"ReefTank\" en *Ajustes > Marketplace*, e instale ha-reef-card para la tarjeta.",
         "contact_title": "💬 Contacto y soporte",
         "contact_q": "**Preguntas y peticiones de funciones:** abra una discusión en el proyecto correspondiente —",
         "contact_b": "**Informes de errores:** abra una issue en ese mismo proyecto, con los detalles.",
@@ -282,12 +325,20 @@ T: dict[str, dict[str, str]] = {
         ),
         "maint_features": "**Funzioni principali:**",
         "maint_f1": "Preset per Tunze, Jebao e apparecchiature generiche, con gli intervalli del produttore quando pubblicati",
-        "maint_f2": "Una libreria comune di 17 attività, tradotta in 8 lingue",
+        "maint_f2": "Una libreria comune di 22 attività, tradotta in 8 lingue",
         "maint_f3": "Retrodatazione, così una nuova apparecchiatura non parte da «mai fatto»",
         "maint_f4": "Servizio `reef_maintenance.reset` — attaccate un tag NFC sulla pompa e scansionatelo a lavoro finito",
         "maint_f5": "Stesso contratto `reef_role` delle integrazioni connesse: le attività compaiono nella vista manutenzione della scheda",
         "install": "**Installazione:**",
-        "maint_install": "In HACS, aggiungete `https://github.com/Elwinmage/ha-reef-maintenance-component` come repository personalizzato (Integrazione).",
+        "maint_install": "Cercate \"reef-maintenance\" in *Impostazioni > Marketplace*.",
+        "tank_title": "Un'immagine viva del vostro acquario sulla plancia.",
+        "tank_intro": "L'integrazione dietro la scheda acquario di ha-reef-card: la vostra foto, l'acqua illuminata dalle vostre vere lampade, pesci e coralli animati, e sopra i vostri dispositivi ed entità. Conserva gli acquari, le loro immagini e la loro fauna, e registra le alimentazioni.",
+        "tank_f1": "Contornate l'acqua, la sabbia e le rocce sulla vostra foto — o disegnate la vasca con texture di roccia e sabbia",
+        "tank_f2": "Pesci in banco, in acque libere, sulla sabbia o che spuntano dalla tana, e di notte si nascondono dietro le rocce",
+        "tank_f3": "Acqua tinta dalle vostre lampade (ReefLED o qualsiasi luce), coralli che ondeggiano con le pompe",
+        "tank_f4": "Alimentazioni registrate da alimentatori, scorciatoie o un servizio; numero di pesci e coralli come sensori; pH e ORP sorvegliati rispetto alla cronologia della vasca",
+        "tank_f5": "Specie dal [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aggiornate automaticamente",
+        "tank_install": "Cercate \"ReefTank\" in *Impostazioni > Marketplace*, e installate ha-reef-card per la scheda.",
         "contact_title": "💬 Contatti e supporto",
         "contact_q": "**Domande e richieste di funzionalità:** aprite una discussione sul progetto interessato —",
         "contact_b": "**Segnalazione bug:** aprite una issue sullo stesso progetto, con i dettagli.",
@@ -324,12 +375,20 @@ T: dict[str, dict[str, str]] = {
         ),
         "maint_features": "**Główne funkcje:**",
         "maint_f1": "Ustawienia wstępne dla Tunze, Jebao i sprzętu generycznego, z interwałami producenta tam, gdzie są publikowane",
-        "maint_f2": "Wspólna biblioteka 17 zadań, przetłumaczona na 8 języków",
+        "maint_f2": "Wspólna biblioteka 22 zadań, przetłumaczona na 8 języków",
         "maint_f3": 'Wsteczne datowanie, aby nowy sprzęt nie zaczynał od „nigdy nie wykonano"',
         "maint_f4": "Usługa `reef_maintenance.reset` — przyklej tag NFC na pompie i zeskanuj go po zakończeniu",
         "maint_f5": "Ten sam kontrakt `reef_role` co integracje podłączone: zadania trafiają do widoku konserwacji karty",
         "install": "**Instalacja:**",
-        "maint_install": "W HACS dodaj `https://github.com/Elwinmage/ha-reef-maintenance-component` jako niestandardowe repozytorium (Integracja).",
+        "maint_install": "Wyszukaj \"reef-maintenance\" w *Ustawienia > Marketplace*.",
+        "tank_title": "Żywy obraz Twojego akwarium na pulpicie.",
+        "tank_intro": "Integracja stojąca za kartą akwarium z ha-reef-card: Twoje zdjęcie, woda oświetlona prawdziwymi lampami, animowane ryby i koralowce oraz Twoje urządzenia i encje. Przechowuje akwaria, ich zdjęcia i obsadę oraz rejestruje karmienia.",
+        "tank_f1": "Obrysuj wodę, piasek i skały na własnym zdjęciu — lub narysuj zbiornik z teksturami skał i piasku",
+        "tank_f2": "Ryby w ławicy, w otwartej wodzie, na piasku lub wyglądające z norki, nocą chowające się za skałami",
+        "tank_f3": "Woda zabarwiona przez Twoje lampy (ReefLED lub dowolne światło), koralowce falujące z pompami",
+        "tank_f4": "Karmienia z karmników, skrótów lub usługi; liczba ryb i koralowców jako sensory; pH i ORP porównywane z własną historią akwarium",
+        "tank_f5": "Gatunki z [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aktualizowane automatycznie",
+        "tank_install": "Wyszukaj \"ReefTank\" w *Ustawienia > Marketplace* i zainstaluj ha-reef-card dla karty.",
         "contact_title": "💬 Kontakt i wsparcie",
         "contact_q": "**Pytania i propozycje funkcji:** otwórz dyskusję w odpowiednim projekcie —",
         "contact_b": "**Zgłoszenia błędów:** otwórz issue w tym samym projekcie, ze szczegółami.",
@@ -365,12 +424,20 @@ T: dict[str, dict[str, str]] = {
         ),
         "maint_features": "**Funções principais:**",
         "maint_f1": "Predefinições para Tunze, Jebao e equipamento genérico, com os intervalos do fabricante quando publicados",
-        "maint_f2": "Uma biblioteca comum de 17 tarefas, traduzida em 8 idiomas",
+        "maint_f2": "Uma biblioteca comum de 22 tarefas, traduzida em 8 idiomas",
         "maint_f3": "Retroatividade, para que um equipamento novo não comece em «nunca feito»",
         "maint_f4": "Serviço `reef_maintenance.reset` — cole uma etiqueta NFC na bomba e leia-a quando terminar",
         "maint_f5": "Mesmo contrato `reef_role` das integrações ligadas: as tarefas aparecem na vista de manutenção do cartão",
         "install": "**Instalação:**",
-        "maint_install": "No HACS, adicione `https://github.com/Elwinmage/ha-reef-maintenance-component` como repositório personalizado (Integração).",
+        "maint_install": "Pesquise \"reef-maintenance\" em *Definições > Marketplace*.",
+        "tank_title": "Uma imagem viva do seu aquário no painel.",
+        "tank_intro": "A integração por trás do cartão de aquário do ha-reef-card: a sua foto, a água iluminada pelas suas lâmpadas reais, peixes e corais animados, e os seus dispositivos e entidades. Guarda os aquários, as suas imagens e a sua fauna, e regista as alimentações.",
+        "tank_f1": "Contorne a água, a areia e as rochas na sua própria foto — ou desenhe o aquário com texturas de rocha e areia",
+        "tank_f2": "Peixes em cardume, em águas abertas, na areia ou a espreitar da toca, que se escondem atrás das rochas à noite",
+        "tank_f3": "Água tingida pelas suas lâmpadas (ReefLED ou qualquer luz), corais a ondular com as bombas",
+        "tank_f4": "Alimentações registadas a partir de alimentadores, atalhos ou um serviço; número de peixes e corais como sensores; pH e ORP vigiados face ao histórico do próprio aquário",
+        "tank_f5": "Espécies do [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), atualizadas automaticamente",
+        "tank_install": "Pesquise \"ReefTank\" em *Definições > Marketplace*, e instale ha-reef-card para o cartão.",
         "contact_title": "💬 Contacto e suporte",
         "contact_q": "**Perguntas e pedidos de funcionalidades:** abra uma discussão no projeto em causa —",
         "contact_b": "**Relatórios de erros:** abra uma issue nesse mesmo projeto, com os detalhes.",
@@ -382,94 +449,115 @@ T: dict[str, dict[str, str]] = {
 # belongs in the card's own README, the site only says what it is worth.
 CARD_HIGHLIGHTS = {
     "en": {
-        "dose": "Full scheduling, manual dosing, priming and calibration, supplement management, usage tracking",
+        "dose": "Full scheduling, manual dosing, priming and calibration, supplement management, usage tracking, dose regulation (assisted dosing, brine), dose history",
         "mat": "Animated roll status, manual/auto/scheduled advance, sensor status, weekly and monthly graphs",
         "run": "Pump speed control, schedule editor, overskimming management",
         "ato": "Water level, leak probe, pump diagnostics, consumption graph, leak buzzer",
-        "control": "Probes with level bars and 24 h history, guided pH/EC/ORP/temperature calibration, 12V ports, ATO, buzzer, paired power center",
+        "control": "Probes with level bars, trends and 7-day history, guided pH/EC/ORP/temperature calibration, 12V ports, ATO, buzzer, paired power center",
         "power": "Per-socket control, on/off/schedule/probe modes, linked devices, local temperature probe or ReefControl link",
         "led": "Sky with sun and moon, beam with the day's program, intensity/colour or white/blue sliders, program editor (kelvin or white/blue, clouds), weather mode, groups with staggered sunrise, acclimation",
         "wave": "Animated pump view, speed and direction, wave library, schedule editor with time slots, pump groups",
         "drift": "Pump speed on the picture, faults, feed pause, time-slot program editor",
         "runner": "Return or skimmer pump view following the integration's role, speed, faults, time-slot program editor",
+        "backup": "Power flows of the mains, the battery and the pumps, drawn with Power Flow Card Plus",
+        "feeder": "Live picture of the feeder, feeding slots, reserve warning, feed now",
+        "aquarium": "Your tank photo with live devices and entities, water tinted by your lamps, animated fish and corals, seven-tab scene editor",
         "vote": None,
     },
     "fr": {
-        "dose": "Planification complète, dosage manuel, amorçage et calibration, gestion des suppléments, suivi de l'utilisation",
+        "dose": "Planification complète, dosage manuel, amorçage et calibration, gestion des suppléments, suivi de l'utilisation, régulation du dosage (assisté, saumure), historique des doses",
         "mat": "État du rouleau animé, avance manuelle/auto/programmée, état du capteur, graphiques hebdo et mensuels",
         "run": "Contrôle de la vitesse de pompe, éditeur de programmes, gestion du surécumage",
         "ato": "Niveau d'eau, sonde de fuite, diagnostic pompe, graphe de consommation, buzzer de fuite",
-        "control": "Sondes avec barres de niveau et historique 24 h, calibration guidée pH/EC/ORP/température, ports 12V, ATO, buzzer, multiprise appairée",
+        "control": "Sondes avec barres de niveau, tendances et historique 7 jours, calibration guidée pH/EC/ORP/température, ports 12V, ATO, buzzer, multiprise appairée",
         "power": "Contrôle par prise, modes marche/arrêt/programme/sonde, appareils liés, sonde de température locale ou lien ReefControl",
         "led": "Ciel avec soleil et lune, faisceau avec le programme du jour, curseurs intensité/couleur ou blanc/bleu, éditeur de programmes (kelvin ou blanc/bleu, nuages), mode météo, groupes avec lever décalé, acclimatation",
         "wave": "Vue animée de la pompe, vitesse et direction, librairie de vagues, éditeur de programme par créneaux, groupes de pompes",
         "drift": "Vitesse de la pompe sur l'image, défauts, pause nourrissage, éditeur de programme par créneaux",
         "runner": "Vue pompe de remontée ou d'écumeur selon le rôle de l'intégration, vitesse, défauts, éditeur de programme par créneaux",
+        "backup": "Flux d'énergie du secteur, de la batterie et des pompes, dessinés avec Power Flow Card Plus",
+        "feeder": "Image vivante du distributeur, créneaux de nourrissage, alerte de réserve, nourrir maintenant",
+        "aquarium": "La photo de votre bac avec appareils et entités en direct, l'eau teintée par vos lampes, poissons et coraux animés, éditeur de scène en sept onglets",
         "vote": None,
     },
     "de": {
-        "dose": "Vollständige Planung, manuelle Dosierung, Entlüften und Kalibrieren, Zusatzstoffverwaltung, Verbrauchsverfolgung",
+        "dose": "Vollständige Planung, manuelle Dosierung, Entlüften und Kalibrieren, Zusatzstoffverwaltung, Verbrauchsverfolgung, Dosierregelung (assistiert, Salzlösung), Dosierverlauf",
         "mat": "Animierter Rollenstatus, manueller/automatischer/geplanter Vorschub, Sensorstatus, Wochen- und Monatsgrafiken",
         "run": "Pumpendrehzahl, Zeitplan-Editor, Überschäumen-Verwaltung",
         "ato": "Wasserstand, Lecksonde, Pumpendiagnose, Verbrauchsdiagramm, Leck-Summer",
-        "control": "Sonden mit Pegelbalken und 24-h-Verlauf, geführte pH/EC/ORP/Temperatur-Kalibrierung, 12V-Ports, ATO, Summer, gekoppelte Steckdosenleiste",
+        "control": "Sonden mit Pegelbalken, Trends und 7-Tage-Verlauf, geführte pH/EC/ORP/Temperatur-Kalibrierung, 12V-Ports, ATO, Summer, gekoppelte Steckdosenleiste",
         "power": "Steuerung pro Steckdose, Modi Ein/Aus/Zeitplan/Sonde, verknüpfte Geräte, lokale Temperatursonde oder ReefControl-Verbindung",
         "led": "Himmel mit Sonne und Mond, Lichtkegel mit dem Tagesprogramm, Regler für Intensität/Farbe oder Weiß/Blau, Programm-Editor (Kelvin oder Weiß/Blau, Wolken), Wettermodus, Gruppen mit versetztem Sonnenaufgang, Akklimatisierung",
         "wave": "Animierte Pumpenansicht, Geschwindigkeit und Richtung, Wellenbibliothek, Zeitplan-Editor mit Zeitfenstern, Pumpengruppen",
         "drift": "Pumpendrehzahl im Bild, Störungen, Fütterungspause, Zeitfenster-Programm-Editor",
         "runner": "Ansicht als Förder- oder Abschäumerpumpe je nach Rolle in der Integration, Drehzahl, Störungen, Zeitfenster-Programm-Editor",
+        "backup": "Energieflüsse von Netz, Batterie und Pumpen, gezeichnet mit Power Flow Card Plus",
+        "feeder": "Lebendiges Bild des Automaten, Fütterungsplätze, Vorratswarnung, Jetzt füttern",
+        "aquarium": "Das Foto Ihres Beckens mit Live-Geräten und -Entitäten, vom Licht Ihrer Lampen getöntes Wasser, animierte Fische und Korallen, Szeneneditor mit sieben Reitern",
         "vote": None,
     },
     "es": {
-        "dose": "Planificación completa, dosificación manual, cebado y calibración, gestión de suplementos, seguimiento de uso",
+        "dose": "Planificación completa, dosificación manual, cebado y calibración, gestión de suplementos, seguimiento de uso, regulación de dosificación (asistida, salmuera), historial de dosis",
         "mat": "Estado del rollo animado, avance manual/automático/programado, estado del sensor, gráficos semanales y mensuales",
         "run": "Control de velocidad de bomba, editor de programas, gestión del sobreespumado",
         "ato": "Nivel de agua, sonda de fugas, diagnóstico de bomba, gráfico de consumo, zumbador de fuga",
-        "control": "Sondas con barras de nivel e historial de 24 h, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada",
+        "control": "Sondas con barras de nivel, tendencias e historial de 7 días, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada",
         "power": "Control por toma, modos encendido/apagado/programa/sonda, dispositivos vinculados, sonda de temperatura local o enlace ReefControl",
         "led": "Cielo con sol y luna, haz con el programa del día, deslizadores intensidad/color o blanco/azul, editor de programas (kelvin o blanco/azul, nubes), modo meteorológico, grupos con amanecer escalonado, aclimatación",
         "wave": "Vista animada de la bomba, velocidad y dirección, biblioteca de olas, editor de programa por franjas, grupos de bombas",
         "drift": "Velocidad de la bomba en la imagen, fallos, pausa de alimentación, editor de programa por franjas",
         "runner": "Vista de bomba de retorno o de skimmer según el rol de la integración, velocidad, fallos, editor de programa por franjas",
+        "backup": "Flujos de energía de la red, la batería y las bombas, dibujados con Power Flow Card Plus",
+        "feeder": "Imagen viva del comedero, franjas de alimentación, aviso de reserva, alimentar ahora",
+        "aquarium": "La foto de su acuario con dispositivos y entidades en vivo, agua teñida por sus lámparas, peces y corales animados, editor de escena de siete pestañas",
         "vote": None,
     },
     "it": {
-        "dose": "Pianificazione completa, dosaggio manuale, adescamento e calibrazione, gestione dei supplementi, monitoraggio dei consumi",
+        "dose": "Pianificazione completa, dosaggio manuale, adescamento e calibrazione, gestione dei supplementi, monitoraggio dei consumi, regolazione del dosaggio (assistito, salamoia), cronologia delle dosi",
         "mat": "Stato del rotolo animato, avanzamento manuale/automatico/programmato, stato del sensore, grafici settimanali e mensili",
         "run": "Controllo della velocità della pompa, editor dei programmi, gestione della sovraschiumazione",
         "ato": "Livello dell'acqua, sonda perdite, diagnostica pompa, grafico dei consumi, buzzer perdite",
-        "control": "Sonde con barre di livello e storico 24 h, calibrazione guidata pH/EC/ORP/temperatura, porte 12V, ATO, buzzer, multipresa associata",
+        "control": "Sonde con barre di livello, tendenze e storico 7 giorni, calibrazione guidata pH/EC/ORP/temperatura, porte 12V, ATO, buzzer, multipresa associata",
         "power": "Controllo per presa, modalità acceso/spento/programma/sonda, dispositivi collegati, sonda di temperatura locale o collegamento ReefControl",
         "led": "Cielo con sole e luna, fascio con il programma del giorno, cursori intensità/colore o bianco/blu, editor dei programmi (kelvin o bianco/blu, nuvole), modalità meteo, gruppi con alba sfalsata, acclimatazione",
         "wave": "Vista animata della pompa, velocità e direzione, libreria delle onde, editor del programma a fasce orarie, gruppi di pompe",
         "drift": "Velocità della pompa sull'immagine, guasti, pausa alimentazione, editor del programma a fasce orarie",
         "runner": "Vista pompa di risalita o dello schiumatoio secondo il ruolo nell'integrazione, velocità, guasti, editor del programma a fasce orarie",
+        "backup": "Flussi di energia di rete, batteria e pompe, disegnati con Power Flow Card Plus",
+        "feeder": "Immagine viva della mangiatoia, fasce di alimentazione, avviso riserva, alimenta ora",
+        "aquarium": "La foto della tua vasca con dispositivi ed entità in tempo reale, acqua tinta dalle tue lampade, pesci e coralli animati, editor di scena a sette schede",
         "vote": None,
     },
     "pl": {
-        "dose": "Pełne harmonogramowanie, dozowanie ręczne, zalewanie i kalibracja, zarządzanie suplementami, śledzenie zużycia",
+        "dose": "Pełne harmonogramowanie, dozowanie ręczne, zalewanie i kalibracja, zarządzanie suplementami, śledzenie zużycia, regulacja dozowania (wspomagana, solanka), historia dawek",
         "mat": "Animowany stan rolki, przesuw ręczny/automatyczny/zaplanowany, stan czujnika, wykresy tygodniowe i miesięczne",
         "run": "Sterowanie prędkością pompy, edytor harmonogramów, zarządzanie nadmiernym odpienianiem",
         "ato": "Poziom wody, sonda wycieku, diagnostyka pompy, wykres zużycia, buzzer wycieku",
-        "control": "Sondy z paskami poziomu i historią 24 h, prowadzona kalibracja pH/EC/ORP/temperatury, porty 12V, ATO, buzzer, sparowana listwa zasilająca",
+        "control": "Sondy z paskami poziomu, trendami i historią 7 dni, prowadzona kalibracja pH/EC/ORP/temperatury, porty 12V, ATO, buzzer, sparowana listwa zasilająca",
         "power": "Sterowanie per gniazdo, tryby wł./wył./harmonogram/sonda, powiązane urządzenia, lokalna sonda temperatury lub połączenie z ReefControl",
         "led": "Niebo ze słońcem i księżycem, wiązka z programem dnia, suwaki intensywność/kolor lub biały/niebieski, edytor programów (kelwiny lub biały/niebieski, chmury), tryb pogodowy, grupy z przesuniętym wschodem, aklimatyzacja",
         "wave": "Animowany widok pompy, prędkość i kierunek, biblioteka fal, edytor harmonogramu w przedziałach czasu, grupy pomp",
         "drift": "Prędkość pompy na obrazie, usterki, pauza karmienia, edytor programu w przedziałach czasu",
         "runner": "Widok pompy powrotnej lub odpieniacza zgodnie z rolą w integracji, prędkość, usterki, edytor programu w przedziałach czasu",
+        "backup": "Przepływy energii sieci, baterii i pomp, rysowane przez Power Flow Card Plus",
+        "feeder": "Żywy obraz karmnika, sloty karmienia, ostrzeżenie o zapasie, nakarm teraz",
+        "aquarium": "Zdjęcie akwarium z urządzeniami i encjami na żywo, woda zabarwiona przez Twoje lampy, animowane ryby i koralowce, edytor sceny z siedmioma zakładkami",
         "vote": None,
     },
     "pt": {
-        "dose": "Planeamento completo, doseamento manual, escorvamento e calibração, gestão de suplementos, acompanhamento do consumo",
+        "dose": "Planeamento completo, doseamento manual, escorvamento e calibração, gestão de suplementos, acompanhamento do consumo, regulação da dosagem (assistida, salmoura), histórico das doses",
         "mat": "Estado do rolo animado, avanço manual/automático/programado, estado do sensor, gráficos semanais e mensais",
         "run": "Controlo da velocidade da bomba, editor de programas, gestão da sobre-escumação",
         "ato": "Nível de água, sonda de fugas, diagnóstico da bomba, gráfico de consumo, buzzer de fuga",
-        "control": "Sondas com barras de nível e histórico de 24 h, calibração guiada pH/EC/ORP/temperatura, portas 12V, ATO, buzzer, régua emparelhada",
+        "control": "Sondas com barras de nível, tendências e histórico de 7 dias, calibração guiada pH/EC/ORP/temperatura, portas 12V, ATO, buzzer, régua emparelhada",
         "power": "Controlo por tomada, modos ligado/desligado/programa/sonda, aparelhos associados, sonda de temperatura local ou ligação ReefControl",
         "led": "Céu com sol e lua, feixe com o programa do dia, cursores intensidade/cor ou branco/azul, editor de programas (kelvin ou branco/azul, nuvens), modo meteorológico, grupos com nascer escalonado, aclimatação",
         "wave": "Vista animada da bomba, velocidade e direção, biblioteca de ondas, editor de programa por faixas horárias, grupos de bombas",
         "drift": "Velocidade da bomba na imagem, falhas, pausa de alimentação, editor de programa por faixas horárias",
         "runner": "Vista de bomba de retorno ou de escumador segundo o papel na integração, velocidade, falhas, editor de programa por faixas horárias",
+        "backup": "Fluxos de energia da rede, da bateria e das bombas, desenhados com Power Flow Card Plus",
+        "feeder": "Imagem viva do alimentador, períodos de alimentação, aviso de reserva, alimentar agora",
+        "aquarium": "A foto do seu aquário com dispositivos e entidades em direto, água tingida pelas suas lâmpadas, peixes e corais animados, editor de cena com sete separadores",
         "vote": None,
     },
 }
@@ -623,41 +711,141 @@ VIDEO_LABELS = {
 
 BLUEPRINTS = {
     "en": (
-        "Notification blueprints for the whole ecosystem.",
-        "Alerts you on your phone about overdue maintenance, found through the shared `reef_role` attribute so every integration is covered, and about devices that went unreachable. Eight languages, one import button each.",
+        "Automation blueprints for the whole ecosystem.",
+        "Alerts you on your phone about overdue maintenance, found through the shared `reef_role` attribute so every integration is covered, and about devices that went unreachable. Tests your heaters one at a time, and warns you when a relay reads off while its appliance still draws power. Eight languages, one import button each.",
         "**Installation:** import from the repository, one button per language.",
     ),
     "fr": (
-        "Blueprints de notification pour tout l'écosystème.",
-        "Vous prévient sur votre téléphone des entretiens en retard, trouvés via l'attribut commun `reef_role` afin que toutes les intégrations soient couvertes, et des appareils devenus injoignables. Huit langues, un bouton d'import chacune.",
+        "Blueprints d'automatisation pour tout l'écosystème.",
+        "Vous prévient sur votre téléphone des entretiens en retard, trouvés via l'attribut commun `reef_role` pour couvrir toutes les intégrations, et des appareils devenus injoignables. Teste vos chauffages un par un, et vous avertit quand un relais est coupé alors que son appareil consomme encore. Huit langues, un bouton d'import par langue.",
         "**Installation :** import depuis le dépôt, un bouton par langue.",
     ),
     "de": (
-        "Benachrichtigungs-Blueprints für das gesamte Ökosystem.",
-        "Meldet auf dem Telefon überfällige Wartungen, über das gemeinsame `reef_role`-Attribut gefunden, sodass jede Integration abgedeckt ist, sowie nicht mehr erreichbare Geräte. Acht Sprachen, je eine Import-Schaltfläche.",
+        "Automatisierungs-Blueprints für das gesamte Ökosystem.",
+        "Benachrichtigt Sie auf dem Telefon über überfällige Wartungen, gefunden über das gemeinsame Attribut `reef_role`, sodass jede Integration abgedeckt ist, und über nicht mehr erreichbare Geräte. Testet Ihre Heizer einzeln und warnt Sie, wenn ein Relais aus ist, sein Gerät aber noch Strom zieht. Acht Sprachen, je eine Import-Schaltfläche.",
         "**Installation:** Import aus dem Repository, eine Schaltfläche je Sprache.",
     ),
     "es": (
-        "Blueprints de notificación para todo el ecosistema.",
-        "Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atributo común `reef_role` de modo que todas las integraciones quedan cubiertas, y de los dispositivos que dejaron de responder. Ocho idiomas, un botón de importación cada uno.",
+        "Blueprints de automatización para todo el ecosistema.",
+        "Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atributo común `reef_role` para cubrir todas las integraciones, y de los dispositivos que dejaron de responder. Prueba sus calentadores uno a uno y le avisa cuando un relé está apagado pero su aparato sigue consumiendo. Ocho idiomas, un botón de importación por idioma.",
         "**Instalación:** importe desde el repositorio, un botón por idioma.",
     ),
     "it": (
-        "Blueprint di notifica per tutto l'ecosistema.",
-        "Vi avvisa sul telefono delle manutenzioni scadute, trovate tramite l'attributo comune `reef_role` così che ogni integrazione sia coperta, e dei dispositivi diventati irraggiungibili. Otto lingue, un pulsante di importazione ciascuna.",
+        "Blueprint di automazione per tutto l'ecosistema.",
+        "Vi avvisa sul telefono delle manutenzioni scadute, trovate tramite l'attributo comune `reef_role` per coprire tutte le integrazioni, e dei dispositivi diventati irraggiungibili. Prova i riscaldatori uno alla volta e vi avvisa quando un relè è spento ma il suo apparecchio consuma ancora. Otto lingue, un pulsante di importazione per lingua.",
         "**Installazione:** importate dal repository, un pulsante per lingua.",
     ),
     "pl": (
-        "Blueprinty powiadomień dla całego ekosystemu.",
-        "Powiadamia na telefonie o zaległych konserwacjach, znajdowanych przez wspólny atrybut `reef_role`, dzięki czemu objęte są wszystkie integracje, oraz o urządzeniach, które przestały odpowiadać. Osiem języków, po jednym przycisku importu.",
+        "Blueprinty automatyzacji dla całego ekosystemu.",
+        "Powiadamia na telefonie o zaległych konserwacjach, znajdowanych przez wspólny atrybut `reef_role`, dzięki czemu obejmuje wszystkie integracje, oraz o urządzeniach, które przestały odpowiadać. Testuje grzałki pojedynczo i ostrzega, gdy przekaźnik jest wyłączony, a urządzenie nadal pobiera prąd. Osiem języków, jeden przycisk importu na język.",
         "**Instalacja:** import z repozytorium, jeden przycisk na język.",
     ),
     "pt": (
-        "Blueprints de notificação para todo o ecossistema.",
-        "Avisa-o no telemóvel das manutenções em atraso, encontradas pelo atributo comum `reef_role` para que todas as integrações fiquem cobertas, e dos aparelhos que ficaram inacessíveis. Oito idiomas, um botão de importação cada.",
+        "Blueprints de automação para todo o ecossistema.",
+        "Avisa-o no telemóvel das manutenções em atraso, encontradas pelo atributo comum `reef_role` para que todas as integrações fiquem cobertas, e dos aparelhos que ficaram inacessíveis. Testa os seus aquecedores um a um e avisa-o quando um relé está desligado mas o aparelho continua a consumir. Oito idiomas, um botão de importação cada.",
         "**Instalação:** importe do repositório, um botão por idioma.",
     ),
 }
+
+# 3D models filed after the impeller tool. The tool entry and its viewer are
+# hand-written; the entries of MODELS are generated.
+RISERS = {
+    "en": (
+        "RedSea DC Skimmer foots",
+        "Risers for the feet of the Red Sea DC skimmer, to set its height in "
+        "the sump. Four versions: 80, 70, 60 and 50 mm.",
+    ),
+    "fr": (
+        "Rehausseurs de pieds pour écumeur DC Red Sea",
+        "Rehausseurs pour les pieds de l'écumeur DC Red Sea, pour régler sa "
+        "hauteur dans la décante. Quatre versions : 80, 70, 60 et 50 mm.",
+    ),
+    "de": (
+        "Fußerhöhungen für den Red Sea DC Skimmer",
+        "Erhöhungen für die Füße des Red Sea DC Abschäumers, um seine Höhe im "
+        "Technikbecken einzustellen. Vier Versionen: 80, 70, 60 und 50 mm.",
+    ),
+    "es": (
+        "Elevadores de patas para skimmer DC Red Sea",
+        "Elevadores para las patas del skimmer DC Red Sea, para ajustar su "
+        "altura en el sump. Cuatro versiones: 80, 70, 60 y 50 mm.",
+    ),
+    "it": (
+        "Rialzi per i piedini dello skimmer DC Red Sea",
+        "Rialzi per i piedini dello schiumatoio DC Red Sea, per regolarne "
+        "l'altezza nella sump. Quattro versioni: 80, 70, 60 e 50 mm.",
+    ),
+    "pl": (
+        "Podwyższenia nóżek odpieniacza DC Red Sea",
+        "Podwyższenia nóżek odpieniacza DC Red Sea, do ustawienia jego "
+        "wysokości w sumpie. Cztery wersje: 80, 70, 60 i 50 mm.",
+    ),
+    "pt": (
+        "Elevadores dos pés do skimmer DC Red Sea",
+        "Elevadores para os pés do escumador DC Red Sea, para ajustar a sua "
+        "altura na sump. Quatro versões: 80, 70, 60 e 50 mm.",
+    ),
+}
+
+ORGANIZER = {
+    "en": (
+        "Organizer for Red Sea reef aquarium tests",
+        "A storage system for the Red Sea reef water test kits.",
+    ),
+    "fr": (
+        "Rangement pour tests d'aquarium récifal Red Sea",
+        "Un système de rangement pour les kits de test d'eau récifale Red Sea.",
+    ),
+    "de": (
+        "Organizer für Red Sea Riffaquarium-Tests",
+        "Ein Aufbewahrungssystem für die Red Sea Wassertests fürs Riffaquarium.",
+    ),
+    "es": (
+        "Organizador para tests de acuario de arrecife Red Sea",
+        "Un sistema de almacenamiento para los kits de test de agua de arrecife "
+        "Red Sea.",
+    ),
+    "it": (
+        "Organizer per test di acquario marino Red Sea",
+        "Un sistema di contenimento per i kit di test dell'acqua marina Red Sea.",
+    ),
+    "pl": (
+        "Organizer na testy Red Sea do akwarium rafowego",
+        "System przechowywania zestawów testów wody rafowej Red Sea.",
+    ),
+    "pt": (
+        "Organizador para testes de aquário de recife Red Sea",
+        "Um sistema de arrumação para os kits de teste de água de recife Red Sea.",
+    ),
+}
+
+WATER_TESTS = {
+    "en": "Water tests",
+    "fr": "Tests de l'eau",
+    "de": "Wassertests",
+    "es": "Tests del agua",
+    "it": "Test dell'acqua",
+    "pl": "Testy wody",
+    "pt": "Testes da água",
+}
+
+# One entry per model: its page, its texts per language as (title, body), and
+# its viewer. A language without texts skips the entry, so a new model only
+# needs them to appear. The viewer is drawn once `glb` is in reeftank/assets.
+# `heading` opens a new group of models, per language.
+MODELS = [
+    {
+        "url": "https://www.thingiverse.com/thing:7420525",
+        "texts": RISERS,
+        "glb": "assets/models/redsea-skimmer-risers.glb",
+    },
+    {
+        "url": "https://www.thingiverse.com/thing:7429899",
+        "texts": ORGANIZER,
+        "glb": "assets/models/redsea-tests-organizer.glb",
+        "heading": WATER_TESTS,
+    },
+]
 
 START = "<!-- generated:{name}:start -->"
 END = "<!-- generated:{name}:end -->"
@@ -719,6 +907,9 @@ def card_table(lang: str) -> str:
         "|------|------|------|",
     ]
     for name, status, key in CARD_DEVICES:
+        # A device whose highlight is not translated yet waits for it
+        if key not in hi:
+            continue
         note = hi.get(key) or t["vote"]
         lines.append(f"| **{name}** | {t[status]} | {note} |")
     return "\n".join(lines)
@@ -805,6 +996,78 @@ def maintenance_section(lang: str) -> str:
     return block("maintenance", body)
 
 
+def reeftank_section(lang: str) -> str:
+    """The aquarium integration, filed among the integrations.
+
+    Its catalog repository is presented with it: it only ships data.
+    """
+    t = T[lang]
+    repo = "https://github.com/Elwinmage/ha-reeftank-component"
+    preview = (
+        "https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/"
+        "main/doc/img/preview.webp"
+    )
+    body = f"""#### 🐟 [ha-reeftank-component]({repo})
+
+**{t["tank_title"]}**
+
+[![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reeftank-component.svg?style=flat-square)]({repo}/releases)
+[![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reeftank-component.svg?style=flat-square)]({repo}/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+<p align="center"><img src="{preview}" width="70%" alt="ReefTank"/></p>
+
+{t["tank_intro"]}
+
+{t["maint_features"]}
+
+- {t["tank_f1"]}
+- {t["tank_f2"]}
+- {t["tank_f3"]}
+- {t["tank_f4"]}
+- {t["tank_f5"]}
+
+{t["install"]} {t["tank_install"]}"""
+    return block("reeftank", body)
+
+
+def model_viewer(glb: str, title: str) -> str:
+    """3D viewer of a model, same frame as the impeller tool.
+
+    The model-viewer script is loaded once, by the hand-written entry above.
+    """
+    return f"""<div style="width: 100%; height: 500px; min-height: 500px; position: relative; margin: 20px 0; background: #eee; border-radius: 10px;">
+  <model-viewer src="{glb}"
+                alt="{title}"
+                camera-controls
+                auto-rotate
+                ar
+                shadow-intensity="1"
+                style="width: 100%; height: 100%; display: block;"
+                exposure="1">
+  </model-viewer>
+</div>"""
+
+
+def models_section(lang: str, root: Path = Path("reeftank")) -> str:
+    """The 3D models listed after the impeller tool."""
+    parts = []
+    for model in MODELS:
+        texts = model["texts"].get(lang)
+        if texts is None:
+            if lang == "en":
+                print(f"skipped model {model['url']}: no text yet")
+            continue
+        title, body = texts
+        part = f"#### 📦 [*{title}*]({model['url']})\n\n{body}"
+        if "heading" in model:
+            part = f"### {model['heading'][lang]}\n\n{part}"
+        if (root / model["glb"]).is_file():
+            part += "\n\n" + model_viewer(model["glb"], title)
+        parts.append(part)
+    return block("skimmer-risers", "\n\n".join(parts))
+
+
 def contact_section(lang: str) -> str:
     t = T[lang]
     # Discussions is a per-repo setting: two of them have the tab turned off,
@@ -817,7 +1080,10 @@ def contact_section(lang: str) -> str:
     ]
     with_issues_only = [
         "ha-reef-maintenance-component",
+        "ha-reeftank-component",
+        "reeftank-catalog",
         "reefbeatEnergyBackup",
+        "ha-reef-blueprints",
     ]
     links = " · ".join(
         [f"[{r}]({DISCUSS.format(repo=r)})" for r in with_discussions]
@@ -892,6 +1158,22 @@ def apply(lang: str) -> None:
 
     text = restructure(text, lang)
 
+    # Project flower: right above the table of contents. It adds no heading,
+    # so the table of contents stays the same. Pages without texts yet get none.
+    flower = flower_html(lang)
+    if flower is not None:
+        start = START.format(name="flower")
+        if start in text:
+            pattern = re.compile(
+                re.escape(start) + r".*?" + re.escape(END.format(name="flower")),
+                re.DOTALL,
+            )
+            text = pattern.sub(lambda _: block("flower", flower), text, count=1)
+        else:
+            anchor = "{% include toc-generator.html %}"
+            assert anchor in text, f"{lang}: table of contents not found"
+            text = text.replace(anchor, block("flower", flower) + "\n\n" + anchor, 1)
+
     text = replace_table(
         text, "beat-devices", "#### 🐠 [ha-reefbeat-component]", beat_table(lang), lang
     )
@@ -944,6 +1226,18 @@ def apply(lang: str) -> None:
             anchor, maintenance_section(lang) + "\n\n---\n\n" + anchor, 1
         )
 
+    # ReefTank: after the maintenance integration, before the cards.
+    start = START.format(name="reeftank")
+    if start in text:
+        pattern = re.compile(
+            re.escape(start) + r".*?" + re.escape(END.format(name="reeftank")),
+            re.DOTALL,
+        )
+        text = pattern.sub(lambda _: reeftank_section(lang), text, count=1)
+    else:
+        anchor = END.format(name="maintenance")
+        text = text.replace(anchor, anchor + "\n\n---\n\n" + reeftank_section(lang), 1)
+
     # Blueprints: filed under Infrastructure, before the 3D models.
     if START.format(name="blueprints") in text:
         pattern = re.compile(
@@ -962,6 +1256,20 @@ def apply(lang: str) -> None:
             + "\n\n---\n\n"
             + text[at.start() :]
         )
+
+    # 3D models: at the end of the 3D models section, after the impeller tool.
+    start = START.format(name="skimmer-risers")
+    if start in text:
+        pattern = re.compile(
+            re.escape(start) + r".*?" + re.escape(END.format(name="skimmer-risers")),
+            re.DOTALL,
+        )
+        text = pattern.sub(lambda _: models_section(lang), text, count=1)
+    else:
+        at = re.search(r"^## 📐 ", text, re.MULTILINE)
+        assert at, f"{lang}: 3D models heading not found"
+        end = text.index("\n---\n", at.end())
+        text = text[:end] + "\n\n" + models_section(lang) + "\n" + text[end:]
 
     # Contact: every project has its own tracker.
     if START.format(name="contact") in text:

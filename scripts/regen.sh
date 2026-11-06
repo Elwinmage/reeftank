@@ -39,6 +39,8 @@ REPOS=(
   ha-reefbeat-component
   ha-aquamedic-component
   ha-reef-card
+  ha-reeftank-component
+  reeftank-catalog
   reefbeatEnergyBackup
   reeftank
 )
@@ -68,14 +70,28 @@ step "Blueprints README (8 languages)"
 step "Maintenance README (8 languages)"
 (cd ha-reef-maintenance-component && python3 scripts/gen_readme.py)
 
+step "ReefTank README (8 languages)"
+(cd ha-reeftank-component && python3 scripts/gen_readme.py)
+
+# The catalog writes its species tables, and keeps the ecosystem block of its
+# translations; it has its own requirements, hence a python3 that may lack
+# them: run it in the catalog's environment if this step fails.
+step "Catalog READMEs (8 languages)"
+(cd reeftank-catalog && python3 scripts/make_readme.py)
+
 # ---------------------------------------------------------------------------
 # 2. Cross-repo generators
 # ---------------------------------------------------------------------------
 
+# Before the site and the READMEs, which show what it draws. Reads the icon of
+# every repository; skipped with a message when Pillow is missing.
+step "Project flower (thumbnails and README image)"
+python3 reeftank/scripts/gen_flower.py
+
 step "Documentation site (7 pages) and card video links"
 python3 reeftank/scripts/gen_site.py
 
-step "Related projects block (39 files, 6 repositories)"
+step "Related projects block (55 files, 8 repositories)"
 python3 reeftank/scripts/gen_ecosystem.py
 
 # ---------------------------------------------------------------------------
@@ -124,7 +140,7 @@ generated_paths() {
   case "$repo" in
     reeftank)
       # Ajout de scripts/gen_*.py et scripts/regen.sh
-      candidates="index.md fr.md de.md es.md it.md pl.md pt.md _config.yml scripts/regen.sh scripts/gen_*.py" ;;
+      candidates="index.md fr.md de.md es.md it.md pl.md pt.md _config.yml _includes/ecosystem-flower.html assets/flower scripts/regen.sh scripts/gen_*.py" ;;
     ha-reef-blueprints)
       candidates="README.md doc blueprints/automation scripts/gen_*.py" ;;
     *)

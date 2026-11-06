@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the shared "Related projects" block in every README, every language.
 
-One source, every README of the six repositories (39 files). Blocks are delimited by ecosystem:start/end markers
+One source, every README of the eight repositories (55 files). Blocks are delimited by ecosystem:start/end markers
 so re-running updates them in place -- same convention as the
 maintenance-section markers already used in ha-aquamedic-component.
 
@@ -18,6 +18,16 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+
+# reeftank has no .gitignore: keep scripts/ free of __pycache__.
+sys.dont_write_bytecode = True
+
+from gen_flower import (  # noqa: E402
+    PROJECTS,
+    README_IMAGE,
+    README_IMAGE_ALT,
+    README_IMAGE_WIDTH,
+)
 
 RAW = "https://raw.githubusercontent.com/Elwinmage/{repo}/main/icon.png"
 GH = "https://github.com/Elwinmage/{repo}"
@@ -49,6 +59,10 @@ REPOS = [
     "ha-aquamedic-component",
     "ha-reef-maintenance-component",
     "ha-reef-card",
+    # After the card on purpose: its description reads "the three
+    # integrations above", the device ones.
+    "ha-reeftank-component",
+    "reeftank-catalog",
     "ha-reef-blueprints",
     "reefbeatEnergyBackup",
 ]
@@ -58,6 +72,8 @@ EMOJI = {
     "ha-aquamedic-component": "🌊",
     "ha-reef-maintenance-component": "🐙",
     "ha-reef-card": "🪸",
+    "ha-reeftank-component": "🐟",
+    "reeftank-catalog": "🐡",
     "ha-reef-blueprints": "🐬",
     "reefbeatEnergyBackup": "⚡",
 }
@@ -102,17 +118,30 @@ T: dict[str, dict[str, str]] = {
             "integrations above through the shared `reef_role` contract, with "
             "no card-side configuration. "
             "Also draws the power flows of reefbeatEnergyBackup."
+            " Its aquarium card brings your tank to life with ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Notification blueprints shared by the whole ecosystem: "
-            "overdue maintenance found through the `reef_role` contract, "
-            "and devices that went unreachable. Eight languages."
+            "Automation blueprints shared by the whole ecosystem: overdue "
+            "maintenance found through the `reef_role` contract, devices "
+            "that went unreachable, a periodic heater test and a relay "
+            "watch. Eight languages."
         ),
         "d_reefbeatEnergyBackup": (
             "Battery backup for power outages. A 24V LiFePO\u2084 pack driven "
             "by a Raspberry Pi, with pump speed degraded progressively "
             "according to the state of charge."
         ),
+        "d_ha-reeftank-component": (
+            "A living picture of your tank on the dashboard: your photo, lit by "
+            "your real lamps, with animated fish and corals, and your devices "
+            "and entities on it. Stores the aquariums and their livestock, "
+            "records the feedings."
+        ),
+        "d_reeftank-catalog": (
+            "Fish, corals and textures of the aquarium card, downloaded and "
+            "kept up to date by ha-reeftank-component."
+        ),
+        "w_card_plus": "all three integrations, and ha-reeftank-component for the aquarium",
         "w_integrations": "all three integrations",
         "w_card": "ha-reef-card",
         "w_alone": "standalone, or alongside ha-reefbeat-component and ha-reef-card",
@@ -152,17 +181,30 @@ T: dict[str, dict[str, str]] = {
             "trois intégrations ci-dessus via le contrat `reef_role` commun, "
             "sans configuration côté carte. "
             "Dessine aussi les flux d'énergie de reefbeatEnergyBackup."
+            " Sa carte aquarium donne vie à votre bac avec ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprints de notification communs à tout l'écosystème : "
-            "entretiens en retard trouvés via le contrat `reef_role`, et "
-            "appareils devenus injoignables. Huit langues."
+            "Blueprints d'automatisation communs à tout l'écosystème : "
+            "entretiens en retard trouvés via le contrat `reef_role`, "
+            "appareils devenus injoignables, test périodique des chauffages "
+            "et surveillance des relais. Huit langues."
         ),
         "d_reefbeatEnergyBackup": (
             "Secours sur batterie en cas de coupure. Pack 24V LiFePO\u2084 "
             "piloté par un Raspberry Pi, avec dégradation progressive de la "
             "vitesse des pompes selon l'état de charge."
         ),
+        "d_ha-reeftank-component": (
+            "Une image vivante de votre bac sur le tableau de bord : votre "
+            "photo, éclairée par vos vraies lampes, avec des poissons et des "
+            "coraux animés, et vos appareils et entités dessus. Stocke les "
+            "aquariums et leur population, enregistre les nourrissages."
+        ),
+        "d_reeftank-catalog": (
+            "Poissons, coraux et textures de la carte aquarium, téléchargés et "
+            "tenus à jour par ha-reeftank-component."
+        ),
+        "w_card_plus": "les trois intégrations, et ha-reeftank-component pour l'aquarium",
         "w_integrations": "les trois intégrations",
         "w_card": "ha-reef-card",
         "w_alone": "seul, ou avec ha-reefbeat-component et ha-reef-card",
@@ -203,17 +245,30 @@ T: dict[str, dict[str, str]] = {
             "die drei Integrationen über den gemeinsamen `reef_role`-Vertrag, "
             "ohne Konfiguration auf Kartenseite. "
             "Zeichnet außerdem die Energieflüsse von reefbeatEnergyBackup."
+            " Ihre Aquariumkarte erweckt Ihr Becken mit ha-reeftank-component zum Leben."
         ),
         "d_ha-reef-blueprints": (
-            "Benachrichtigungs-Blueprints für das gesamte Ökosystem: "
+            "Automatisierungs-Blueprints für das gesamte Ökosystem: "
             "überfällige Wartungen, über den `reef_role`-Vertrag gefunden, "
-            "und nicht mehr erreichbare Geräte. Acht Sprachen."
+            "nicht mehr erreichbare Geräte, ein regelmäßiger Heizertest und "
+            "eine Relaisüberwachung. Acht Sprachen."
         ),
         "d_reefbeatEnergyBackup": (
             "Batterie-Backup bei Stromausfall. Ein 24V LiFePO\u2084-Pack, "
             "gesteuert von einem Raspberry Pi, mit schrittweiser Reduzierung "
             "der Pumpendrehzahl je nach Ladezustand."
         ),
+        "d_ha-reeftank-component": (
+            "Ein lebendiges Bild Ihres Beckens auf dem Dashboard: Ihr Foto, "
+            "beleuchtet von Ihren echten Lampen, mit animierten Fischen und "
+            "Korallen und Ihren Geräten und Entitäten darauf. Speichert die "
+            "Aquarien und ihren Besatz, protokolliert die Fütterungen."
+        ),
+        "d_reeftank-catalog": (
+            "Fische, Korallen und Texturen der Aquariumkarte, von "
+            "ha-reeftank-component heruntergeladen und aktuell gehalten."
+        ),
+        "w_card_plus": "alle drei Integrationen und ha-reeftank-component für das Aquarium",
         "w_integrations": "alle drei Integrationen",
         "w_card": "ha-reef-card",
         "w_alone": (
@@ -256,17 +311,30 @@ T: dict[str, dict[str, str]] = {
             "integraciones mediante el contrato `reef_role` común, sin "
             "configuración del lado de la tarjeta. "
             "También dibuja los flujos de energía de reefbeatEnergyBackup."
+            " Su tarjeta de acuario da vida a su acuario con ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprints de notificación comunes a todo el ecosistema: "
+            "Blueprints de automatización comunes a todo el ecosistema: "
             "mantenimientos vencidos encontrados por el contrato `reef_role`, "
-            "y dispositivos que dejaron de responder. Ocho idiomas."
+            "dispositivos que dejaron de responder, una prueba periódica de "
+            "calentadores y una vigilancia de relés. Ocho idiomas."
         ),
         "d_reefbeatEnergyBackup": (
             "Respaldo por batería ante cortes de luz. Un pack 24V LiFePO\u2084 "
             "gobernado por una Raspberry Pi, con degradación progresiva de la "
             "velocidad de las bombas según el estado de carga."
         ),
+        "d_ha-reeftank-component": (
+            "Una imagen viva de su acuario en el panel: su foto, iluminada por "
+            "sus lámparas reales, con peces y corales animados, y sus "
+            "dispositivos y entidades encima. Guarda los acuarios y su fauna, "
+            "registra las alimentaciones."
+        ),
+        "d_reeftank-catalog": (
+            "Peces, corales y texturas de la tarjeta de acuario, descargados y "
+            "mantenidos al día por ha-reeftank-component."
+        ),
+        "w_card_plus": "las tres integraciones, y ha-reeftank-component para el acuario",
         "w_integrations": "las tres integraciones",
         "w_card": "ha-reef-card",
         "w_alone": "por su cuenta, o junto a ha-reefbeat-component y ha-reef-card",
@@ -307,16 +375,31 @@ T: dict[str, dict[str, str]] = {
             "avanzate. Legge le tre integrazioni tramite il contratto "
             "`reef_role` comune, senza configurazione lato scheda. "
             "Disegna anche i flussi di energia di reefbeatEnergyBackup."
+            " La sua scheda acquario dà vita alla vostra vasca con ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprint di notifica comuni a tutto l'ecosistema: "
+            "Blueprint di automazione comuni a tutto l'ecosistema: "
             "manutenzioni scadute trovate tramite il contratto `reef_role`, "
-            "e dispositivi diventati irraggiungibili. Otto lingue."
+            "dispositivi diventati irraggiungibili, un test periodico dei "
+            "riscaldatori e una sorveglianza dei relè. Otto lingue."
         ),
         "d_reefbeatEnergyBackup": (
             "Backup a batteria in caso di blackout. Un pacco 24V LiFePO\u2084 "
             "gestito da un Raspberry Pi, con degrado progressivo della "
             "velocità delle pompe in base allo stato di carica."
+        ),
+        "d_ha-reeftank-component": (
+            "Un'immagine viva della vostra vasca sulla plancia: la vostra foto, "
+            "illuminata dalle vostre vere lampade, con pesci e coralli animati, "
+            "e sopra i vostri dispositivi ed entità. Conserva gli acquari e la "
+            "loro fauna, registra le alimentazioni."
+        ),
+        "d_reeftank-catalog": (
+            "Pesci, coralli e texture della scheda acquario, scaricati e tenuti "
+            "aggiornati da ha-reeftank-component."
+        ),
+        "w_card_plus": (
+            "tutte e tre le integrazioni, e ha-reeftank-component per l'acquario"
         ),
         "w_integrations": "tutte e tre le integrazioni",
         "w_card": "ha-reef-card",
@@ -358,16 +441,31 @@ T: dict[str, dict[str, str]] = {
             "drie integraties via het gedeelde `reef_role`-contract, zonder "
             "configuratie aan de kaartzijde. "
             "Tekent ook de energiestromen van reefbeatEnergyBackup."
+            " De aquariumkaart brengt uw bak tot leven met ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Meldings-blueprints voor het hele ecosysteem: achterstallig "
-            "onderhoud gevonden via het `reef_role`-contract, en apparaten "
-            "die onbereikbaar zijn geworden. Acht talen."
+            "Automatiserings-blueprints voor het hele ecosysteem: achterstallig "
+            "onderhoud gevonden via het `reef_role`-contract, apparaten die "
+            "onbereikbaar zijn geworden, een periodieke verwarmertest en "
+            "relaisbewaking. Acht talen."
         ),
         "d_reefbeatEnergyBackup": (
             "Accuback-up bij stroomuitval. Een 24V LiFePO\u2084-pakket "
             "aangestuurd door een Raspberry Pi, met de pompsnelheid die "
             "geleidelijk zakt met de laadtoestand."
+        ),
+        "d_ha-reeftank-component": (
+            "Een levend beeld van uw bak op het dashboard: uw foto, verlicht "
+            "door uw echte lampen, met geanimeerde vissen en koralen, en uw "
+            "apparaten en entiteiten erop. Bewaart de aquaria en hun bezetting, "
+            "legt de voederingen vast."
+        ),
+        "d_reeftank-catalog": (
+            "Vissen, koralen en texturen van de aquariumkaart, gedownload en "
+            "bijgehouden door ha-reeftank-component."
+        ),
+        "w_card_plus": (
+            "alle drie de integraties, en ha-reeftank-component voor het aquarium"
         ),
         "w_integrations": "alle drie de integraties",
         "w_card": "ha-reef-card",
@@ -408,17 +506,30 @@ T: dict[str, dict[str, str]] = {
             "integracje przez wspólny kontrakt `reef_role`, bez konfiguracji "
             "po stronie karty. "
             "Rysuje też przepływy energii z reefbeatEnergyBackup."
+            " Jej karta akwarium ożywia Twój zbiornik dzięki ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprinty powiadomień wspólne dla całego ekosystemu: zaległe "
-            "konserwacje znajdowane przez kontrakt `reef_role` oraz "
-            "urządzenia, które przestały odpowiadać. Osiem języków."
+            "Blueprinty automatyzacji wspólne dla całego ekosystemu: zaległe "
+            "konserwacje znajdowane przez kontrakt `reef_role`, urządzenia, "
+            "które przestały odpowiadać, okresowy test grzałek i nadzór "
+            "przekaźników. Osiem języków."
         ),
         "d_reefbeatEnergyBackup": (
             "Zasilanie awaryjne na wypadek przerw w zasilaniu. Pakiet 24V "
             "LiFePO\u2084 sterowany przez Raspberry Pi, ze stopniowym "
             "obniżaniem prędkości pomp zależnie od stanu naładowania."
         ),
+        "d_ha-reeftank-component": (
+            "Żywy obraz Twojego zbiornika na pulpicie: Twoje zdjęcie, "
+            "oświetlone prawdziwymi lampami, z animowanymi rybami i koralowcami "
+            "oraz Twoimi urządzeniami i encjami. Przechowuje akwaria i ich "
+            "obsadę, rejestruje karmienia."
+        ),
+        "d_reeftank-catalog": (
+            "Ryby, koralowce i tekstury karty akwarium, pobierane i "
+            "aktualizowane przez ha-reeftank-component."
+        ),
+        "w_card_plus": "wszystkie trzy integracje oraz ha-reeftank-component dla akwarium",
         "w_integrations": "wszystkie trzy integracje",
         "w_card": "ha-reef-card",
         "w_alone": "samodzielnie lub razem z ha-reefbeat-component i ha-reef-card",
@@ -459,17 +570,30 @@ T: dict[str, dict[str, str]] = {
             "integrações através do contrato `reef_role` comum, sem "
             "configuração do lado do cartão. "
             "Desenha também os fluxos de energia do reefbeatEnergyBackup."
+            " O seu cartão de aquário dá vida ao seu aquário com o ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprints de notificação comuns a todo o ecossistema: "
-            "manutenções em atraso encontradas pelo contrato `reef_role`, e "
-            "aparelhos que ficaram inacessíveis. Oito idiomas."
+            "Blueprints de automação comuns a todo o ecossistema: "
+            "manutenções em atraso encontradas pelo contrato `reef_role`, "
+            "aparelhos que ficaram inacessíveis, um teste periódico dos "
+            "aquecedores e uma vigilância dos relés. Oito idiomas."
         ),
         "d_reefbeatEnergyBackup": (
             "Backup por bateria em caso de corte. Um pack 24V LiFePO\u2084 "
             "comandado por um Raspberry Pi, com degradação progressiva da "
             "velocidade das bombas conforme o estado de carga."
         ),
+        "d_ha-reeftank-component": (
+            "Uma imagem viva do seu aquário no painel: a sua foto, iluminada "
+            "pelas suas lâmpadas reais, com peixes e corais animados, e os seus "
+            "dispositivos e entidades. Guarda os aquários e a sua fauna, "
+            "regista as alimentações."
+        ),
+        "d_reeftank-catalog": (
+            "Peixes, corais e texturas do cartão de aquário, transferidos e "
+            "mantidos atualizados pelo ha-reeftank-component."
+        ),
+        "w_card_plus": "as três integrações, e o ha-reeftank-component para o aquário",
         "w_integrations": "as três integrações",
         "w_card": "ha-reef-card",
         "w_alone": "sozinho, ou a par do ha-reefbeat-component e do ha-reef-card",
@@ -481,9 +605,14 @@ WORKS_WITH = {
     "ha-reef-blueprints": "w_integrations",
     "ha-aquamedic-component": "w_card",
     "ha-reef-maintenance-component": "w_card",
-    "ha-reef-card": "w_integrations",
+    "ha-reef-card": "w_card_plus",
+    "ha-reeftank-component": "w_card",
+    "reeftank-catalog": "w_reeftank",
     "reefbeatEnergyBackup": "w_alone",
 }
+
+for _texts in T.values():
+    _texts.setdefault("w_reeftank", "ha-reeftank-component")
 
 START = "<!-- ecosystem:start -->"
 END = "<!-- ecosystem:end -->"
@@ -514,6 +643,15 @@ ANCHORS = {
     ("ha-reef-maintenance-component", "nl"): "## Met ha-reef-card",
     ("ha-reef-maintenance-component", "pl"): "## Z ha-reef-card",
     ("ha-reef-maintenance-component", "pt"): "## Com o ha-reef-card",
+    ("ha-reeftank-component", "en"): "## Features",
+    ("ha-reeftank-component", "fr"): "## Fonctionnalités",
+    ("ha-reeftank-component", "de"): "## Funktionen",
+    ("ha-reeftank-component", "es"): "## Funciones",
+    ("ha-reeftank-component", "it"): "## Funzionalità",
+    ("ha-reeftank-component", "nl"): "## Functies",
+    ("ha-reeftank-component", "pl"): "## Funkcje",
+    ("ha-reeftank-component", "pt"): "## Funcionalidades",
+    ("reeftank-catalog", "en"): "## Contents",
     ("reefbeatEnergyBackup", "en"): "## \u26a1 Features",
     ("reefbeatEnergyBackup", "fr"): "## \u26a1 Fonctionnalités",
 }
@@ -537,10 +675,19 @@ def targets() -> list[tuple[Path, str, str]]:
     for lang in ["fr", "de", "es", "it", "pl", "pt"]:
         for repo in ["ha-reefbeat-component", "ha-reef-card", "ha-aquamedic-component"]:
             out.append((Path(f"{repo}/doc/{lang}/README.{lang}.md"), repo, lang))
-    # These two are translated into Dutch as well.
-    for repo in ["ha-reef-maintenance-component", "ha-reef-blueprints"]:
+    # These are translated into Dutch as well.
+    for repo in [
+        "ha-reef-maintenance-component",
+        "ha-reef-blueprints",
+        "ha-reeftank-component",
+    ]:
         for lang in ["fr", "de", "es", "it", "nl", "pl", "pt"]:
             out.append((Path(f"{repo}/doc/{lang}/README.{lang}.md"), repo, lang))
+    # The catalog keeps its translations next to the English README.
+    for lang in ["fr", "de", "es", "it", "nl", "pl", "pt"]:
+        out.append(
+            (Path(f"reeftank-catalog/README.{lang}.md"), "reeftank-catalog", lang)
+        )
     return out
 
 
@@ -572,6 +719,9 @@ def build_block(current: str, lang: str) -> str:
         f"## {t['title']}",
         "",
         t["intro"],
+        "",
+        f'<p align="center"><a href="{SITE}"><img src="{README_IMAGE}"'
+        f' width="{README_IMAGE_WIDTH}" alt="{README_IMAGE_ALT}" /></a></p>',
         "",
         "<table>",
         "  <tr>",
@@ -643,6 +793,8 @@ def apply(path: Path, repo: str, lang: str) -> str:
 
 
 def main() -> None:
+    if set(REPOS) != set(PROJECTS):
+        raise SystemExit("REPOS here and PROJECTS in gen_flower.py differ")
     for path, repo, lang in targets():
         if not path.exists():
             print("skipped (missing)", path)
