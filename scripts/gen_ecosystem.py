@@ -121,9 +121,10 @@ T: dict[str, dict[str, str]] = {
             " Its aquarium card brings your tank to life with ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Notification blueprints shared by the whole ecosystem: "
-            "overdue maintenance found through the `reef_role` contract, "
-            "and devices that went unreachable. Eight languages."
+            "Automation blueprints shared by the whole ecosystem: overdue "
+            "maintenance found through the `reef_role` contract, devices "
+            "that went unreachable, a periodic heater test and a relay "
+            "watch. Eight languages."
         ),
         "d_reefbeatEnergyBackup": (
             "Battery backup for power outages. A 24V LiFePO\u2084 pack driven "
@@ -183,9 +184,10 @@ T: dict[str, dict[str, str]] = {
             " Sa carte aquarium donne vie à votre bac avec ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprints de notification communs à tout l'écosystème : "
-            "entretiens en retard trouvés via le contrat `reef_role`, et "
-            "appareils devenus injoignables. Huit langues."
+            "Blueprints d'automatisation communs à tout l'écosystème : "
+            "entretiens en retard trouvés via le contrat `reef_role`, "
+            "appareils devenus injoignables, test périodique des chauffages "
+            "et surveillance des relais. Huit langues."
         ),
         "d_reefbeatEnergyBackup": (
             "Secours sur batterie en cas de coupure. Pack 24V LiFePO\u2084 "
@@ -246,9 +248,10 @@ T: dict[str, dict[str, str]] = {
             " Ihre Aquariumkarte erweckt Ihr Becken mit ha-reeftank-component zum Leben."
         ),
         "d_ha-reef-blueprints": (
-            "Benachrichtigungs-Blueprints für das gesamte Ökosystem: "
+            "Automatisierungs-Blueprints für das gesamte Ökosystem: "
             "überfällige Wartungen, über den `reef_role`-Vertrag gefunden, "
-            "und nicht mehr erreichbare Geräte. Acht Sprachen."
+            "nicht mehr erreichbare Geräte, ein regelmäßiger Heizertest und "
+            "eine Relaisüberwachung. Acht Sprachen."
         ),
         "d_reefbeatEnergyBackup": (
             "Batterie-Backup bei Stromausfall. Ein 24V LiFePO\u2084-Pack, "
@@ -311,9 +314,10 @@ T: dict[str, dict[str, str]] = {
             " Su tarjeta de acuario da vida a su acuario con ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprints de notificación comunes a todo el ecosistema: "
+            "Blueprints de automatización comunes a todo el ecosistema: "
             "mantenimientos vencidos encontrados por el contrato `reef_role`, "
-            "y dispositivos que dejaron de responder. Ocho idiomas."
+            "dispositivos que dejaron de responder, una prueba periódica de "
+            "calentadores y una vigilancia de relés. Ocho idiomas."
         ),
         "d_reefbeatEnergyBackup": (
             "Respaldo por batería ante cortes de luz. Un pack 24V LiFePO\u2084 "
@@ -374,9 +378,10 @@ T: dict[str, dict[str, str]] = {
             " La sua scheda acquario dà vita alla vostra vasca con ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprint di notifica comuni a tutto l'ecosistema: "
+            "Blueprint di automazione comuni a tutto l'ecosistema: "
             "manutenzioni scadute trovate tramite il contratto `reef_role`, "
-            "e dispositivi diventati irraggiungibili. Otto lingue."
+            "dispositivi diventati irraggiungibili, un test periodico dei "
+            "riscaldatori e una sorveglianza dei relè. Otto lingue."
         ),
         "d_reefbeatEnergyBackup": (
             "Backup a batteria in caso di blackout. Un pacco 24V LiFePO\u2084 "
@@ -439,9 +444,10 @@ T: dict[str, dict[str, str]] = {
             " De aquariumkaart brengt uw bak tot leven met ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Meldings-blueprints voor het hele ecosysteem: achterstallig "
-            "onderhoud gevonden via het `reef_role`-contract, en apparaten "
-            "die onbereikbaar zijn geworden. Acht talen."
+            "Automatiserings-blueprints voor het hele ecosysteem: achterstallig "
+            "onderhoud gevonden via het `reef_role`-contract, apparaten die "
+            "onbereikbaar zijn geworden, een periodieke verwarmertest en "
+            "relaisbewaking. Acht talen."
         ),
         "d_reefbeatEnergyBackup": (
             "Accuback-up bij stroomuitval. Een 24V LiFePO\u2084-pakket "
@@ -503,9 +509,10 @@ T: dict[str, dict[str, str]] = {
             " Jej karta akwarium ożywia Twój zbiornik dzięki ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprinty powiadomień wspólne dla całego ekosystemu: zaległe "
-            "konserwacje znajdowane przez kontrakt `reef_role` oraz "
-            "urządzenia, które przestały odpowiadać. Osiem języków."
+            "Blueprinty automatyzacji wspólne dla całego ekosystemu: zaległe "
+            "konserwacje znajdowane przez kontrakt `reef_role`, urządzenia, "
+            "które przestały odpowiadać, okresowy test grzałek i nadzór "
+            "przekaźników. Osiem języków."
         ),
         "d_reefbeatEnergyBackup": (
             "Zasilanie awaryjne na wypadek przerw w zasilaniu. Pakiet 24V "
@@ -566,9 +573,10 @@ T: dict[str, dict[str, str]] = {
             " O seu cartão de aquário dá vida ao seu aquário com o ha-reeftank-component."
         ),
         "d_ha-reef-blueprints": (
-            "Blueprints de notificação comuns a todo o ecossistema: "
-            "manutenções em atraso encontradas pelo contrato `reef_role`, e "
-            "aparelhos que ficaram inacessíveis. Oito idiomas."
+            "Blueprints de automação comuns a todo o ecossistema: "
+            "manutenções em atraso encontradas pelo contrato `reef_role`, "
+            "aparelhos que ficaram inacessíveis, um teste periódico dos "
+            "aquecedores e uma vigilância dos relés. Oito idiomas."
         ),
         "d_reefbeatEnergyBackup": (
             "Backup por bateria em caso de corte. Um pack 24V LiFePO\u2084 "
@@ -643,6 +651,7 @@ ANCHORS = {
     ("ha-reeftank-component", "nl"): "## Functies",
     ("ha-reeftank-component", "pl"): "## Funkcje",
     ("ha-reeftank-component", "pt"): "## Funcionalidades",
+    ("reeftank-catalog", "en"): "## Contents",
     ("reefbeatEnergyBackup", "en"): "## \u26a1 Features",
     ("reefbeatEnergyBackup", "fr"): "## \u26a1 Fonctionnalités",
 }

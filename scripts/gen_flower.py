@@ -117,8 +117,8 @@ FLOWER_TEXT: dict[str, dict[str, str]] = {
             "cannot talk to."
         ),
         "ha-reef-blueprints": (
-            "Shared notifications for overdue maintenance and for devices "
-            "that went unreachable."
+            "Shared automations: alerts for overdue maintenance and "
+            "unreachable devices, a heater test and a relay watch."
         ),
         "reefbeatEnergyBackup": (
             "Battery backup for outages, slowing your pumps progressively as "

@@ -13,7 +13,6 @@ lang: es
 Bienvenido a la documentación de mis proyectos para acuarios de arrecife.
 
 <video src="assets/videos/logo_v1.mp4" 
-       poster="image-de-remplacement.jpg"
        autoplay 
        loop 
        muted 
@@ -33,13 +32,15 @@ Bienvenido a la documentación de mis proyectos para acuarios de arrecife.
 
 ---
 
+> Desde Home Assistant 2026.11, HACS forma parte de Home Assistant con el nombre de **Marketplace** (*Ajustes > Marketplace*). En un Home Assistant más antiguo, los mismos pasos funcionan en HACS.
+
 ### Integraciones
 
 #### 🐠 [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component)
 
 **Integración local para el ecosistema Red Sea ReefBeat.**
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/default)
+[![Marketplace Badge](https://img.shields.io/badge/Marketplace-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/default)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reefbeat-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reefbeat-component/releases)
 [![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reefbeat-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reefbeat-component/commits/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
@@ -54,6 +55,8 @@ Gestiona tus dispositivos Red Sea ReefBeat **localmente** (sin cloud): ReefATO+,
 - Iconos personalizados para todos los dispositivos ReefBeat
 - Notificaciones de actualización de firmware (con Cloud API opcional)
 - Modo de actualización en tiempo real de la configuración
+- **Regulación de dosificación** para la ReefDose: dosificación asistida a partir de sus resultados de test, salmuera regulada según la salinidad
+- **Modo Poseidon** (experimental): un relé local que sustituye la mayor parte de las consultas por lo que envían los dispositivos, con el historial de dosis y las alarmas de los dispositivos como eventos de Home Assistant
 - Soporte multilingüe
 
 <!-- generated:beat-devices:start -->
@@ -80,7 +83,7 @@ Gestiona tus dispositivos Red Sea ReefBeat **localmente** (sin cloud): ReefATO+,
 
 **Particularidades de ReefWave:** ReefWave es el único dispositivo vinculado al cloud de ReefBeat. Tres modos de operación están disponibles — Cloud, Local e Híbrido — para que elijas el equilibrio entre control local total y sincronización con la app móvil ReefBeat.
 
-**Instalación:** Disponible directamente en [HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reefbeat-component&category=integration) — busca "redsea" o "reefbeat".
+**Instalación:** Disponible directamente en el [Marketplace](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reefbeat-component&category=integration) — busca "redsea" o "reefbeat".
 
 ---
 
@@ -88,7 +91,7 @@ Gestiona tus dispositivos Red Sea ReefBeat **localmente** (sin cloud): ReefATO+,
 
 **Control de bombas Aqua Medic vía Home Assistant mediante la API cloud Gizwits.**
 
-[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
+[![Marketplace Badge](https://img.shields.io/badge/Marketplace-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/default)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-aquamedic-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-aquamedic-component/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
@@ -113,14 +116,16 @@ Controla tus bombas Aqua Medic desde Home Assistant vía la API cloud Gizwits (m
 - Modos de onda: Clásico, Sinusoidal, Aleatorio, Flujo constante
 - Enlace: Independiente, Maestro, Esclavo
 - Control de caudal, frecuencia y duración de alimentación
+- Programa por franjas, hasta 48 franjas
 - Sensores de diagnóstico completos (sobrecorriente, sobretensión, sobretemperatura, rotor bloqueado, marcha en seco, UART)
 
 **Funciones DC Runner:**
-- Encendido/apagado, modo alimentación (pausa 10 min), modo control 0-10V
+- Encendido/apagado, modo alimentación (pausa 1–60 min), modo control 0-10V
 - Control de caudal (30–100%)
-- Sensores de diagnóstico (marcha en seco, rotor bloqueado, tensión)
+- Programa por franjas, hasta 48 franjas
+- Sensores de fallo de diagnóstico (marcha en seco, rotor bloqueado, tensión, sobrecorriente, sobretemperatura, UART)
 
-**Instalación:** En HACS, añade `https://github.com/Elwinmage/ha-aquamedic-component` como repositorio personalizado (Integración), luego busca "Aqua Medic".
+**Instalación:** Busque «Aqua Medic» en *Ajustes > Marketplace*.
 
 ---
 
@@ -139,12 +144,12 @@ Bombas de movimiento, bombas de retorno, skimmers, reactores — todo lo que lim
 **Funciones principales:**
 
 - Preajustes para Tunze, Jebao y equipos genéricos, con los intervalos del fabricante cuando los publica
-- Una biblioteca común de 17 tareas, traducida a 8 idiomas
+- Una biblioteca común de 22 tareas, traducida a 8 idiomas
 - Retrodatación, para que un equipo nuevo no empiece en «nunca hecho»
 - Servicio `reef_maintenance.reset` — pegue una etiqueta NFC en la bomba y escanéela al terminar
 - Mismo contrato `reef_role` que las integraciones conectadas: las tareas aparecen en la vista de mantenimiento de la tarjeta
 
-**Instalación:** En HACS, añada `https://github.com/Elwinmage/ha-reef-maintenance-component` como repositorio personalizado (Integración).
+**Instalación:** Busque "reef-maintenance" en *Ajustes > Marketplace*.
 
 <!-- generated:maintenance:end -->
 
@@ -169,10 +174,10 @@ La integración detrás de la tarjeta de acuario de ha-reef-card: su foto, el ag
 - Contornee el agua, la arena y las rocas en su propia foto — o dibuje el acuario con texturas de roca y arena
 - Peces en cardumen, en aguas abiertas, sobre la arena o asomando de su madriguera, que se esconden tras las rocas de noche
 - Agua teñida por sus lámparas (ReefLED o cualquier luz), corales que se mecen con las bombas
-- Alimentaciones registradas desde comederos, atajos o un servicio; número de peces y corales como sensores
+- Alimentaciones registradas desde comederos, atajos o un servicio; número de peces y corales como sensores; pH y ORP vigilados frente al propio historial del acuario
 - Especies del [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), actualizadas automáticamente
 
-**Instalación:** En HACS, añada `https://github.com/Elwinmage/ha-reeftank-component` como repositorio personalizado (Integración) e instale ha-reef-card para la tarjeta.
+**Instalación:** Busque "ReefTank" en *Ajustes > Marketplace*, e instale ha-reef-card para la tarjeta.
 
 <!-- generated:reeftank:end -->
 
@@ -202,12 +207,12 @@ La **Reef Card** para Home Assistant te ayuda a gestionar tu acuario de arrecife
 
 | Dispositivo | Estado | Puntos fuertes |
 |------|------|------|
-| **ReefDose (RSDOSE2/4)** | ✅ | Planificación completa, dosificación manual, cebado y calibración, gestión de suplementos, seguimiento de uso |
+| **ReefDose (RSDOSE2/4)** | ✅ | Planificación completa, dosificación manual, cebado y calibración, gestión de suplementos, seguimiento de uso, regulación de dosificación (asistida, salmuera), historial de dosis |
 | **ReefMat (RSMAT250/500/1200)** | ✅ | Estado del rollo animado, avance manual/automático/programado, estado del sensor, gráficos semanales y mensuales |
 | **ReefRun (RSRUN)** | ✅ | Control de velocidad de bomba, editor de programas, gestión del sobreespumado |
 | **ReefATO+** | ✅ | Nivel de agua, sonda de fugas, diagnóstico de bomba, gráfico de consumo, zumbador de fuga |
-| **ReefControl (RSCONTROLPRO)** | ✅ | Sondas con barras de nivel e historial de 24 h, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada |
-| **ReefControl (RSCONTROLLITE)** | 🧪 | Sondas con barras de nivel e historial de 24 h, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada |
+| **ReefControl (RSCONTROLPRO)** | ✅ | Sondas con barras de nivel, tendencias e historial de 7 días, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada |
+| **ReefControl (RSCONTROLLITE)** | 🧪 | Sondas con barras de nivel, tendencias e historial de 7 días, calibración guiada pH/EC/ORP/temperatura, puertos 12V, ATO, zumbador, regleta emparejada |
 | **ReefControl-Power (RSPOWER6)** | ✅ | Control por toma, modos encendido/apagado/programa/sonda, dispositivos vinculados, sonda de temperatura local o enlace ReefControl |
 | **ReefControl-Power (RSPOWER8)** | 🧪 | Control por toma, modos encendido/apagado/programa/sonda, dispositivos vinculados, sonda de temperatura local o enlace ReefControl |
 | **ReefLed (G1)** | ✅ | Cielo con sol y luna, haz con el programa del día, deslizadores intensidad/color o blanco/azul, editor de programas (kelvin o blanco/azul, nubes), modo meteorológico, grupos con amanecer escalonado, aclimatación |
@@ -215,12 +220,15 @@ La **Reef Card** para Home Assistant te ayuda a gestionar tu acuario de arrecife
 | **ReefWave (RSWAVE25/45)** | ✅ | Vista animada de la bomba, velocidad y dirección, biblioteca de olas, editor de programa por franjas, grupos de bombas |
 | **Aqua Medic EcoDrift / SmartDrift** | ✅ | Velocidad de la bomba en la imagen, fallos, pausa de alimentación, editor de programa por franjas |
 | **Aqua Medic DC Runner (return, skimmer)** | ✅ | Vista de bomba de retorno o de skimmer según el rol de la integración, velocidad, fallos, editor de programa por franjas |
+| **Energy Backup (reefbeatEnergyBackup)** | ✅ | Flujos de energía de la red, la batería y las bombas, dibujados con Power Flow Card Plus |
+| **VSON fish feeder (hacked, ESPHome)** | ✅ | Imagen viva del comedero, franjas de alimentación, aviso de reserva, alimentar ahora |
 
 <!-- generated:card-devices:end -->
 
 **Destacados ReefDose:**
 - Tarjeta de 6 zonas: config/WiFi, estados, dosificación manual con atajos, planificación por cabezal con progreso circular, gestión de suplementos con imágenes de marcas, y cola de próximas dosis
 - Soporte de flujos de cebado y calibración
+- Diálogos de regulación de dosificación: dosificación asistida, salmuera con su gráfico de salinidad
 - Biblioteca de suplementos con imágenes para Red Sea, Tropic Marin, Quantum, ATI, Aqua Forest y más
 
 **Destacados ReefMat:**
@@ -230,7 +238,9 @@ La **Reef Card** para Home Assistant te ayuda a gestionar tu acuario de arrecife
 - Visualización del estado del sensor de nivel (conectado, desconectado, sucio)
 - Gráficos de consumo semanal y mensal
 
-**Instalación:** Disponible directamente en [HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reef-card&category=plugin) — busca "reef-card".
+**Vista de acuario:** una segunda tarjeta, `custom:reef-aquarium-card`, muestra una imagen viva de su acuario. Necesita [ha-reeftank-component](https://github.com/Elwinmage/ha-reeftank-component).
+
+**Instalación:** Disponible directamente en el [Marketplace](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reef-card&category=plugin) — busca "reef-card".
 
 **Configuración:** Sin el parámetro `device`, la tarjeta detecta automáticamente todos los dispositivos ReefBeat y te permite elegir. Establece el parámetro `device` para forzar un dispositivo específico.
 
@@ -286,6 +296,7 @@ Mantén tus ReefWave, ReefRun y DC Skimmer funcionando durante cortes de luz con
 - **Failover 4G/LTE** — notificaciones y acceso cloud ReefBeat vía módem USB o tethering
 - **Notificaciones push** vía [ntfy.sh](https://ntfy.sh) (gratis, sin cuenta)
 - **Integración Home Assistant** — auto-discovery MQTT, entidad de actualización, blueprint de test
+- **Watchdog del modo Poseidon** — vigila el relé MQTT de ha-reefbeat-component y devuelve los dispositivos al modo normal cuando cae
 - **Auto-actualización** — verifica GitHub, botón "Instalar" en HA
 
 **Niveles de hardware:**
@@ -294,7 +305,7 @@ Mantén tus ReefWave, ReefRun y DC Skimmer funcionando durante cortes de luz con
 |-------|----------------|-------------|
 | **1 — Básico** | Batería + cables, respaldo pasivo | ~290 € |
 | **2 — Normal** *(recomendado)* | + RPi + INA226 + relé, monitoreo & automatización | ~402 € |
-| **3 — Avanzado** | + Cargador Victron BLE, disyuntor conectado, módem 4G | ~627 € |
+| **3 — Avanzado** | + Cargador Victron BLE, disyuntor conectado, módem 4G | ~664 € |
 
 **Instalación:**
 ```bash
@@ -309,12 +320,12 @@ curl -sL https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/i
 
 #### 🐬 [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints)
 
-**Blueprints de notificación para todo el ecosistema.**
+**Blueprints de automatización para todo el ecosistema.**
 
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-blueprints.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-blueprints/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atributo común `reef_role` de modo que todas las integraciones quedan cubiertas, y de los dispositivos que dejaron de responder. Ocho idiomas, un botón de importación cada uno.
+Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atributo común `reef_role` para cubrir todas las integraciones, y de los dispositivos que dejaron de responder. Prueba sus calentadores uno a uno y le avisa cuando un relé está apagado pero su aparato sigue consumiendo. Ocho idiomas, un botón de importación por idioma.
 
 **Instalación:** importe desde el repositorio, un botón por idioma.
 
@@ -358,7 +369,6 @@ Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atribut
 **Demostración en video:**
 <video width="100%" height="auto" controls poster="assets/models/redsea-key.png" style="border-radius: 8px; margin: 20px 0; background: #000;">
   <source src="assets/videos/redsea_skimmer.webm" type="video/webm">
-  <source src="assets/videos/logo_v1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -369,6 +379,36 @@ Le avisa en el móvil de los mantenimientos vencidos, encontrados por el atribut
 
 Elevadores para las patas del skimmer DC Red Sea, para ajustar su altura en el sump. Cuatro versiones: 80, 70, 60 y 50 mm.
 
+<div style="width: 100%; height: 500px; min-height: 500px; position: relative; margin: 20px 0; background: #eee; border-radius: 10px;">
+  <model-viewer src="assets/models/redsea-skimmer-risers.glb"
+                alt="Elevadores de patas para skimmer DC Red Sea"
+                camera-controls
+                auto-rotate
+                ar
+                shadow-intensity="1"
+                style="width: 100%; height: 100%; display: block;"
+                exposure="1">
+  </model-viewer>
+</div>
+
+### Tests del agua
+
+#### 📦 [*Organizador para tests de acuario de arrecife Red Sea*](https://www.thingiverse.com/thing:7429899)
+
+Un sistema de almacenamiento para los kits de test de agua de arrecife Red Sea.
+
+<div style="width: 100%; height: 500px; min-height: 500px; position: relative; margin: 20px 0; background: #eee; border-radius: 10px;">
+  <model-viewer src="assets/models/redsea-tests-organizer.glb"
+                alt="Organizador para tests de acuario de arrecife Red Sea"
+                camera-controls
+                auto-rotate
+                ar
+                shadow-intensity="1"
+                style="width: 100%; height: 100%; display: block;"
+                exposure="1">
+  </model-viewer>
+</div>
+
 <!-- generated:skimmer-risers:end -->
 
 ---
@@ -377,7 +417,7 @@ Elevadores para las patas del skimmer DC Red Sea, para ajustar su altura en el s
 
 ## 💬 Contacto y soporte
 
-- **Preguntas y peticiones de funciones:** abra una discusión en el proyecto correspondiente — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [ha-reeftank-component](https://github.com/Elwinmage/ha-reeftank-component/issues) · [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues)
+- **Preguntas y peticiones de funciones:** abra una discusión en el proyecto correspondiente — [ha-reefbeat-component](https://github.com/Elwinmage/ha-reefbeat-component/discussions) · [ha-aquamedic-component](https://github.com/Elwinmage/ha-aquamedic-component/discussions) · [ha-reef-card](https://github.com/Elwinmage/ha-reef-card/discussions) · [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component/issues) · [ha-reeftank-component](https://github.com/Elwinmage/ha-reeftank-component/issues) · [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog/issues) · [reefbeatEnergyBackup](https://github.com/Elwinmage/reefbeatEnergyBackup/issues) · [ha-reef-blueprints](https://github.com/Elwinmage/ha-reef-blueprints/issues)
 - **Informes de errores:** abra una issue en ese mismo proyecto, con los detalles.
 - **Apoyar el proyecto:** [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)
 
