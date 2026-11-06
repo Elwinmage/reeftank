@@ -85,6 +85,7 @@ CARD_DEVICES = [
     ("Aqua Medic DC Runner (return, skimmer)", OK, "runner"),
     ("Energy Backup (reefbeatEnergyBackup)", OK, "backup"),
     ("VSON fish feeder (hacked, ESPHome)", OK, "feeder"),
+    ("Aquarium view (ha-reeftank-component)", OK, "aquarium"),
 ]
 
 VOTE = "https://github.com/Elwinmage/ha-reef-card/discussions/22"
@@ -460,6 +461,7 @@ CARD_HIGHLIGHTS = {
         "runner": "Return or skimmer pump view following the integration's role, speed, faults, time-slot program editor",
         "backup": "Power flows of the mains, the battery and the pumps, drawn with Power Flow Card Plus",
         "feeder": "Live picture of the feeder, feeding slots, reserve warning, feed now",
+        "aquarium": "Your tank photo with live devices and entities, water tinted by your lamps, animated fish and corals, seven-tab scene editor",
         "vote": None,
     },
     "fr": {
@@ -475,6 +477,7 @@ CARD_HIGHLIGHTS = {
         "runner": "Vue pompe de remontée ou d'écumeur selon le rôle de l'intégration, vitesse, défauts, éditeur de programme par créneaux",
         "backup": "Flux d'énergie du secteur, de la batterie et des pompes, dessinés avec Power Flow Card Plus",
         "feeder": "Image vivante du distributeur, créneaux de nourrissage, alerte de réserve, nourrir maintenant",
+        "aquarium": "La photo de votre bac avec appareils et entités en direct, l'eau teintée par vos lampes, poissons et coraux animés, éditeur de scène en sept onglets",
         "vote": None,
     },
     "de": {
@@ -490,6 +493,7 @@ CARD_HIGHLIGHTS = {
         "runner": "Ansicht als Förder- oder Abschäumerpumpe je nach Rolle in der Integration, Drehzahl, Störungen, Zeitfenster-Programm-Editor",
         "backup": "Energieflüsse von Netz, Batterie und Pumpen, gezeichnet mit Power Flow Card Plus",
         "feeder": "Lebendiges Bild des Automaten, Fütterungsplätze, Vorratswarnung, Jetzt füttern",
+        "aquarium": "Das Foto Ihres Beckens mit Live-Geräten und -Entitäten, vom Licht Ihrer Lampen getöntes Wasser, animierte Fische und Korallen, Szeneneditor mit sieben Reitern",
         "vote": None,
     },
     "es": {
@@ -505,6 +509,7 @@ CARD_HIGHLIGHTS = {
         "runner": "Vista de bomba de retorno o de skimmer según el rol de la integración, velocidad, fallos, editor de programa por franjas",
         "backup": "Flujos de energía de la red, la batería y las bombas, dibujados con Power Flow Card Plus",
         "feeder": "Imagen viva del comedero, franjas de alimentación, aviso de reserva, alimentar ahora",
+        "aquarium": "La foto de su acuario con dispositivos y entidades en vivo, agua teñida por sus lámparas, peces y corales animados, editor de escena de siete pestañas",
         "vote": None,
     },
     "it": {
@@ -520,6 +525,7 @@ CARD_HIGHLIGHTS = {
         "runner": "Vista pompa di risalita o dello schiumatoio secondo il ruolo nell'integrazione, velocità, guasti, editor del programma a fasce orarie",
         "backup": "Flussi di energia di rete, batteria e pompe, disegnati con Power Flow Card Plus",
         "feeder": "Immagine viva della mangiatoia, fasce di alimentazione, avviso riserva, alimenta ora",
+        "aquarium": "La foto della tua vasca con dispositivi ed entità in tempo reale, acqua tinta dalle tue lampade, pesci e coralli animati, editor di scena a sette schede",
         "vote": None,
     },
     "pl": {
@@ -535,6 +541,7 @@ CARD_HIGHLIGHTS = {
         "runner": "Widok pompy powrotnej lub odpieniacza zgodnie z rolą w integracji, prędkość, usterki, edytor programu w przedziałach czasu",
         "backup": "Przepływy energii sieci, baterii i pomp, rysowane przez Power Flow Card Plus",
         "feeder": "Żywy obraz karmnika, sloty karmienia, ostrzeżenie o zapasie, nakarm teraz",
+        "aquarium": "Zdjęcie akwarium z urządzeniami i encjami na żywo, woda zabarwiona przez Twoje lampy, animowane ryby i koralowce, edytor sceny z siedmioma zakładkami",
         "vote": None,
     },
     "pt": {
@@ -550,6 +557,7 @@ CARD_HIGHLIGHTS = {
         "runner": "Vista de bomba de retorno ou de escumador segundo o papel na integração, velocidade, falhas, editor de programa por faixas horárias",
         "backup": "Fluxos de energia da rede, da bateria e das bombas, desenhados com Power Flow Card Plus",
         "feeder": "Imagem viva do alimentador, períodos de alimentação, aviso de reserva, alimentar agora",
+        "aquarium": "A foto do seu aquário com dispositivos e entidades em direto, água tingida pelas suas lâmpadas, peixes e corais animados, editor de cena com sete separadores",
         "vote": None,
     },
 }

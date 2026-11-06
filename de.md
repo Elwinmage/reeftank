@@ -222,6 +222,7 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 | **Aqua Medic DC Runner (return, skimmer)** | ✅ | Ansicht als Förder- oder Abschäumerpumpe je nach Rolle in der Integration, Drehzahl, Störungen, Zeitfenster-Programm-Editor |
 | **Energy Backup (reefbeatEnergyBackup)** | ✅ | Energieflüsse von Netz, Batterie und Pumpen, gezeichnet mit Power Flow Card Plus |
 | **VSON fish feeder (hacked, ESPHome)** | ✅ | Lebendiges Bild des Automaten, Fütterungsplätze, Vorratswarnung, Jetzt füttern |
+| **Aquarium view (ha-reeftank-component)** | ✅ | Das Foto Ihres Beckens mit Live-Geräten und -Entitäten, vom Licht Ihrer Lampen getöntes Wasser, animierte Fische und Korallen, Szeneneditor mit sieben Reitern |
 
 <!-- generated:card-devices:end -->
 

@@ -222,6 +222,7 @@ Integracja stojąca za kartą akwarium z ha-reef-card: Twoje zdjęcie, woda ośw
 | **Aqua Medic DC Runner (return, skimmer)** | ✅ | Widok pompy powrotnej lub odpieniacza zgodnie z rolą w integracji, prędkość, usterki, edytor programu w przedziałach czasu |
 | **Energy Backup (reefbeatEnergyBackup)** | ✅ | Przepływy energii sieci, baterii i pomp, rysowane przez Power Flow Card Plus |
 | **VSON fish feeder (hacked, ESPHome)** | ✅ | Żywy obraz karmnika, sloty karmienia, ostrzeżenie o zapasie, nakarm teraz |
+| **Aquarium view (ha-reeftank-component)** | ✅ | Zdjęcie akwarium z urządzeniami i encjami na żywo, woda zabarwiona przez Twoje lampy, animowane ryby i koralowce, edytor sceny z siedmioma zakładkami |
 
 <!-- generated:card-devices:end -->
 

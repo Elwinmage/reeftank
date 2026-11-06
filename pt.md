@@ -221,6 +221,7 @@ O **Reef Card** para Home Assistant ajuda-o a gerir o seu aquário de recife dir
 | **Aqua Medic DC Runner (return, skimmer)** | ✅ | Vista de bomba de retorno ou de escumador segundo o papel na integração, velocidade, falhas, editor de programa por faixas horárias |
 | **Energy Backup (reefbeatEnergyBackup)** | ✅ | Fluxos de energia da rede, da bateria e das bombas, desenhados com Power Flow Card Plus |
 | **VSON fish feeder (hacked, ESPHome)** | ✅ | Imagem viva do alimentador, períodos de alimentação, aviso de reserva, alimentar agora |
+| **Aquarium view (ha-reeftank-component)** | ✅ | A foto do seu aquário com dispositivos e entidades em direto, água tingida pelas suas lâmpadas, peixes e corais animados, editor de cena com sete separadores |
 
 <!-- generated:card-devices:end -->
 
