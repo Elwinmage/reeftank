@@ -129,6 +129,25 @@ Controla tus bombas Aqua Medic desde Home Assistant vía la API cloud Gizwits (m
 
 ---
 
+<!-- generated:vson:start -->
+
+#### 🐟 [ha-vson-component](https://github.com/Elwinmage/ha-vson-component)
+
+Comederos automáticos VSON en Home Assistant a través de la API cloud VSON. El comedero WP8621 también puede funcionar **totalmente en local** reflasheándolo con [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — la misma placa, sin cloud.
+
+**Dispositivos soportados:**
+
+> ✅ Soportado &nbsp;|&nbsp; 🚧 En curso &nbsp;|&nbsp; 🧪 Sin probar (puede funcionar) &nbsp;|&nbsp; ❌ Aún no soportado
+
+| Dispositivo | Modelos | Estado |
+|------|------|------|
+| **WP8621 automatic fish feeder** | variants N/E/H/F/B/P/A/C | ✅ |
+| **Any other VSON device** | detected | 🧪 |
+
+<!-- generated:vson:end -->
+
+---
+
 <!-- generated:maintenance:start -->
 
 #### 🐙 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)

@@ -129,6 +129,25 @@ Steruj pompami Aqua Medic z Home Assistant za pomocą API chmury Gizwits (ten sa
 
 ---
 
+<!-- generated:vson:start -->
+
+#### 🐟 [ha-vson-component](https://github.com/Elwinmage/ha-vson-component)
+
+Automatyczne karmniki VSON w Home Assistant przez chmurowe API VSON. Karmnik WP8621 może też działać **w pełni lokalnie** po przeflashowaniu go na [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — ta sama płytka, bez chmury.
+
+**Obsługiwane urządzenia:**
+
+> ✅ Wspierane &nbsp;|&nbsp; 🚧 W trakcie &nbsp;|&nbsp; 🧪 Nieprzetestowane (może działać) &nbsp;|&nbsp; ❌ Jeszcze niewspierane
+
+| Urządzenie | Modele | Status |
+|------|------|------|
+| **WP8621 automatic fish feeder** | variants N/E/H/F/B/P/A/C | ✅ |
+| **Any other VSON device** | detected | 🧪 |
+
+<!-- generated:vson:end -->
+
+---
+
 <!-- generated:maintenance:start -->
 
 #### 🐙 [ha-reef-maintenance-component](https://github.com/Elwinmage/ha-reef-maintenance-component)

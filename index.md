@@ -24,47 +24,52 @@ Welcome to the documentation of my reef tank projects.
 
 {% include ecosystem-flower.html %}
 
-<nav class="eco-flower" aria-label="ReefTech projects" data-open="Open project" data-hint="Eight projects that fit together. Each one also works on its own.">
+<nav class="eco-flower" aria-label="ReefTech projects" data-open="Open project" data-hint="Nine projects that fit together. Each one also works on its own.">
   <div class="eco-center">
     <strong>ReefTech</strong>
-    <span>Eight projects that fit together. Each one also works on its own.</span>
+    <span>Nine projects that fit together. Each one also works on its own.</span>
   </div>
-  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-card" data-repo="ha-reef-card" data-links="ha-reefbeat-component ha-aquamedic-component ha-reef-maintenance-component ha-reeftank-component reefbeatEnergyBackup" style="--a:0deg;--x:50.00%;--y:14.00%;--c:#0f7f47">
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-card" data-repo="ha-reef-card" data-links="ha-reefbeat-component ha-aquamedic-component ha-vson-component ha-reef-maintenance-component ha-reeftank-component reefbeatEnergyBackup" style="--a:0deg;--x:50.00%;--y:14.00%;--c:#0f7f47">
     <img src="{{ '/assets/flower/ha-reef-card.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">Reef Card</span>
     <span class="eco-text"><strong>ha-reef-card</strong><span>Interactive view of every device on your dashboard, and the only way to edit advanced schedules.</span></span>
   </a>
-  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reefbeat-component" data-repo="ha-reefbeat-component" data-links="ha-reef-blueprints reefbeatEnergyBackup ha-reef-card" style="--a:45deg;--x:75.46%;--y:24.54%;--c:#1e6bb8">
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reefbeat-component" data-repo="ha-reefbeat-component" data-links="ha-reef-blueprints reefbeatEnergyBackup ha-reef-card" style="--a:40deg;--x:73.14%;--y:22.42%;--c:#1e6bb8">
     <img src="{{ '/assets/flower/ha-reefbeat-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">ReefBeat</span>
     <span class="eco-text"><strong>ha-reefbeat-component</strong><span>Red Sea ReefBeat devices in Home Assistant, controlled locally with no cloud.</span></span>
   </a>
-  <a class="eco-petal" href="https://github.com/Elwinmage/ha-aquamedic-component" data-repo="ha-aquamedic-component" data-links="ha-reef-blueprints ha-reef-card" style="--a:90deg;--x:86.00%;--y:50.00%;--c:#1e6bb8">
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-aquamedic-component" data-repo="ha-aquamedic-component" data-links="ha-reef-blueprints ha-reef-card" style="--a:80deg;--x:85.45%;--y:43.75%;--c:#1e6bb8">
     <img src="{{ '/assets/flower/ha-aquamedic-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">Aqua Medic</span>
     <span class="eco-text"><strong>ha-aquamedic-component</strong><span>Aqua Medic wavemakers, return and skimmer pumps in Home Assistant, through the Gizwits cloud API.</span></span>
   </a>
-  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-maintenance-component" data-repo="ha-reef-maintenance-component" data-links="ha-reef-blueprints ha-reef-card" style="--a:135deg;--x:75.46%;--y:75.46%;--c:#1e6bb8">
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-vson-component" data-repo="ha-vson-component" data-links="ha-reef-blueprints ha-reef-card" style="--a:120deg;--x:81.18%;--y:68.00%;--c:#1e6bb8">
+    <img src="{{ '/assets/flower/ha-vson-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
+    <span class="eco-name">VSON</span>
+    <span class="eco-text"><strong>ha-vson-component</strong><span>VSON automatic fish feeders in Home Assistant through the VSON cloud, or fully local by reflashing the feeder with ESPHome.</span></span>
+  </a>
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-maintenance-component" data-repo="ha-reef-maintenance-component" data-links="ha-reef-blueprints ha-reef-card" style="--a:160deg;--x:62.31%;--y:83.83%;--c:#1e6bb8">
     <img src="{{ '/assets/flower/ha-reef-maintenance-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">Maintenance</span>
     <span class="eco-text"><strong>ha-reef-maintenance-component</strong><span>Cleaning and wear tracking for the equipment Home Assistant cannot talk to.</span></span>
   </a>
-  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-blueprints" data-repo="ha-reef-blueprints" data-links="ha-reefbeat-component ha-aquamedic-component ha-reef-maintenance-component" style="--a:180deg;--x:50.00%;--y:86.00%;--c:#a86a00">
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reef-blueprints" data-repo="ha-reef-blueprints" data-links="ha-reefbeat-component ha-aquamedic-component ha-vson-component ha-reef-maintenance-component" style="--a:200deg;--x:37.69%;--y:83.83%;--c:#a86a00">
     <img src="{{ '/assets/flower/ha-reef-blueprints.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">Blueprints</span>
     <span class="eco-text"><strong>ha-reef-blueprints</strong><span>Shared automations: alerts for overdue maintenance and unreachable devices, a heater test and a relay watch.</span></span>
   </a>
-  <a class="eco-petal" href="https://github.com/Elwinmage/reefbeatEnergyBackup" data-repo="reefbeatEnergyBackup" data-links="ha-reef-card ha-reefbeat-component" style="--a:225deg;--x:24.54%;--y:75.46%;--c:#a86a00">
+  <a class="eco-petal" href="https://github.com/Elwinmage/reefbeatEnergyBackup" data-repo="reefbeatEnergyBackup" data-links="ha-reef-card ha-reefbeat-component" style="--a:240deg;--x:18.82%;--y:68.00%;--c:#a86a00">
     <img src="{{ '/assets/flower/reefbeatEnergyBackup.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">Energy Backup</span>
     <span class="eco-text"><strong>reefbeatEnergyBackup</strong><span>Battery backup for outages, slowing your pumps progressively as the charge drops.</span></span>
   </a>
-  <a class="eco-petal" href="https://github.com/Elwinmage/reeftank-catalog" data-repo="reeftank-catalog" data-links="ha-reeftank-component" style="--a:270deg;--x:14.00%;--y:50.00%;--c:#c8431f">
+  <a class="eco-petal" href="https://github.com/Elwinmage/reeftank-catalog" data-repo="reeftank-catalog" data-links="ha-reeftank-component" style="--a:280deg;--x:14.55%;--y:43.75%;--c:#c8431f">
     <img src="{{ '/assets/flower/reeftank-catalog.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">Catalog</span>
     <span class="eco-text"><strong>reeftank-catalog</strong><span>Fish, corals and textures of the aquarium card, kept up to date automatically.</span></span>
   </a>
-  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reeftank-component" data-repo="ha-reeftank-component" data-links="reeftank-catalog ha-reef-card" style="--a:315deg;--x:24.54%;--y:24.54%;--c:#c8431f">
+  <a class="eco-petal" href="https://github.com/Elwinmage/ha-reeftank-component" data-repo="ha-reeftank-component" data-links="reeftank-catalog ha-reef-card" style="--a:320deg;--x:26.86%;--y:22.42%;--c:#c8431f">
     <img src="{{ '/assets/flower/ha-reeftank-component.webp' | relative_url }}" width="192" height="192" alt="" loading="lazy" />
     <span class="eco-name">ReefTank</span>
     <span class="eco-text"><strong>ha-reeftank-component</strong><span>A living picture of your tank: your photo, your real lamps, animated fish and corals.</span></span>
@@ -179,6 +184,25 @@ Control your Aqua Medic pumps from Home Assistant via the Gizwits cloud API (sam
 - Diagnostic fault sensors (dry run, locked rotor, voltage, overcurrent, overtemperature, UART)
 
 **Installation:** Search for "Aqua Medic" in *Settings > Marketplace*.
+
+---
+
+<!-- generated:vson:start -->
+
+#### 🐟 [ha-vson-component](https://github.com/Elwinmage/ha-vson-component)
+
+VSON automatic fish feeders in Home Assistant through the VSON cloud API. The WP8621 feeder can also run **fully local** by reflashing it with [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — same board, no cloud.
+
+**Supported devices:**
+
+> ✅ Supported &nbsp;|&nbsp; 🚧 In progress &nbsp;|&nbsp; 🧪 Untested (may work) &nbsp;|&nbsp; ❌ Not yet supported
+
+| Device | Models | Status |
+|------|------|------|
+| **WP8621 automatic fish feeder** | variants N/E/H/F/B/P/A/C | ✅ |
+| **Any other VSON device** | detected | 🧪 |
+
+<!-- generated:vson:end -->
 
 ---
 
