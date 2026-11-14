@@ -31,7 +31,7 @@ from pathlib import Path
 GH = "https://github.com/Elwinmage/{repo}"
 ASSETS = Path("assets/flower")
 
-# Served from main: an image shared by eight repositories cannot be relative.
+# Served from main: an image shared by nine repositories cannot be relative.
 # A new version therefore only shows in the READMEs once merged.
 README_IMAGE = (
     "https://raw.githubusercontent.com/Elwinmage/reeftank/main/"
@@ -66,6 +66,7 @@ PROJECTS: dict[str, dict[str, str]] = {
     "ha-reef-card": {"label": "Reef Card", "family": "display"},
     "ha-reefbeat-component": {"label": "ReefBeat", "family": "integration"},
     "ha-aquamedic-component": {"label": "Aqua Medic", "family": "integration"},
+    "ha-vson-component": {"label": "VSON", "family": "integration"},
     "ha-reef-maintenance-component": {
         "label": "Maintenance",
         "family": "integration",
@@ -83,11 +84,13 @@ for _repo, _project in PROJECTS.items():
 RELATIONS = [
     ("ha-reef-card", "ha-reefbeat-component"),
     ("ha-reef-card", "ha-aquamedic-component"),
+    ("ha-reef-card", "ha-vson-component"),
     ("ha-reef-card", "ha-reef-maintenance-component"),
     ("ha-reef-card", "ha-reeftank-component"),
     ("ha-reef-card", "reefbeatEnergyBackup"),
     ("ha-reefbeat-component", "ha-reef-blueprints"),
     ("ha-aquamedic-component", "ha-reef-blueprints"),
+    ("ha-vson-component", "ha-reef-blueprints"),
     ("ha-reef-maintenance-component", "ha-reef-blueprints"),
     ("ha-reefbeat-component", "reefbeatEnergyBackup"),
     ("ha-reeftank-component", "reeftank-catalog"),
@@ -97,7 +100,7 @@ RELATIONS = [
 FLOWER_TEXT: dict[str, dict[str, str]] = {
     "en": {
         "title": "ReefTech",
-        "hint": "Eight projects that fit together. Each one also works on its own.",
+        "hint": "Nine projects that fit together. Each one also works on its own.",
         "open": "Open project",
         "nav": "ReefTech projects",
         "ha-reef-card": (
@@ -111,6 +114,10 @@ FLOWER_TEXT: dict[str, dict[str, str]] = {
         "ha-aquamedic-component": (
             "Aqua Medic wavemakers, return and skimmer pumps in Home "
             "Assistant, through the Gizwits cloud API."
+        ),
+        "ha-vson-component": (
+            "VSON automatic fish feeders in Home Assistant through the VSON "
+            "cloud, or fully local by reflashing the feeder with ESPHome."
         ),
         "ha-reef-maintenance-component": (
             "Cleaning and wear tracking for the equipment Home Assistant "

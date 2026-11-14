@@ -38,6 +38,7 @@ REPOS=(
   ha-reef-maintenance-component
   ha-reefbeat-component
   ha-aquamedic-component
+  ha-vson-component
   ha-reef-card
   ha-reeftank-component
   reeftank-catalog
@@ -91,7 +92,7 @@ python3 reeftank/scripts/gen_flower.py
 step "Documentation site (7 pages) and card video links"
 python3 reeftank/scripts/gen_site.py
 
-step "Related projects block (55 files, 8 repositories)"
+step "Related projects block (9 repositories)"
 python3 reeftank/scripts/gen_ecosystem.py
 
 # ---------------------------------------------------------------------------

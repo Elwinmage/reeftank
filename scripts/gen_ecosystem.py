@@ -57,9 +57,10 @@ BLUEPRINT_BADGE = (
 REPOS = [
     "ha-reefbeat-component",
     "ha-aquamedic-component",
+    "ha-vson-component",
     "ha-reef-maintenance-component",
     "ha-reef-card",
-    # After the card on purpose: its description reads "the three
+    # After the card on purpose: its description reads "the four
     # integrations above", the device ones.
     "ha-reeftank-component",
     "reeftank-catalog",
@@ -70,6 +71,7 @@ REPOS = [
 EMOJI = {
     "ha-reefbeat-component": "🐠",
     "ha-aquamedic-component": "🌊",
+    "ha-vson-component": "🐟",
     "ha-reef-maintenance-component": "🐙",
     "ha-reef-card": "🪸",
     "ha-reeftank-component": "🐟",
@@ -107,6 +109,9 @@ T: dict[str, dict[str, str]] = {
             "Aqua Medic pumps through the Gizwits cloud API: EcoDrift and "
             "SmartDrift wavemakers, DC Runner return and skimmer pumps."
         ),
+        "d_ha-vson-component": (
+            "VSON automatic fish feeders through the VSON cloud API: the WP8621 feeder (feed now, battery, low-food alert), plus generic detection of any other VSON device. The WP8621 can also run fully local on ESPHome."
+        ),
         "d_ha-reef-maintenance-component": (
             "Cleaning and wear tracking for the equipment Home Assistant "
             "cannot talk to: flow pumps, return pumps, skimmers, media "
@@ -141,8 +146,8 @@ T: dict[str, dict[str, str]] = {
             "Fish, corals and textures of the aquarium card, downloaded and "
             "kept up to date by ha-reeftank-component."
         ),
-        "w_card_plus": "all three integrations, and ha-reeftank-component for the aquarium",
-        "w_integrations": "all three integrations",
+        "w_card_plus": "all four integrations, and ha-reeftank-component for the aquarium",
+        "w_integrations": "all four integrations",
         "w_card": "ha-reef-card",
         "w_alone": "standalone, or alongside ha-reefbeat-component and ha-reef-card",
     },
@@ -170,6 +175,9 @@ T: dict[str, dict[str, str]] = {
             "Pompes Aqua Medic via l'API cloud Gizwits : brasseurs EcoDrift et "
             "SmartDrift, pompes DC Runner de remontée et d'écumeur."
         ),
+        "d_ha-vson-component": (
+            "Distributeurs de nourriture VSON via l'API cloud VSON : le distributeur WP8621 (nourrir, batterie, alerte réserve basse) et la détection générique de tout autre appareil VSON. Le WP8621 peut aussi fonctionner 100 % en local sous ESPHome."
+        ),
         "d_ha-reef-maintenance-component": (
             "Suivi du nettoyage et de l'usure du matériel que Home Assistant "
             "ne peut pas interroger : pompes de brassage, pompes de remontée, "
@@ -178,7 +186,7 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reef-card": (
             "Vue graphique interactive de chaque appareil sur votre tableau de "
             "bord, et seul moyen d'éditer les programmes avancés. Lit les "
-            "trois intégrations ci-dessus via le contrat `reef_role` commun, "
+            "quatre intégrations ci-dessus via le contrat `reef_role` commun, "
             "sans configuration côté carte. "
             "Dessine aussi les flux d'énergie de reefbeatEnergyBackup."
             " Sa carte aquarium donne vie à votre bac avec ha-reeftank-component."
@@ -204,8 +212,8 @@ T: dict[str, dict[str, str]] = {
             "Poissons, coraux et textures de la carte aquarium, téléchargés et "
             "tenus à jour par ha-reeftank-component."
         ),
-        "w_card_plus": "les trois intégrations, et ha-reeftank-component pour l'aquarium",
-        "w_integrations": "les trois intégrations",
+        "w_card_plus": "les quatre intégrations, et ha-reeftank-component pour l'aquarium",
+        "w_integrations": "les quatre intégrations",
         "w_card": "ha-reef-card",
         "w_alone": "seul, ou avec ha-reefbeat-component et ha-reef-card",
     },
@@ -234,6 +242,9 @@ T: dict[str, dict[str, str]] = {
             "SmartDrift-Strömungspumpen, DC Runner Rückförder- und "
             "Abschäumerpumpen."
         ),
+        "d_ha-vson-component": (
+            "VSON-Futterautomaten über die VSON-Cloud-API: der WP8621 (Füttern, Akku, Warnung bei wenig Futter) und generische Erkennung jedes anderen VSON-Geräts. Der WP8621 kann auch vollständig lokal mit ESPHome laufen."
+        ),
         "d_ha-reef-maintenance-component": (
             "Reinigungs- und Verschleißverfolgung für Geräte, die Home "
             "Assistant nicht erreicht: Strömungspumpen, Rückförderpumpen, "
@@ -242,7 +253,7 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reef-card": (
             "Interaktive grafische Ansicht jedes Geräts auf Ihrem Dashboard "
             "und der einzige Weg, erweiterte Zeitpläne zu bearbeiten. Liest "
-            "die drei Integrationen über den gemeinsamen `reef_role`-Vertrag, "
+            "die vier Integrationen über den gemeinsamen `reef_role`-Vertrag, "
             "ohne Konfiguration auf Kartenseite. "
             "Zeichnet außerdem die Energieflüsse von reefbeatEnergyBackup."
             " Ihre Aquariumkarte erweckt Ihr Becken mit ha-reeftank-component zum Leben."
@@ -268,8 +279,8 @@ T: dict[str, dict[str, str]] = {
             "Fische, Korallen und Texturen der Aquariumkarte, von "
             "ha-reeftank-component heruntergeladen und aktuell gehalten."
         ),
-        "w_card_plus": "alle drei Integrationen und ha-reeftank-component für das Aquarium",
-        "w_integrations": "alle drei Integrationen",
+        "w_card_plus": "alle vier Integrationen und ha-reeftank-component für das Aquarium",
+        "w_integrations": "alle vier Integrationen",
         "w_card": "ha-reef-card",
         "w_alone": (
             "eigenständig oder zusammen mit ha-reefbeat-component und ha-reef-card"
@@ -299,6 +310,9 @@ T: dict[str, dict[str, str]] = {
             "Bombas Aqua Medic a través de la API cloud Gizwits: bombas de "
             "movimiento EcoDrift y SmartDrift, bombas DC Runner de retorno y "
             "de skimmer."
+        ),
+        "d_ha-vson-component": (
+            "Comederos automáticos VSON a través de la API cloud VSON: el comedero WP8621 (alimentar, batería, aviso de poca comida) y detección genérica de cualquier otro dispositivo VSON. El WP8621 también puede funcionar totalmente local con ESPHome."
         ),
         "d_ha-reef-maintenance-component": (
             "Seguimiento de limpieza y desgaste del equipo que Home Assistant "
@@ -334,8 +348,8 @@ T: dict[str, dict[str, str]] = {
             "Peces, corales y texturas de la tarjeta de acuario, descargados y "
             "mantenidos al día por ha-reeftank-component."
         ),
-        "w_card_plus": "las tres integraciones, y ha-reeftank-component para el acuario",
-        "w_integrations": "las tres integraciones",
+        "w_card_plus": "las cuatro integraciones, y ha-reeftank-component para el acuario",
+        "w_integrations": "las cuatro integraciones",
         "w_card": "ha-reef-card",
         "w_alone": "por su cuenta, o junto a ha-reefbeat-component y ha-reef-card",
     },
@@ -364,6 +378,9 @@ T: dict[str, dict[str, str]] = {
             "EcoDrift e SmartDrift, pompe DC Runner di risalita e dello "
             "schiumatoio."
         ),
+        "d_ha-vson-component": (
+            "Alimentatori automatici VSON tramite l'API cloud VSON: l'alimentatore WP8621 (alimenta, batteria, avviso cibo scarso) e rilevamento generico di qualsiasi altro dispositivo VSON. Il WP8621 può anche funzionare totalmente in locale con ESPHome."
+        ),
         "d_ha-reef-maintenance-component": (
             "Tracciamento di pulizia e usura per l'attrezzatura che Home "
             "Assistant non può interrogare: pompe di movimento, pompe di "
@@ -372,7 +389,7 @@ T: dict[str, dict[str, str]] = {
         "d_ha-reef-card": (
             "Vista grafica interattiva di ogni dispositivo sulla tua "
             "dashboard, e unico modo per modificare le programmazioni "
-            "avanzate. Legge le tre integrazioni tramite il contratto "
+            "avanzate. Legge le quattro integrazioni tramite il contratto "
             "`reef_role` comune, senza configurazione lato scheda. "
             "Disegna anche i flussi di energia di reefbeatEnergyBackup."
             " La sua scheda acquario dà vita alla vostra vasca con ha-reeftank-component."
@@ -399,9 +416,9 @@ T: dict[str, dict[str, str]] = {
             "aggiornati da ha-reeftank-component."
         ),
         "w_card_plus": (
-            "tutte e tre le integrazioni, e ha-reeftank-component per l'acquario"
+            "tutte e quattro le integrazioni, e ha-reeftank-component per l'acquario"
         ),
-        "w_integrations": "tutte e tre le integrazioni",
+        "w_integrations": "tutte e quattro le integrazioni",
         "w_card": "ha-reef-card",
         "w_alone": "da solo, o insieme a ha-reefbeat-component e ha-reef-card",
     },
@@ -429,6 +446,9 @@ T: dict[str, dict[str, str]] = {
             "Aqua Medic-pompen via de Gizwits-cloud-API: EcoDrift- en "
             "SmartDrift-stromingspompen, DC Runner opvoer- en "
             "afschuimerpompen."
+        ),
+        "d_ha-vson-component": (
+            "VSON automatische voederautomaten via de VSON-cloud-API: de WP8621-voederautomaat (voeren, accu, waarschuwing bij weinig voer) en generieke detectie van elk ander VSON-apparaat. De WP8621 kan ook volledig lokaal draaien op ESPHome."
         ),
         "d_ha-reef-maintenance-component": (
             "Schoonmaak- en slijtageopvolging voor apparatuur die Home "
@@ -465,9 +485,9 @@ T: dict[str, dict[str, str]] = {
             "bijgehouden door ha-reeftank-component."
         ),
         "w_card_plus": (
-            "alle drie de integraties, en ha-reeftank-component voor het aquarium"
+            "alle vier de integraties, en ha-reeftank-component voor het aquarium"
         ),
-        "w_integrations": "alle drie de integraties",
+        "w_integrations": "alle vier de integraties",
         "w_card": "ha-reef-card",
         "w_alone": "zelfstandig, of samen met ha-reefbeat-component en ha-reef-card",
     },
@@ -494,6 +514,9 @@ T: dict[str, dict[str, str]] = {
         "d_ha-aquamedic-component": (
             "Pompy Aqua Medic przez chmurowe API Gizwits: pompy cyrkulacyjne "
             "EcoDrift i SmartDrift, pompy DC Runner obiegowe i do odpieniacza."
+        ),
+        "d_ha-vson-component": (
+            "Automatyczne karmniki VSON przez chmurowe API VSON: karmnik WP8621 (karmienie, bateria, alert niskiego poziomu karmy) i generyczne wykrywanie dowolnego innego urządzenia VSON. WP8621 może też działać w pełni lokalnie na ESPHome."
         ),
         "d_ha-reef-maintenance-component": (
             "Śledzenie czyszczenia i zużycia sprzętu, do którego Home "
@@ -529,8 +552,8 @@ T: dict[str, dict[str, str]] = {
             "Ryby, koralowce i tekstury karty akwarium, pobierane i "
             "aktualizowane przez ha-reeftank-component."
         ),
-        "w_card_plus": "wszystkie trzy integracje oraz ha-reeftank-component dla akwarium",
-        "w_integrations": "wszystkie trzy integracje",
+        "w_card_plus": "wszystkie cztery integracje oraz ha-reeftank-component dla akwarium",
+        "w_integrations": "wszystkie cztery integracje",
         "w_card": "ha-reef-card",
         "w_alone": "samodzielnie lub razem z ha-reefbeat-component i ha-reef-card",
     },
@@ -558,6 +581,9 @@ T: dict[str, dict[str, str]] = {
             "Bombas Aqua Medic através da API cloud Gizwits: bombas de "
             "circulação EcoDrift e SmartDrift, bombas DC Runner de retorno e "
             "do escumador."
+        ),
+        "d_ha-vson-component": (
+            "Alimentadores automáticos VSON através da API cloud VSON: o alimentador WP8621 (alimentar, bateria, aviso de pouca comida) e deteção genérica de qualquer outro dispositivo VSON. O WP8621 também pode funcionar totalmente local com ESPHome."
         ),
         "d_ha-reef-maintenance-component": (
             "Acompanhamento da limpeza e do desgaste do equipamento que o Home "
@@ -593,8 +619,8 @@ T: dict[str, dict[str, str]] = {
             "Peixes, corais e texturas do cartão de aquário, transferidos e "
             "mantidos atualizados pelo ha-reeftank-component."
         ),
-        "w_card_plus": "as três integrações, e o ha-reeftank-component para o aquário",
-        "w_integrations": "as três integrações",
+        "w_card_plus": "as quatro integrações, e o ha-reeftank-component para o aquário",
+        "w_integrations": "as quatro integrações",
         "w_card": "ha-reef-card",
         "w_alone": "sozinho, ou a par do ha-reefbeat-component e do ha-reef-card",
     },
@@ -604,6 +630,7 @@ WORKS_WITH = {
     "ha-reefbeat-component": "w_card",
     "ha-reef-blueprints": "w_integrations",
     "ha-aquamedic-component": "w_card",
+    "ha-vson-component": "w_card",
     "ha-reef-maintenance-component": "w_card",
     "ha-reef-card": "w_card_plus",
     "ha-reeftank-component": "w_card",

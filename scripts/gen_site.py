@@ -68,6 +68,25 @@ AQUA_DEVICES = [
     ("DC Runner", "skimmer", OK),
 ]
 
+# ha-vson-component (cloud). The hacked, local ESPHome feeder is listed in
+# CARD_DEVICES; here is the cloud integration.
+VSON_DEVICES = [
+    ("WP8621 automatic fish feeder", "variants N/E/H/F/B/P/A/C", OK),
+    ("Any other VSON device", "detected", UNTESTED),
+]
+
+# One-line intro of the VSON integration section, per language. Kept out of
+# T so adding a project needs no new key in every block.
+VSON_INTRO = {
+    "en": "VSON automatic fish feeders in Home Assistant through the VSON cloud API. The WP8621 feeder can also run **fully local** by reflashing it with [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — same board, no cloud.",
+    "fr": "Distributeurs de nourriture VSON dans Home Assistant via l'API cloud VSON. Le distributeur WP8621 peut aussi fonctionner **100 % en local** en le reflashant avec [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — même carte, sans cloud.",
+    "de": "VSON-Futterautomaten in Home Assistant über die VSON-Cloud-API. Der WP8621 kann auch **vollständig lokal** laufen, indem man ihn mit [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) neu flasht — gleiche Platine, keine Cloud.",
+    "es": "Comederos automáticos VSON en Home Assistant a través de la API cloud VSON. El comedero WP8621 también puede funcionar **totalmente en local** reflasheándolo con [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — la misma placa, sin cloud.",
+    "it": "Alimentatori automatici VSON in Home Assistant tramite l'API cloud VSON. L'alimentatore WP8621 può anche funzionare **totalmente in locale** riflashandolo con [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — stessa scheda, senza cloud.",
+    "pl": "Automatyczne karmniki VSON w Home Assistant przez chmurowe API VSON. Karmnik WP8621 może też działać **w pełni lokalnie** po przeflashowaniu go na [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — ta sama płytka, bez chmury.",
+    "pt": "Alimentadores automáticos VSON no Home Assistant através da API cloud VSON. O alimentador WP8621 também pode funcionar **totalmente local** reflashando-o com [ESPHome](https://github.com/Elwinmage/ha-vson-component/blob/main/esphome/README.md) — a mesma placa, sem cloud.",
+}
+
 # ha-reef-card. Highlights are per language, see CARD_HIGHLIGHTS.
 CARD_DEVICES = [
     ("ReefDose (RSDOSE2/4)", OK, "dose"),
@@ -904,6 +923,36 @@ def aqua_table(lang: str) -> str:
     return "\n".join(lines)
 
 
+def vson_table(lang: str) -> str:
+    t = T[lang]
+    lines = [
+        t["supported_devices"],
+        "",
+        f"> {t['legend']}",
+        "",
+        f"| {t['device']} | {t['models']} | {t['status']} |",
+        "|------|------|------|",
+    ]
+    for name, models, status in VSON_DEVICES:
+        lines.append(f"| **{name}** | {models} | {t[status]} |")
+    return "\n".join(lines)
+
+
+def vson_section(lang: str) -> str:
+    """VSON cloud feeders, filed among the integrations.
+
+    The same WP8621 can run fully local on ESPHome; that hacked feeder is
+    shown in the card section, and the ESPHome procedure is linked here.
+    """
+    repo = "https://github.com/Elwinmage/ha-vson-component"
+    body = f"""#### 🐟 [ha-vson-component]({repo})
+
+{VSON_INTRO[lang]}
+
+{vson_table(lang)}"""
+    return block("vson", body)
+
+
 def card_table(lang: str) -> str:
     t = T[lang]
     hi = CARD_HIGHLIGHTS[lang]
@@ -1192,6 +1241,22 @@ def apply(lang: str) -> None:
     text = replace_table(
         text, "card-devices", "#### 🪸 [ha-reef-card]", card_table(lang), lang
     )
+
+    # VSON: cloud feeders, inserted after the Aqua Medic integration.
+    vstart = START.format(name="vson")
+    if vstart in text:
+        pattern = re.compile(
+            re.escape(vstart) + r".*?" + re.escape(END.format(name="vson")),
+            re.DOTALL,
+        )
+        text = pattern.sub(lambda _: vson_section(lang), text, count=1)
+    else:
+        anchor = END.format(name="aqua-devices")
+        assert anchor in text, f"{lang}: aqua-devices block not found"
+        idx = text.index(anchor) + len(anchor)
+        hr = text.index("---", idx)
+        cut = text.index("\n", hr) + 1
+        text = text[:cut] + "\n" + vson_section(lang) + "\n\n---\n" + text[cut:]
 
     # Card demo videos: generated gallery replaces the static HTML table.
     videos_html = card_videos(lang)
