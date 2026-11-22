@@ -195,6 +195,9 @@ La integración detrás de la tarjeta de acuario de ha-reef-card: su foto, el ag
 - Agua teñida por sus lámparas (ReefLED o cualquier luz), corales que se mecen con las bombas
 - Alimentaciones registradas desde comederos, atajos o un servicio; número de peces y corales como sensores; pH y ORP vigilados frente al propio historial del acuario
 - Especies del [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), actualizadas automáticamente
+- Acuario marino, de agua dulce o salobre: el editor solo ofrece las especies que viven en su agua
+- Pruebas de agua (KH, Ca, Mg, NO3, PO4…) registradas desde la tarjeta o con un servicio y guardadas como sensores, uno por parámetro
+- Su acuario mostrado en directo en su sitio en la vista 3D de su casa, con [House View](https://github.com/Elwinmage/ha-house-view-component) ([vídeo](https://youtu.be/MyXz5AVbtJI))
 
 **Instalación:** Busque "ReefTank" en *Ajustes > Marketplace*, e instale ha-reef-card para la tarjeta.
 
@@ -286,6 +289,9 @@ La **Reef Card** para Home Assistant te ayuda a gestionar tu acuario de arrecife
 <tr>
 <td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Demo Aqua Medic" width="300"/></a><br/><em>Demo Aqua Medic</em></td>
 <td><a href="https://www.youtube.com/watch?v=ZtYobmQZf9k"><img src="https://img.youtube.com/vi/ZtYobmQZf9k/0.jpg" alt="Demo vista de acuario" width="300"/></a><br/><em>Demo vista de acuario</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=MyXz5AVbtJI"><img src="https://img.youtube.com/vi/MyXz5AVbtJI/0.jpg" alt="Demo House View (vista 3D de la casa)" width="300"/></a><br/><em>Demo House View (vista 3D de la casa)</em></td>
 </tr>
 </table>
 

@@ -159,6 +159,9 @@ T: dict[str, dict[str, str]] = {
         "tank_f3": "Water tinted by your lamps (ReefLED or any light), corals swaying with the pumps",
         "tank_f4": "Feedings recorded from feeders, shortcuts or a service; fish and coral counts as sensors; pH and ORP watched against the tank's own history",
         "tank_f5": "Species from the [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), kept up to date automatically",
+        "tank_f6": "Marine, freshwater or brackish tank: the editor only offers the species living in your water",
+        "tank_f7": "Water tests (KH, Ca, Mg, NO3, PO4…) recorded from the card or a service and kept as sensors, one per parameter",
+        "tank_f8": "Your aquarium shown live on its tank in the 3D view of your house, with [House View](https://github.com/Elwinmage/ha-house-view-component) ([video](https://youtu.be/MyXz5AVbtJI))",
         "tank_install": "Search for \"ReefTank\" in *Settings > Marketplace*, and install ha-reef-card for the card.",
         "contact_title": "💬 Contact & Support",
         "contact_q": "**Questions and feature requests:** open a discussion on the project concerned —",
@@ -209,6 +212,9 @@ T: dict[str, dict[str, str]] = {
         "tank_f3": "L'eau teintée par vos lampes (ReefLED ou n'importe quelle lumière), des coraux qui ondulent avec les pompes",
         "tank_f4": "Nourrissages enregistrés depuis les nourrisseurs, les raccourcis ou un service ; nombre de poissons et de coraux en capteurs; pH et ORP surveillés par rapport à l'historique du bac",
         "tank_f5": "Espèces du [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), tenues à jour automatiquement",
+        "tank_f6": "Bac marin, d'eau douce ou saumâtre : l'éditeur ne propose que les espèces qui vivent dans votre eau",
+        "tank_f7": "Tests d'eau (KH, Ca, Mg, NO3, PO4…) saisis depuis la carte ou par un service et gardés en capteurs, un par paramètre",
+        "tank_f8": "Votre aquarium affiché en direct sur son bac dans la vue 3D de votre maison, avec [House View](https://github.com/Elwinmage/ha-house-view-component) ([vidéo](https://youtu.be/MyXz5AVbtJI))",
         "tank_install": "Cherchez \"ReefTank\" dans *Paramètres > Marketplace*, et installez ha-reef-card pour la carte.",
         "contact_title": "💬 Contact & Support",
         "contact_q": "**Questions et demandes de fonctionnalités :** ouvrez une discussion sur le projet concerné —",
@@ -259,6 +265,9 @@ T: dict[str, dict[str, str]] = {
         "tank_f3": "Wasser in der Farbe Ihrer Lampen (ReefLED oder jedes Licht), Korallen, die sich mit den Pumpen wiegen",
         "tank_f4": "Fütterungen von Futterautomaten, Kurzbefehlen oder einem Dienst; Fisch- und Korallenzahl als Sensoren; pH und ORP werden mit dem eigenen Verlauf des Beckens verglichen",
         "tank_f5": "Arten aus dem [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), automatisch aktuell gehalten",
+        "tank_f6": "Meerwasser-, Süßwasser- oder Brackwasserbecken: Der Editor bietet nur die Arten an, die in Ihrem Wasser leben",
+        "tank_f7": "Wassertests (KH, Ca, Mg, NO3, PO4…) über die Karte oder einen Dienst erfasst und als Sensoren aufbewahrt, einer pro Parameter",
+        "tank_f8": "Ihr Aquarium live an seinem Platz in der 3D-Ansicht Ihres Hauses, mit [House View](https://github.com/Elwinmage/ha-house-view-component) ([Video](https://youtu.be/MyXz5AVbtJI))",
         "tank_install": "Suchen Sie in *Einstellungen > Marketplace* nach \"ReefTank\" und installieren Sie ha-reef-card für die Karte.",
         "contact_title": "💬 Kontakt & Support",
         "contact_q": "**Fragen und Funktionswünsche:** eröffnen Sie eine Diskussion im betreffenden Projekt —",
@@ -308,6 +317,9 @@ T: dict[str, dict[str, str]] = {
         "tank_f3": "Agua teñida por sus lámparas (ReefLED o cualquier luz), corales que se mecen con las bombas",
         "tank_f4": "Alimentaciones registradas desde comederos, atajos o un servicio; número de peces y corales como sensores; pH y ORP vigilados frente al propio historial del acuario",
         "tank_f5": "Especies del [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), actualizadas automáticamente",
+        "tank_f6": "Acuario marino, de agua dulce o salobre: el editor solo ofrece las especies que viven en su agua",
+        "tank_f7": "Pruebas de agua (KH, Ca, Mg, NO3, PO4…) registradas desde la tarjeta o con un servicio y guardadas como sensores, uno por parámetro",
+        "tank_f8": "Su acuario mostrado en directo en su sitio en la vista 3D de su casa, con [House View](https://github.com/Elwinmage/ha-house-view-component) ([vídeo](https://youtu.be/MyXz5AVbtJI))",
         "tank_install": "Busque \"ReefTank\" en *Ajustes > Marketplace*, e instale ha-reef-card para la tarjeta.",
         "contact_title": "💬 Contacto y soporte",
         "contact_q": "**Preguntas y peticiones de funciones:** abra una discusión en el proyecto correspondiente —",
@@ -357,6 +369,9 @@ T: dict[str, dict[str, str]] = {
         "tank_f3": "Acqua tinta dalle vostre lampade (ReefLED o qualsiasi luce), coralli che ondeggiano con le pompe",
         "tank_f4": "Alimentazioni registrate da alimentatori, scorciatoie o un servizio; numero di pesci e coralli come sensori; pH e ORP sorvegliati rispetto alla cronologia della vasca",
         "tank_f5": "Specie dal [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aggiornate automaticamente",
+        "tank_f6": "Vasca marina, d'acqua dolce o salmastra: l'editor propone solo le specie che vivono nella vostra acqua",
+        "tank_f7": "Test dell'acqua (KH, Ca, Mg, NO3, PO4…) registrati dalla scheda o con un servizio e conservati come sensori, uno per parametro",
+        "tank_f8": "Il vostro acquario mostrato dal vivo al suo posto nella vista 3D della vostra casa, con [House View](https://github.com/Elwinmage/ha-house-view-component) ([video](https://youtu.be/MyXz5AVbtJI))",
         "tank_install": "Cercate \"ReefTank\" in *Impostazioni > Marketplace*, e installate ha-reef-card per la scheda.",
         "contact_title": "💬 Contatti e supporto",
         "contact_q": "**Domande e richieste di funzionalità:** aprite una discussione sul progetto interessato —",
@@ -407,6 +422,9 @@ T: dict[str, dict[str, str]] = {
         "tank_f3": "Woda zabarwiona przez Twoje lampy (ReefLED lub dowolne światło), koralowce falujące z pompami",
         "tank_f4": "Karmienia z karmników, skrótów lub usługi; liczba ryb i koralowców jako sensory; pH i ORP porównywane z własną historią akwarium",
         "tank_f5": "Gatunki z [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aktualizowane automatycznie",
+        "tank_f6": "Akwarium morskie, słodkowodne lub słonawe: edytor proponuje tylko gatunki żyjące w Twojej wodzie",
+        "tank_f7": "Testy wody (KH, Ca, Mg, NO3, PO4…) zapisywane z karty lub przez usługę i przechowywane jako czujniki, po jednym na parametr",
+        "tank_f8": "Twoje akwarium pokazane na żywo na swoim miejscu w widoku 3D Twojego domu, z [House View](https://github.com/Elwinmage/ha-house-view-component) ([film](https://youtu.be/MyXz5AVbtJI))",
         "tank_install": "Wyszukaj \"ReefTank\" w *Ustawienia > Marketplace* i zainstaluj ha-reef-card dla karty.",
         "contact_title": "💬 Kontakt i wsparcie",
         "contact_q": "**Pytania i propozycje funkcji:** otwórz dyskusję w odpowiednim projekcie —",
@@ -456,6 +474,9 @@ T: dict[str, dict[str, str]] = {
         "tank_f3": "Água tingida pelas suas lâmpadas (ReefLED ou qualquer luz), corais a ondular com as bombas",
         "tank_f4": "Alimentações registadas a partir de alimentadores, atalhos ou um serviço; número de peixes e corais como sensores; pH e ORP vigiados face ao histórico do próprio aquário",
         "tank_f5": "Espécies do [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), atualizadas automaticamente",
+        "tank_f6": "Aquário marinho, de água doce ou salobra: o editor só propõe as espécies que vivem na sua água",
+        "tank_f7": "Testes de água (KH, Ca, Mg, NO3, PO4…) registados a partir do cartão ou por um serviço e guardados como sensores, um por parâmetro",
+        "tank_f8": "O seu aquário mostrado em direto no seu lugar na vista 3D da sua casa, com [House View](https://github.com/Elwinmage/ha-house-view-component) ([vídeo](https://youtu.be/MyXz5AVbtJI))",
         "tank_install": "Pesquise \"ReefTank\" em *Definições > Marketplace*, e instale ha-reef-card para o cartão.",
         "contact_title": "💬 Contacto e suporte",
         "contact_q": "**Perguntas e pedidos de funcionalidades:** abra uma discussão no projeto em causa —",
@@ -596,6 +617,8 @@ CARD_VIDEOS = [
     ("sYVeE0zV3eo", "demo_wave"),
     ("9Gh4YE6Ck9g", "demo_aquamedic"),
     ("ZtYobmQZf9k", "demo_aquarium"),
+    # House View (ha-house-view-component), where an aquarium shows on its tank
+    ("MyXz5AVbtJI", "demo_house"),
 ]
 
 # Card documentation pages showing each video, by page slug: the video link
@@ -662,6 +685,7 @@ VIDEO_LABELS = {
         "demo_wave": "ReefWave demo",
         "demo_aquamedic": "Aqua Medic demo",
         "demo_aquarium": "Aquarium view demo",
+        "demo_house": "House View demo (3D view of the house)",
     },
     "fr": {
         "demo_dose": "Démo ReefDose",
@@ -674,6 +698,7 @@ VIDEO_LABELS = {
         "demo_wave": "Démo ReefWave",
         "demo_aquamedic": "Démo Aqua Medic",
         "demo_aquarium": "Démo vue aquarium",
+        "demo_house": "Démo House View (vue 3D de la maison)",
     },
     "de": {
         "demo_dose": "ReefDose-Demo",
@@ -686,6 +711,7 @@ VIDEO_LABELS = {
         "demo_wave": "ReefWave-Demo",
         "demo_aquamedic": "Aqua-Medic-Demo",
         "demo_aquarium": "Aquarienansicht-Demo",
+        "demo_house": "House-View-Demo (3D-Ansicht des Hauses)",
     },
     "es": {
         "demo_dose": "Demo ReefDose",
@@ -698,6 +724,7 @@ VIDEO_LABELS = {
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
         "demo_aquarium": "Demo vista de acuario",
+        "demo_house": "Demo House View (vista 3D de la casa)",
     },
     "it": {
         "demo_dose": "Demo ReefDose",
@@ -710,6 +737,7 @@ VIDEO_LABELS = {
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
         "demo_aquarium": "Demo vista acquario",
+        "demo_house": "Demo House View (vista 3D della casa)",
     },
     "pl": {
         "demo_dose": "Demo ReefDose",
@@ -722,6 +750,7 @@ VIDEO_LABELS = {
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
         "demo_aquarium": "Demo widoku akwarium",
+        "demo_house": "Demo House View (widok 3D domu)",
     },
     "pt": {
         "demo_dose": "Demo ReefDose",
@@ -734,6 +763,7 @@ VIDEO_LABELS = {
         "demo_wave": "Demo ReefWave",
         "demo_aquamedic": "Demo Aqua Medic",
         "demo_aquarium": "Demo vista de aquário",
+        "demo_house": "Demo House View (vista 3D da casa)",
     },
 }
 
@@ -1084,6 +1114,9 @@ def reeftank_section(lang: str) -> str:
 - {t["tank_f3"]}
 - {t["tank_f4"]}
 - {t["tank_f5"]}
+- {t["tank_f6"]}
+- {t["tank_f7"]}
+- {t["tank_f8"]}
 
 {t["install"]} {t["tank_install"]}"""
     return block("reeftank", body)

@@ -195,6 +195,9 @@ Integracja stojąca za kartą akwarium z ha-reef-card: Twoje zdjęcie, woda ośw
 - Woda zabarwiona przez Twoje lampy (ReefLED lub dowolne światło), koralowce falujące z pompami
 - Karmienia z karmników, skrótów lub usługi; liczba ryb i koralowców jako sensory; pH i ORP porównywane z własną historią akwarium
 - Gatunki z [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), aktualizowane automatycznie
+- Akwarium morskie, słodkowodne lub słonawe: edytor proponuje tylko gatunki żyjące w Twojej wodzie
+- Testy wody (KH, Ca, Mg, NO3, PO4…) zapisywane z karty lub przez usługę i przechowywane jako czujniki, po jednym na parametr
+- Twoje akwarium pokazane na żywo na swoim miejscu w widoku 3D Twojego domu, z [House View](https://github.com/Elwinmage/ha-house-view-component) ([film](https://youtu.be/MyXz5AVbtJI))
 
 **Instalacja:** Wyszukaj "ReefTank" w *Ustawienia > Marketplace* i zainstaluj ha-reef-card dla karty.
 
@@ -286,6 +289,9 @@ Integracja stojąca za kartą akwarium z ha-reef-card: Twoje zdjęcie, woda ośw
 <tr>
 <td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Demo Aqua Medic" width="300"/></a><br/><em>Demo Aqua Medic</em></td>
 <td><a href="https://www.youtube.com/watch?v=ZtYobmQZf9k"><img src="https://img.youtube.com/vi/ZtYobmQZf9k/0.jpg" alt="Demo widoku akwarium" width="300"/></a><br/><em>Demo widoku akwarium</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=MyXz5AVbtJI"><img src="https://img.youtube.com/vi/MyXz5AVbtJI/0.jpg" alt="Demo House View (widok 3D domu)" width="300"/></a><br/><em>Demo House View (widok 3D domu)</em></td>
 </tr>
 </table>
 

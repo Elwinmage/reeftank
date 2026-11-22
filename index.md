@@ -253,6 +253,9 @@ The integration behind the aquarium card of ha-reef-card: your photo, the water 
 - Water tinted by your lamps (ReefLED or any light), corals swaying with the pumps
 - Feedings recorded from feeders, shortcuts or a service; fish and coral counts as sensors; pH and ORP watched against the tank's own history
 - Species from the [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), kept up to date automatically
+- Marine, freshwater or brackish tank: the editor only offers the species living in your water
+- Water tests (KH, Ca, Mg, NO3, PO4…) recorded from the card or a service and kept as sensors, one per parameter
+- Your aquarium shown live on its tank in the 3D view of your house, with [House View](https://github.com/Elwinmage/ha-house-view-component) ([video](https://youtu.be/MyXz5AVbtJI))
 
 **Installation:** Search for "ReefTank" in *Settings > Marketplace*, and install ha-reef-card for the card.
 
@@ -344,6 +347,9 @@ The **Reef Card** for Home Assistant helps you manage your reef aquarium directl
 <tr>
 <td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Aqua Medic demo" width="300"/></a><br/><em>Aqua Medic demo</em></td>
 <td><a href="https://www.youtube.com/watch?v=ZtYobmQZf9k"><img src="https://img.youtube.com/vi/ZtYobmQZf9k/0.jpg" alt="Aquarium view demo" width="300"/></a><br/><em>Aquarium view demo</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=MyXz5AVbtJI"><img src="https://img.youtube.com/vi/MyXz5AVbtJI/0.jpg" alt="House View demo (3D view of the house)" width="300"/></a><br/><em>House View demo (3D view of the house)</em></td>
 </tr>
 </table>
 

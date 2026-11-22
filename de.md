@@ -195,6 +195,9 @@ Die Integration hinter der Aquariumkarte von ha-reef-card: Ihr Foto, das Wasser 
 - Wasser in der Farbe Ihrer Lampen (ReefLED oder jedes Licht), Korallen, die sich mit den Pumpen wiegen
 - Fütterungen von Futterautomaten, Kurzbefehlen oder einem Dienst; Fisch- und Korallenzahl als Sensoren; pH und ORP werden mit dem eigenen Verlauf des Beckens verglichen
 - Arten aus dem [reeftank-catalog](https://github.com/Elwinmage/reeftank-catalog), automatisch aktuell gehalten
+- Meerwasser-, Süßwasser- oder Brackwasserbecken: Der Editor bietet nur die Arten an, die in Ihrem Wasser leben
+- Wassertests (KH, Ca, Mg, NO3, PO4…) über die Karte oder einen Dienst erfasst und als Sensoren aufbewahrt, einer pro Parameter
+- Ihr Aquarium live an seinem Platz in der 3D-Ansicht Ihres Hauses, mit [House View](https://github.com/Elwinmage/ha-house-view-component) ([Video](https://youtu.be/MyXz5AVbtJI))
 
 **Installation:** Suchen Sie in *Einstellungen > Marketplace* nach "ReefTank" und installieren Sie ha-reef-card für die Karte.
 
@@ -286,6 +289,9 @@ Die **Reef Card** für Home Assistant hilft Ihnen, Ihr Riffaquarium direkt vom D
 <tr>
 <td><a href="https://www.youtube.com/watch?v=9Gh4YE6Ck9g"><img src="https://img.youtube.com/vi/9Gh4YE6Ck9g/0.jpg" alt="Aqua-Medic-Demo" width="300"/></a><br/><em>Aqua-Medic-Demo</em></td>
 <td><a href="https://www.youtube.com/watch?v=ZtYobmQZf9k"><img src="https://img.youtube.com/vi/ZtYobmQZf9k/0.jpg" alt="Aquarienansicht-Demo" width="300"/></a><br/><em>Aquarienansicht-Demo</em></td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=MyXz5AVbtJI"><img src="https://img.youtube.com/vi/MyXz5AVbtJI/0.jpg" alt="House-View-Demo (3D-Ansicht des Hauses)" width="300"/></a><br/><em>House-View-Demo (3D-Ansicht des Hauses)</em></td>
 </tr>
 </table>
 
